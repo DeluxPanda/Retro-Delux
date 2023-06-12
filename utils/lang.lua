@@ -3,7 +3,7 @@ lang_eng = true
 lang_swe = false
 local line = "Lang__eng"
 local line2 = "Fullscreen__off"
-GameTitleName = "Retro Deluxe!"
+GameTitleName = "Retro Deluxe"
 PongName = "Pong"
 local file = io.open("settings.conf", "r")
 file:seek("set")
