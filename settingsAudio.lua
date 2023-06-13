@@ -1,4 +1,5 @@
 timer = 0
+
 GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
 GameTitle_y = 80
 
@@ -10,23 +11,24 @@ volume_x = (love.graphics.getWidth() / 2) - (button_width / 2 - 210)
 
 volumeMain_y = GameTitle_y + 80
 
-volumeMain = newSlider(volume_x, volumeMain_y, 300, volumeMainV, 0, 1, function (v) love.audio.setVolume(v) end)
+volumeMain = newSlider(volume_x, volumeMain_y, 300, volumeMainV, 0, 1, function (v) love.audio.setVolume(v) volumeMainV = v end)
 
 volumeMusic_y = volumeMain_y + 40
 
-volumeMusic = newSlider(volume_x, volumeMusic_y, 300, volumeMusicV, 0, 1, function (v) Marcus_Nyman_MLIM_S2:setVolume(v) end)
+volumeMusic = newSlider(volume_x, volumeMusic_y, 300, volumeMusicV, 0, 1, function (v) Marcus_Nyman_MLIM_S2:setVolume(v) volumeMusicV = v end)
 
 point_Given_y = volumeMusic_y + 40
 
-volumepoint_Given = newSlider(volume_x, point_Given_y, 300, point_GivenV, 0, 1, function (v) blip_win:setVolume(v) end)
+volumepoint_Given = newSlider(volume_x, point_Given_y, 300, point_GivenV, 0, 1, function (v) blip_win:setVolume(v) point_GivenV = v end)
 
 volumeHit_y = point_Given_y + 40
 
-volumeHit = newSlider(volume_x, volumeHit_y, 300, volumeHitV, 0, 1, function (v) blip:setVolume(v) end)
+volumeHit = newSlider(volume_x, volumeHit_y, 300, volumeHitV, 0, 1, function (v) blip:setVolume(v) volumeHitV = v end)
 
 volumeButton_hit_y = volumeHit_y + 40
 
-Button_hit = newSlider(volume_x, volumeButton_hit_y, 300, volumeButton_hitV, 0, 1, function (v) button_blop:setVolume(v) end)
+Button_hit = newSlider(volume_x, volumeButton_hit_y, 300, volumeButton_hitV, 0, 1, function (v) button_blop:setVolume(v) volumeButton_hitV = v end)
+
 function love.update(dt)
     volumeMain:update()
     volumeMusic:update()

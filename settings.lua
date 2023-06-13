@@ -16,7 +16,8 @@ audio_settings_button_y =  fullscreen_settings_button_y + button_height + button
 main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
 main_menu_settings_button_y = love.graphics.getHeight() - 60
 
-
+customiz_button_x = love.graphics.getWidth() - button_width - 10
+customiz_button_y = love.graphics.getHeight() - 60
 
 
 
@@ -57,8 +58,14 @@ end
      love.graphics.setColor(yellow)
      love.graphics.rectangle("fill", main_menu_settings_button_x , main_menu_settings_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
  end
-
-
+-- customiz
+if mouse_x >= customiz_button_x and mouse_x <= customiz_button_x + button_width and
+mouse_y >= customiz_button_y and mouse_y <= customiz_button_y + button_height or
+selectButton == 5 then
+ selectButton = 5
+love.graphics.setColor(yellow)
+love.graphics.rectangle("fill", customiz_button_x , customiz_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
+end
 
 
          -- Game Title
@@ -102,4 +109,9 @@ end
          main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
          main_menu_settings_button_y = love.graphics.getHeight() - 60
 
+         -- customiz
+         love.graphics.setColor(green)-- 0, 0, 0.737, 1
+         love.graphics.rectangle("fill", customiz_button_x, customiz_button_y, button_width, button_height, corner_radius, corner_radius)
+         love.graphics.setColor(255, 255, 255)
+         love.graphics.printf(CustomizeName, customiz_button_x, customiz_button_y + 10, button_width, "center")
 end

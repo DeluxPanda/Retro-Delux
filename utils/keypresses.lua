@@ -6,7 +6,7 @@ function keyboard:pong_Button_From_Main_Menu()
    love.resize()
    Nostalgia:stop()
  end
- 
+
  function keyboard:pong_SP_Btn_pong_Menu()
    started_SinglePlayer = true
    OnPongMenu = false
@@ -57,6 +57,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = true
+  OnSettingsAudio = false
   selectButton = 1
   love.filesystem.load("settings.lua")()
   love.resize()
@@ -73,7 +74,16 @@ function keyboard:pong_Button_From_Main_Menu()
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
  end
-
+ function keyboard:settingsCustomizationMenu()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = true
+  selectButton = 1
+  love.filesystem.load("Customization.lua")()
+  love.resize()
+  Marcus_Nyman_MLIM_S2:stop()
+ end
  function keyboard:Credits()
    print("Credits")
  end
@@ -132,23 +142,9 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnStartMenu then
           keyboard:Credits()
         elseif OnSettings then
-          keyboard:back_to_MainMenu()
+          Save_stuff()
           love.resize()
-
-          local file = io.open("settings.conf", "r+")
-          file:seek("set")
-        if lang_eng == false then
-          file:write("Lang__swe\n")
-        elseif lang_swe == false then
-          file:write("Lang__eng\n")
-        end
-
-         if (love.window.getFullscreen() == true) then
-          file:write("Fullscreen__on\n")
-         elseif (love.window.getFullscreen() == false) then
-          file:write("Fullscreen__off\n")
-         end
-        file:close()
+          keyboard:back_to_MainMenu()
         elseif OnPongMenu then
           keyboard:Credits()
         elseif paused then
@@ -161,10 +157,13 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:SettingsMenu()
         elseif paused then
           return
+        elseif OnSettings then
+          keyboard:settingsCustomizationMenu()
         end
       elseif selectButton == 6 then
         if OnSettingsAudio then
-          keyboard:back_to_MainMenu()
+          Save_stuff()
+          keyboard:SettingsMenu()
         end
       end
     end
@@ -303,10 +302,14 @@ function keyboard:pong_Button_From_Main_Menu()
         end
         end
 
-
+if OnSettings then
+  if selectButton == 5 then
+    selectButton = 4
+    end
+end
 
         if not OnSettingsAudio then
-        if paused or OnSettings then
+        if paused then
           return
         elseif selectButton == 5 then
           selectButton = 3
@@ -381,11 +384,15 @@ function keyboard:pong_Button_From_Main_Menu()
         end
         end
 
-
+        if OnSettings then
+          if selectButton == 4 then
+            selectButton = 5
+            end
+        end
         if not OnSettingsAudio then
       left = 0
       right = 0
-      if paused or OnSettings then
+      if paused then
         return
       elseif selectButton == 4 then
         selectButton = 3
@@ -422,12 +429,47 @@ function keyboard:pong_Button_From_Main_Menu()
       end
     end
 
+    function Save_stuff()
+      local file = io.open("settings.conf", "r+")
+      file:seek("set")
+
+      if lang_eng == false then
+        file:write("Lang__swe\n")
+      elseif lang_swe == false then
+        file:write("Lang__eng\n")
+      end
+
+       if (love.window.getFullscreen() == true) then
+        file:write("Fullscreen__on\n")
+       elseif (love.window.getFullscreen() == false) then
+        file:write("Fullscreen__off\n")
+       end
+      
+      file:write(volumeMainV .. "\n")
+      file:write(volumeMusicV .. "\n")
+      file:write(point_GivenV .. "\n")
+      file:write(volumeHitV .. "\n")
+      file:write(volumeButton_hitV .. "\n")
+      file:close()
+
+      local line = nil
+      local line2 = nil
+      collectgarbage("collect")
+    end
+
  function love.keypressed(key)
   if key == "r" then
  love.event.quit("restart")
   end
   if key == "h" then
     print(volumeMusicV)
+end
+if key == "u" then
+volumeMainV = 1
+volumeMusicV = 1
+point_GivenV = 1
+volumeHitV = 1
+volumeButton_hitV = 1  
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())

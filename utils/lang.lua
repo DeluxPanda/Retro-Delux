@@ -54,6 +54,7 @@ if lang_eng then
     pointGivenVolume = "Points are given"
     HitVolume = "Hit"
     ButtonHitVolume = "Button press"
+    CustomizeName = "Customization"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -81,5 +82,6 @@ elseif lang_swe then
     pointGivenVolume = "Poäng ges"
     HitVolume = "Träff"
     ButtonHitVolume = "Knapptryck"
+    CustomizeName = "Anpassning"
 end
 end

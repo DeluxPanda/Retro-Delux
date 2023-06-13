@@ -20,6 +20,8 @@ require("utils/lang")
 require("utils/color")
 require ('utils/simple-slider')
 
+
+
 Game_Titl_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 50)
 Button_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
 blip = love.audio.newSource("Music/ping_pong_8bit_beeep.mp3", "static")
@@ -49,22 +51,46 @@ WiningPongWhitPoints = true
  joystick_timer = 0
  joystick_delay = 0.2
 love.mouse.setVisible(true)
---Nostalgia:setVolume(0.1)
---Lobby_Time:setVolume(0.3)
 
---button_blop:setVolume(0.3)
---blip_win:setVolume(0.3)
---blip:setVolume(0.3)
-volumeMainV = 1
-volumeMusicV = 1
-point_GivenV = 1
-volumeHitV = 1
-volumeButton_hitV = 1
+local file = io.open("settings.conf", "r")
+file:seek("set")
+-- läser alla rader
+local line = file:read("*line")
+local line2 = file:read("*line")
+local line3 = file:read("*line")
+local line4 = file:read("*line")
+local line5 = file:read("*line")
+local line6 = file:read("*line")
+local line7 = file:read("*line")
+volumeMainV = line3
+volumeMusicV = line4
+point_GivenV = line5
+volumeHitV = line6
+volumeButton_hitV = line7
+file:close()
+local line = nil
+local line2 = nil
+local line3 = nil
+local line4 = nil
+local line5 = nil
+local line6 = nil
+local line7 = nil
+collectgarbage("collect")
+
+love.audio.setVolume(volumeMainV)
+Marcus_Nyman_MLIM_S2:setVolume(volumeMusicV)
+Lobby_Time:setVolume(volumeMusicV)
+Nostalgia:setVolume(volumeMusicV)
+blip_win:setVolume(point_GivenV)
+blip:setVolume(volumeHitV)
+button_blop:setVolume(volumeButton_hitV)
+
 function love.load()
     lang:language()
     if OnStartMenu then
         love.mouse.setVisible(true)
         love.audio.play(Marcus_Nyman_MLIM_S2)
+     --   keyboard:GetVolume()
         -- Set the button positions
         GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
         GameTitle_y = 80
