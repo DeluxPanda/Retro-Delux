@@ -38,6 +38,7 @@ function keyboard:pong_Button_From_Main_Menu()
  end
  function keyboard:pinball_Buttom_From_Main_Menu()
   print("pinball inte klart")
+  love.system.openURL("http://deluxerpanda.se/")
  end
  function keyboard:back_to_MainMenu()
    OnStartMenu = true
@@ -78,7 +79,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
-  OnSettingsAudio = true
+  OnSettingsAudio = false
   selectButton = 1
   love.filesystem.load("Customization.lua")()
   love.resize()
@@ -462,7 +463,7 @@ end
  love.event.quit("restart")
   end
   if key == "h" then
-    print(volumeMusicV)
+
 end
 if key == "u" then
 volumeMainV = 1
@@ -474,6 +475,7 @@ end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
      love.resize()
+     Save_stuff()
    end
    if key == "escape"
    or key == "power"

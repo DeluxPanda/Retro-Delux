@@ -55,6 +55,11 @@ if lang_eng then
     HitVolume = "Hit"
     ButtonHitVolume = "Button press"
     CustomizeName = "Customization"
+    BackName = "Back"
+    SelectColorName = "Select color"
+    PlayerOneName = "Player 1"
+    PlayerTowName = "Player 2"
+    BallName = "Ball"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -83,5 +88,10 @@ elseif lang_swe then
     HitVolume = "Träff"
     ButtonHitVolume = "Knapptryck"
     CustomizeName = "Anpassning"
+    BackName = "Tillbaka"
+    SelectColorName = "Välj Färg"
+    PlayerOneName = "Spelare 1"
+    PlayerTowName = "Spelare 2"
+    BallName = "Boll"
 end
 end

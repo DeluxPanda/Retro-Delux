@@ -133,7 +133,7 @@ function love.draw()
    love.graphics.setColor(red)
    love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
    love.graphics.setColor(white)
-   love.graphics.printf(main_menuName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
+   love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
    main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
    main_menu_settings_button_y = love.graphics.getHeight() - 60
 end
