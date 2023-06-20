@@ -45,6 +45,7 @@ function keyboard:pong_Button_From_Main_Menu()
    started_SinglePlayer = false
    started_LocalMultiPlayer = false
    paused = false
+   OnCustomization = false
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:stop()
    Lobby_Time:stop()
@@ -59,6 +60,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = true
   OnSettingsAudio = false
+  OnCustomization = false
   selectButton = 1
   love.filesystem.load("settings.lua")()
   love.resize()
@@ -80,8 +82,48 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
+  OnCustomizationPlayerOne = false
+  OnCustomizationPlayerTow = false
+  OnCustomizationBall = false
+  OnCustomization = true
   selectButton = 1
-  love.filesystem.load("Customization.lua")()
+  love.filesystem.load("Customiz/Customization.lua")()
+  love.resize()
+  Marcus_Nyman_MLIM_S2:stop()
+ end
+ function keyboard:settingsCustomizationPlayerOneMenu()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = false
+  OnCustomization = false
+  OnCustomizationPlayerOne = true
+  selectButton = 1
+  love.filesystem.load("Customiz/PlayerOne.lua")()
+  love.resize()
+  Marcus_Nyman_MLIM_S2:stop()
+ end
+ function keyboard:settingsCustomizationPlayerTowMenu()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = false
+  OnCustomization = false
+  OnCustomizationPlayerTow = true
+  selectButton = 1
+  love.filesystem.load("Customiz/PlayerTow.lua")()
+  love.resize()
+  Marcus_Nyman_MLIM_S2:stop()
+ end
+ function keyboard:settingsCustomizationBallMenu()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = false
+  OnCustomization = false
+  OnCustomizationBall = true
+  selectButton = 1
+  love.filesystem.load("Customiz/Ball.lua")()
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
  end
@@ -89,6 +131,22 @@ function keyboard:pong_Button_From_Main_Menu()
    print("Credits")
  end
  function keyboard:Enter_things()
+
+  if OnCustomization then
+    love.resize()
+    if selectButton == 1 then
+      keyboard:settingsCustomizationPlayerOneMenu()
+      elseif selectButton == 2 then
+        keyboard:settingsCustomizationPlayerTowMenu()
+        elseif selectButton == 3 then
+          keyboard:settingsCustomizationBallMenu()
+        elseif selectButton == 4 then
+          keyboard:SettingsMenu()
+        end
+  end
+
+
+
       if selectButton == 1 then
         if OnStartMenu then
           keyboard:pong_Button_From_Main_Menu()
@@ -105,6 +163,7 @@ function keyboard:pong_Button_From_Main_Menu()
           if not paused then
              Nostalgia:play()
             end
+
         elseif OnSettings then
           if lang_eng == false then
             lang_eng = true
@@ -116,6 +175,7 @@ function keyboard:pong_Button_From_Main_Menu()
             lang:language()
         end
         end
+
       elseif selectButton == 2 then
         if OnStartMenu then
           keyboard:pinball_Buttom_From_Main_Menu()
@@ -128,6 +188,7 @@ function keyboard:pong_Button_From_Main_Menu()
           love.resize()
           lang:language()
         end
+
       elseif selectButton == 3 then
         if OnStartMenu then
           love.event.quit()
@@ -170,6 +231,22 @@ function keyboard:pong_Button_From_Main_Menu()
     end
 
     function keyboard:MenuUp()
+      if OnCustomization then
+        if selectButton == 4 then
+          selectButton = 3
+          button_blop:play()
+        elseif selectButton == 3 then
+          selectButton = 2
+          button_blop:play()
+        elseif selectButton == 2 then
+          selectButton = 1
+          button_blop:play()
+        elseif selectButton == 1 then
+          selectButton = 4
+          button_blop:play()
+        end
+      end
+
       if OnSettings then
         if selectButton == 4 then
           selectButton = 3
@@ -217,6 +294,22 @@ function keyboard:pong_Button_From_Main_Menu()
     end
     
     function keyboard:MenuDown()
+      if OnCustomization then 
+        if selectButton == 1 then
+          selectButton = 2
+          button_blop:play()
+          elseif selectButton == 2 then
+            selectButton = 3
+            button_blop:play()
+          elseif selectButton == 3 then
+            selectButton = 4
+            button_blop:play()
+          elseif selectButton == 4 then
+            selectButton = 1
+            button_blop:play()
+          end
+          end
+
       if OnSettings then
         if selectButton == 1 then
         selectButton = 2
@@ -308,6 +401,9 @@ if OnSettings then
     selectButton = 4
     end
 end
+if OnCustomization then
+  return
+end
 
         if not OnSettingsAudio then
         if paused then
@@ -347,6 +443,9 @@ end
     end
 
     function keyboard:MenuRight()
+      if OnCustomization then
+        return
+      end
       if OnSettingsAudio then
         if selectButton == 1 then
           volumeMainV = volumeMainV + 0.1
@@ -497,7 +596,13 @@ end
       keyboard:back_to_MainMenu()
       end
    end
-   if OnStartMenu or OnPongMenu or paused or OnSettings or OnSettingsAudio then
+   if OnStartMenu 
+   or OnPongMenu 
+   or paused 
+   or OnSettings 
+   or OnSettingsAudio 
+   or OnCustomization 
+   then
     love.mouse.setPosition( 0, 0 )
    if key == "up" then
     keyboard:MenuUp()
