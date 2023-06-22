@@ -132,6 +132,14 @@ function keyboard:pong_Button_From_Main_Menu()
  end
  function keyboard:Enter_things()
 
+  if OnCustomizationPlayerOne then
+    love.resize()
+        if selectButton == 4 then
+          keyboard:settingsCustomizationMenu()
+          Save_stuff()
+        end
+  end
+  
   if OnCustomization then
     love.resize()
     if selectButton == 1 then
