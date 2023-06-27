@@ -1,5 +1,3 @@
-
-
 function love.draw()
   GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
   GameTitle_y = 50
@@ -62,7 +60,7 @@ function love.draw()
   
            -- Game Title
            love.graphics.setFont(Game_Titl_font)
-            love.graphics.setColor(255, 255, 255)
+            love.graphics.setColor(white)
             love.graphics.printf(CustomizeName, GameTitle_x, GameTitle_y, button_start_y, "center")
             GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
             GameTitle_y = 80
@@ -72,7 +70,7 @@ function love.draw()
            -- PlayerOne
            love.graphics.setColor(green)
            love.graphics.rectangle("fill",PlayerOne_button_x, PlayerOne_button_y, button_width, button_height, corner_radius, corner_radius)
-           love.graphics.setColor(255, 255, 255)
+           love.graphics.setColor(white)
            love.graphics.printf(PlayerOneName, PlayerOne_button_x, PlayerOne_button_y + 10, button_width, "center")
            PlayerOne_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
            PlayerOne_button_y =  PlayerTow_settings_button_y + button_height + button_padding
@@ -80,7 +78,7 @@ function love.draw()
             -- PlayerTow
            love.graphics.setColor(green)
            love.graphics.rectangle("fill", PlayerTow_settings_button_x,PlayerTow_settings_button_y, button_width, button_height, corner_radius, corner_radius)
-           love.graphics.setColor(255, 255, 255)
+           love.graphics.setColor(white)
            love.graphics.printf(PlayerTowName, PlayerTow_settings_button_x, PlayerTow_settings_button_y + 10, button_width, "center")
            PlayerTow_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
            PlayerTow_settings_button_y = love.graphics.getHeight() / 2 - button_height / 2
@@ -88,7 +86,7 @@ function love.draw()
           -- Ball
           love.graphics.setColor(green)
           love.graphics.rectangle("fill", audio_settings_button_x, audio_settings_button_y, button_width, button_height, corner_radius, corner_radius)
-          love.graphics.setColor(255, 255, 255)
+          love.graphics.setColor(white)
           love.graphics.printf(BallName, audio_settings_button_x, audio_settings_button_y + 10, button_width, "center")
           audio_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
           audio_settings_button_y = love.graphics.getHeight() / 2 - button_height / 2
@@ -96,7 +94,7 @@ function love.draw()
            -- Menu Menu
            love.graphics.setColor(red)
            love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
-           love.graphics.setColor(255, 255, 255)
+           love.graphics.setColor(white)
            love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
            main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
            main_menu_settings_button_y = love.graphics.getHeight() - 60

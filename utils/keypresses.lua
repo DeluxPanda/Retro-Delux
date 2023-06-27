@@ -60,8 +60,12 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = true
   OnSettingsAudio = false
+
   OnCustomization = false
-  selectButton = 1
+  OnCustomizationPlayerOne = false
+  OnCustomizationPlayerTow = false
+  OnCustomizationBall = false
+  selectButton = 4
   love.filesystem.load("settings.lua")()
   love.resize()
   --Marcus_Nyman_MLIM_S2:stop()
@@ -82,10 +86,12 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
+
+  OnCustomization = true
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
-  OnCustomization = true
+
   selectButton = 1
   love.filesystem.load("Customiz/Customization.lua")()
   love.resize()
@@ -96,10 +102,14 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
+
   OnCustomization = false
   OnCustomizationPlayerOne = true
+  OnCustomizationPlayerTow = false
+  OnCustomizationBall = false
+
   selectButton = 1
-  love.filesystem.load("Customiz/PlayerOne.lua")()
+  love.filesystem.load("Customiz/PlayerTow.lua")()
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
  end
@@ -110,8 +120,8 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerTow = true
-  selectButton = 1
   love.filesystem.load("Customiz/PlayerTow.lua")()
+  selectButton = 1
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
  end
@@ -131,30 +141,7 @@ function keyboard:pong_Button_From_Main_Menu()
    print("Credits")
  end
  function keyboard:Enter_things()
-
-  if OnCustomizationPlayerOne then
-    love.resize()
-        if selectButton == 4 then
-          keyboard:settingsCustomizationMenu()
-          Save_stuff()
-        end
-  end
   
-  if OnCustomization then
-    love.resize()
-    if selectButton == 1 then
-      keyboard:settingsCustomizationPlayerOneMenu()
-      elseif selectButton == 2 then
-        keyboard:settingsCustomizationPlayerTowMenu()
-        elseif selectButton == 3 then
-          keyboard:settingsCustomizationBallMenu()
-        elseif selectButton == 4 then
-          keyboard:SettingsMenu()
-        end
-  end
-
-
-
       if selectButton == 1 then
         if OnStartMenu then
           keyboard:pong_Button_From_Main_Menu()
@@ -183,7 +170,9 @@ function keyboard:pong_Button_From_Main_Menu()
             lang:language()
         end
         end
-
+        if OnCustomization then
+            keyboard:settingsCustomizationPlayerOneMenu()
+         end
       elseif selectButton == 2 then
         if OnStartMenu then
           keyboard:pinball_Buttom_From_Main_Menu()
@@ -196,6 +185,13 @@ function keyboard:pong_Button_From_Main_Menu()
           love.resize()
           lang:language()
         end
+        if OnCustomization then
+              keyboard:settingsCustomizationPlayerTowMenu()
+        end
+        if OnCustomizationPlayerOne then
+            keyboard:SettingsMenu()
+            Save_stuff()
+        end
 
       elseif selectButton == 3 then
         if OnStartMenu then
@@ -207,7 +203,9 @@ function keyboard:pong_Button_From_Main_Menu()
         elseif OnSettings then
           keyboard:settingsAudioMenu()
         end
-        
+        if OnCustomization then
+            keyboard:settingsCustomizationBallMenu()
+        end
       elseif selectButton == 4 then
         if OnStartMenu then
           keyboard:Credits()
@@ -219,6 +217,9 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:Credits()
         elseif paused then
           return
+        end
+        if OnCustomization then
+          keyboard:SettingsMenu()
         end
       elseif selectButton == 5 then
         if OnStartMenu then
@@ -558,10 +559,20 @@ end
       file:write(point_GivenV .. "\n")
       file:write(volumeHitV .. "\n")
       file:write(volumeButton_hitV .. "\n")
-      file:close()
 
-      local line = nil
-      local line2 = nil
+      if ColorSelectedForPlayerOne == yellow then
+        ColorSelectedForPlayerOne = "yellow"
+    elseif ColorSelectedForPlayerOne == slategray then
+        ColorSelectedForPlayerOne = "slategray"
+    elseif ColorSelectedForPlayerOne == green then
+        ColorSelectedForPlayerOne = "green"
+    elseif ColorSelectedForPlayerOne == red then
+        ColorSelectedForPlayerOne = "red"
+    elseif ColorSelectedForPlayerOne == white then
+        ColorSelectedForPlayerOne = "white"
+    end
+      file:write(ColorSelectedForPlayerOne .. "\n")
+      file:close()
       collectgarbage("collect")
     end
 
@@ -570,14 +581,8 @@ end
  love.event.quit("restart")
   end
   if key == "h" then
-
-end
-if key == "u" then
-volumeMainV = 1
-volumeMusicV = 1
-point_GivenV = 1
-volumeHitV = 1
-volumeButton_hitV = 1  
+    ColorSelectedForPlayerOne = ColorSelected 
+    love.resize()
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
@@ -609,7 +614,10 @@ end
    or paused 
    or OnSettings 
    or OnSettingsAudio 
-   or OnCustomization 
+   or OnCustomization
+   or OnCustomizationPlayerOne
+   or OnCustomizationPlayerTow
+   or OnCustomizationBall
    then
     love.mouse.setPosition( 0, 0 )
    if key == "up" then

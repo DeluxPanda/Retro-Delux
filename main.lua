@@ -38,6 +38,7 @@ started_LocalMultiPlayer = false
 OnPongMenu = false
 OnSettings = false
 OnSettingsAudio = false
+OnCustomization = false
 OnStartMenu = true
 OnPongButton = true
 WiningPong = false
@@ -62,11 +63,17 @@ local line4 = file:read("*line")
 local line5 = file:read("*line")
 local line6 = file:read("*line")
 local line7 = file:read("*line")
+local line8 = file:read("*line")
+local line9 = file:read("*line")
+local line10 = file:read("*line")
 volumeMainV = line3
 volumeMusicV = line4
 point_GivenV = line5
 volumeHitV = line6
 volumeButton_hitV = line7
+ColorSelectedForPlayerOne = line8 --player_1
+ColorSelectedForPlayerTow = line9 --player_2
+ColorSelectedForBall = line10 --Ball
 file:close()
 local line = nil
 local line2 = nil
@@ -75,8 +82,10 @@ local line4 = nil
 local line5 = nil
 local line6 = nil
 local line7 = nil
+local line8 = nil
+local line9 = nil
+local line10 = nil
 collectgarbage("collect")
-
 love.audio.setVolume(volumeMainV)
 Marcus_Nyman_MLIM_S2:setVolume(volumeMusicV)
 Lobby_Time:setVolume(volumeMusicV)
@@ -87,6 +96,18 @@ button_blop:setVolume(volumeButton_hitV)
 
 function love.load()
     lang:language()
+    if ColorSelectedForPlayerOne == "yellow" then
+        ColorSelectedForPlayerOne = yellow
+    elseif ColorSelectedForPlayerOne == "slategray" then
+        ColorSelectedForPlayerOne = slategray
+    elseif ColorSelectedForPlayerOne == "green" then
+        ColorSelectedForPlayerOne = green
+    elseif ColorSelectedForPlayerOne == "red" then
+        ColorSelectedForPlayerOne = red
+    elseif ColorSelectedForPlayerOne == "white" then
+        ColorSelectedForPlayerOne = white
+    end
+        
     if OnStartMenu then
         love.mouse.setVisible(true)
         love.audio.play(Marcus_Nyman_MLIM_S2)
