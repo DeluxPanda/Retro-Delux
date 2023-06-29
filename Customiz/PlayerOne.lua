@@ -7,6 +7,17 @@ local y = love.graphics.getHeight() / 2
 local WidthBall = 20
 local HeightBall = 20
 
+if ColorSelectedForPlayerOne == "yellow" then
+    ColorSelectedForPlayerOne = yellow
+elseif ColorSelectedForPlayerOne == "slategray" then
+    ColorSelectedForPlayerOne = slategray
+elseif ColorSelectedForPlayerOne == "green" then
+    ColorSelectedForPlayerOne = green
+elseif ColorSelectedForPlayerOne == "red" then
+    ColorSelectedForPlayerOne = red
+elseif ColorSelectedForPlayerOne == "white" then
+    ColorSelectedForPlayerOne = white
+end
         ColorSelected = ColorSelectedForPlayerOne
 
 
@@ -68,6 +79,7 @@ function love.draw()
         if mouse_x >= ColorOne_button_x and mouse_x <= ColorOne_button_x + button_width and
         mouse_y >= ColorOne_button_Y and mouse_y <= ColorOne_button_Y + button_height and
         selectButton == 1 then
+        selectColorBar = 1
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorOne_button_x , ColorOne_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = red
@@ -76,6 +88,7 @@ function love.draw()
         if mouse_x >= ColorTwo_button_x and mouse_x <= ColorTwo_button_x + button_width and
         mouse_y >= ColorTwo_button_Y and mouse_y <= ColorTwo_button_Y + button_height and
         selectButton == 1 then
+        selectColorBar = 2
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorTwo_button_x , ColorTwo_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = yellow
@@ -84,6 +97,7 @@ function love.draw()
         if mouse_x >= ColorThree_button_x and mouse_x <= ColorThree_button_x + button_width and
         mouse_y >= ColorThree_button_Y and mouse_y <= ColorThree_button_Y + button_height and
         selectButton == 1 then
+            selectColorBar = 3
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorThree_button_x , ColorThree_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = green
@@ -92,6 +106,7 @@ function love.draw()
         if mouse_x >= ColorFour_button_x and mouse_x <= ColorFour_button_x + button_width and
         mouse_y >= ColorFour_button_Y and mouse_y <= ColorFour_button_Y + button_height and
         selectButton == 1 then
+            selectColorBar = 4
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorFour_button_x , ColorFour_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = slategray
@@ -100,6 +115,7 @@ function love.draw()
         if mouse_x >= ColorFive_button_x and mouse_x <= ColorFive_button_x + button_width and
         mouse_y >= ColorFive_button_Y and mouse_y <= ColorFive_button_Y + button_height and
         selectButton == 1 then
+            selectColorBar = 5
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorFive_button_x , ColorFive_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = white
@@ -183,8 +199,8 @@ function love.draw()
     -- Main Menu
      if mouse_x >= main_menu_settings_button_x and mouse_x <= main_menu_settings_button_x + button_width and
          mouse_y >= main_menu_settings_button_y and mouse_y <= main_menu_settings_button_y + button_height or
-         selectButton == 2 then
-          selectButton = 2
+         selectButton == 7 then
+          selectButton = 7
          love.graphics.setColor(yellow)
          love.graphics.rectangle("fill", main_menu_settings_button_x , main_menu_settings_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
         end

@@ -45,6 +45,6 @@ end
    end
 
    function player_LocalMultiPlayer:draw()
-      love.graphics.setColor(0, 255, 0)
+      love.graphics.setColor(ColorSelectedForPlayerOne)
       love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
    end

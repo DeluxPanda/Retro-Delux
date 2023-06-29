@@ -38,7 +38,7 @@ function keyboard:pong_Button_From_Main_Menu()
  end
  function keyboard:pinball_Buttom_From_Main_Menu()
   print("pinball inte klart")
-  love.system.openURL("http://deluxerpanda.se/")
+  love.system.openURL("https://deluxerpanda.se/")
  end
  function keyboard:back_to_MainMenu()
    OnStartMenu = true
@@ -46,6 +46,7 @@ function keyboard:pong_Button_From_Main_Menu()
    started_LocalMultiPlayer = false
    paused = false
    OnCustomization = false
+
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:stop()
    Lobby_Time:stop()
@@ -65,7 +66,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
-  selectButton = 4
+  selectButton = 1
   love.filesystem.load("settings.lua")()
   love.resize()
   --Marcus_Nyman_MLIM_S2:stop()
@@ -109,7 +110,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationBall = false
 
   selectButton = 1
-  love.filesystem.load("Customiz/PlayerTow.lua")()
+  love.filesystem.load("Customiz/PlayerOne.lua")()
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
  end
@@ -171,9 +172,12 @@ function keyboard:pong_Button_From_Main_Menu()
         end
         end
         if OnCustomization then
+
             keyboard:settingsCustomizationPlayerOneMenu()
          end
-      elseif selectButton == 2 then
+
+
+       elseif selectButton == 2 then
         if OnStartMenu then
           keyboard:pinball_Buttom_From_Main_Menu()
         elseif OnPongMenu then
@@ -184,16 +188,12 @@ function keyboard:pong_Button_From_Main_Menu()
           love.window.setFullscreen(not love.window.getFullscreen())
           love.resize()
           lang:language()
-        end
-        if OnCustomization then
-              keyboard:settingsCustomizationPlayerTowMenu()
-        end
-        if OnCustomizationPlayerOne then
-            keyboard:SettingsMenu()
-            Save_stuff()
+        elseif OnCustomization then
+            keyboard:settingsCustomizationPlayerTowMenu()
         end
 
-      elseif selectButton == 3 then
+
+       elseif selectButton == 3 then
         if OnStartMenu then
           love.event.quit()
         elseif OnPongMenu then
@@ -206,7 +206,9 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomization then
             keyboard:settingsCustomizationBallMenu()
         end
-      elseif selectButton == 4 then
+
+
+       elseif selectButton == 4 then
         if OnStartMenu then
           keyboard:Credits()
         elseif OnSettings then
@@ -221,7 +223,10 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomization then
           keyboard:SettingsMenu()
         end
-      elseif selectButton == 5 then
+
+
+
+       elseif selectButton == 5 then
         if OnStartMenu then
           keyboard:SettingsMenu()
         elseif OnPongMenu then
@@ -231,15 +236,30 @@ function keyboard:pong_Button_From_Main_Menu()
         elseif OnSettings then
           keyboard:settingsCustomizationMenu()
         end
-      elseif selectButton == 6 then
+
+
+
+       elseif selectButton == 6 then
         if OnSettingsAudio then
           Save_stuff()
           keyboard:SettingsMenu()
         end
+        elseif selectButton == 7 then
+        if OnCustomizationPlayerOne then
+          keyboard:settingsCustomizationMenu()
+          Save_stuff()
+       end
       end
     end
 
     function keyboard:MenuUp()
+      if OnCustomizationPlayerOne then
+        if selectButton == 1 then
+          selectButton = 7
+          elseif selectButton == 7 then
+            selectButton = 1
+        end
+      end
       if OnCustomization then
         if selectButton == 4 then
           selectButton = 3
@@ -303,6 +323,31 @@ function keyboard:pong_Button_From_Main_Menu()
     end
     
     function keyboard:MenuDown()
+      if OnCustomizationPlayerOne then
+        if selectButton == 7 then
+          selectButton = 1
+          elseif selectButton == 1 then
+            selectButton = 7
+        end
+      end
+    if OnCustomizationPlayerOne then
+      if selectButton == 2 then
+        selectButton = 3
+        button_blop:play()
+        elseif selectButton == 3 then
+          selectButton = 4
+          button_blop:play()
+        elseif selectButton == 4 then
+          selectButton = 5
+          button_blop:play()
+        elseif selectButton == 6 then
+          selectButton = 2
+          button_blop:play()
+        end
+    end
+
+
+
       if OnCustomization then 
         if selectButton == 1 then
           selectButton = 2
@@ -366,7 +411,9 @@ function keyboard:pong_Button_From_Main_Menu()
     end
 
     function keyboard:MenuLeft()
-
+      if OnCustomizationPlayerOne then
+        return
+      end
       if OnSettingsAudio then
         if selectButton == 1 then
           volumeMainV = volumeMainV - 0.1
@@ -452,9 +499,35 @@ end
     end
 
     function keyboard:MenuRight()
+
+      if OnCustomizationPlayerOne then
+        if selectButton == 1 then
+          selectColorBar = 1
+          selectButton = 1
+          if selectColorBar == 1 then
+            selectColorBar = 2
+            selectButton = 1
+          elseif selectColorBar == 2 then
+              selectColorBar = 3
+              selectButton = 1
+            elseif selectColorBar == 3 then
+              selectColorBar = 4
+              selectButton = 1
+            elseif selectColorBar == 4 then
+              selectColorBar = 5
+              selectButton = 1
+            elseif selectColorBar == 5 then
+              selectColorBar = 1
+              selectButton = 1
+          end
+          end
+      end
+
+
       if OnCustomization then
         return
       end
+
       if OnSettingsAudio then
         if selectButton == 1 then
           volumeMainV = volumeMainV + 0.1
@@ -574,15 +647,74 @@ end
       file:write(ColorSelectedForPlayerOne .. "\n")
       file:close()
       collectgarbage("collect")
+      if ColorSelectedForPlayerOne == "yellow" then
+        ColorSelectedForPlayerOne = yellow
+    elseif ColorSelectedForPlayerOne == "slategray" then
+        ColorSelectedForPlayerOne = slategray
+    elseif ColorSelectedForPlayerOne == "green" then
+        ColorSelectedForPlayerOne = green
+    elseif ColorSelectedForPlayerOne == "red" then
+        ColorSelectedForPlayerOne = red
+    elseif ColorSelectedForPlayerOne == "white" then
+        ColorSelectedForPlayerOne = white
     end
+    end
+
+    
+    function keyboard:locadsaved()
+    local file = io.open("settings.conf", "r")
+    file:seek("set")
+    -- läser alla rader
+    local line = file:read("*line")
+    local line2 = file:read("*line")
+    local line3 = file:read("*line")
+    local line4 = file:read("*line")
+    local line5 = file:read("*line")
+    local line6 = file:read("*line")
+    local line7 = file:read("*line")
+    local line8 = file:read("*line")
+    local line9 = file:read("*line")
+    local line10 = file:read("*line")
+    volumeMainV = line3
+    volumeMusicV = line4
+    point_GivenV = line5
+    volumeHitV = line6
+    volumeButton_hitV = line7
+    ColorSelectedForPlayerOne = line8 --player_1
+    ColorSelectedForPlayerTow = line9 --player_2
+    ColorSelectedForBall = line10 --Ball
+    file:close()
+    local line = nil
+    local line2 = nil
+    local line3 = nil
+    local line4 = nil
+    local line5 = nil
+    local line6 = nil
+    local line7 = nil
+    local line8 = nil
+    local line9 = nil
+    local line10 = nil
+    collectgarbage("collect")
+    if ColorSelectedForPlayerOne == "yellow" then
+      ColorSelectedForPlayerOne = yellow
+  elseif ColorSelectedForPlayerOne == "slategray" then
+      ColorSelectedForPlayerOne = slategray
+  elseif ColorSelectedForPlayerOne == "green" then
+      ColorSelectedForPlayerOne = green
+  elseif ColorSelectedForPlayerOne == "red" then
+      ColorSelectedForPlayerOne = red
+  elseif ColorSelectedForPlayerOne == "white" then
+      ColorSelectedForPlayerOne = white
+  end
+    end
+
 
  function love.keypressed(key)
   if key == "r" then
  love.event.quit("restart")
   end
   if key == "h" then
-    ColorSelectedForPlayerOne = ColorSelected 
-    love.resize()
+    ColorSelectedForPlayerOne = ColorSelected
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())

@@ -53,39 +53,7 @@ WiningPongWhitPoints = true
  joystick_delay = 0.2
 love.mouse.setVisible(true)
 
-local file = io.open("settings.conf", "r")
-file:seek("set")
--- läser alla rader
-local line = file:read("*line")
-local line2 = file:read("*line")
-local line3 = file:read("*line")
-local line4 = file:read("*line")
-local line5 = file:read("*line")
-local line6 = file:read("*line")
-local line7 = file:read("*line")
-local line8 = file:read("*line")
-local line9 = file:read("*line")
-local line10 = file:read("*line")
-volumeMainV = line3
-volumeMusicV = line4
-point_GivenV = line5
-volumeHitV = line6
-volumeButton_hitV = line7
-ColorSelectedForPlayerOne = line8 --player_1
-ColorSelectedForPlayerTow = line9 --player_2
-ColorSelectedForBall = line10 --Ball
-file:close()
-local line = nil
-local line2 = nil
-local line3 = nil
-local line4 = nil
-local line5 = nil
-local line6 = nil
-local line7 = nil
-local line8 = nil
-local line9 = nil
-local line10 = nil
-collectgarbage("collect")
+keyboard:locadsaved()
 love.audio.setVolume(volumeMainV)
 Marcus_Nyman_MLIM_S2:setVolume(volumeMusicV)
 Lobby_Time:setVolume(volumeMusicV)

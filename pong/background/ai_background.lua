@@ -33,6 +33,6 @@ function ai_background:acquai_backgrounderTraget()
 end
 
 function ai_background:draw()
-   love.graphics.setColor(red)
+   love.graphics.setColor(ColorSelectedForPlayerOne)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
 end

@@ -45,6 +45,6 @@ end
    end
 
    function player_SinglePlayer:draw()
-      love.graphics.setColor(green)
+      love.graphics.setColor(ColorSelectedForPlayerOne)
       love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
    end
