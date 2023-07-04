@@ -100,6 +100,19 @@ elseif ColorSelectedForBall == "red" then
 elseif ColorSelectedForBall == "white" then
   ColorSelectedForBall = white
 end
+  -- Background
+  if ColorSelectedForBackground == "yellow" then
+    ColorSelectedForBackground = yellow
+elseif ColorSelectedForBackground == "slategray" then
+  ColorSelectedForBackground = slategray
+elseif ColorSelectedForBackground == "green" then
+  ColorSelectedForBackground = green
+elseif ColorSelectedForBackground == "red" then
+  ColorSelectedForBackground = red
+elseif ColorSelectedForBackground == "white" then
+  ColorSelectedForBackground = white
+end
+
     if OnStartMenu then
         love.mouse.setVisible(true)
         love.audio.play(Marcus_Nyman_MLIM_S2)
@@ -187,9 +200,9 @@ function love.gamepadaxis( joystick, axis, value )
 end
 --
 function love.draw()
+  love.graphics.setBackgroundColor(ColorSelectedForBackground)
     if OnStartMenu or OnPongMenu then
             -- background
-            love.graphics.setBackgroundColor(slategray)
             if OnPongButton then
             ai_background:draw()
             ai_Tow_background:draw()

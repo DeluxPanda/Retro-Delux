@@ -785,6 +785,19 @@ elseif ColorSelectedForBall == white then
   ColorSelectedForBall = "white"
 end
   file:write(ColorSelectedForBall .. "\n")
+  -- Background
+  if ColorSelectedForBackground == yellow then
+    ColorSelectedForBackground = "yellow"
+elseif ColorSelectedForBackground == slategray then
+  ColorSelectedForBackground = "slategray"
+elseif ColorSelectedForBackground == green then
+  ColorSelectedForBackground = "green"
+elseif ColorSelectedForBackground == red then
+  ColorSelectedForBackground = "red"
+elseif ColorSelectedForBackground == white then
+  ColorSelectedForBackground = "white"
+end
+  file:write(ColorSelectedForBall .. "\n")
   file:close()
   collectgarbage("collect")
     -- Player 1
@@ -822,6 +835,18 @@ elseif ColorSelectedForBall == "red" then
   ColorSelectedForBall = red
 elseif ColorSelectedForBall == "white" then
   ColorSelectedForBall = white
+end
+  -- Background
+  if ColorSelectedForBackground == "yellow" then
+    ColorSelectedForBackground = yellow
+elseif ColorSelectedForBackground == "slategray" then
+  ColorSelectedForBackground = slategray
+elseif ColorSelectedForBackground == "green" then
+  ColorSelectedForBackground = green
+elseif ColorSelectedForBackground == "red" then
+  ColorSelectedForBackground = red
+elseif ColorSelectedForBackground == "white" then
+  ColorSelectedForBackground = white
 end
     end
 
