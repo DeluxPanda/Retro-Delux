@@ -33,6 +33,6 @@ function ai_Tow_background:acquai_Tow_backgrounderTraget()
 end
 
 function ai_Tow_background:draw()
-   love.graphics.setColor(red)
+   love.graphics.setColor(ColorSelectedForPlayerTow)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
 end

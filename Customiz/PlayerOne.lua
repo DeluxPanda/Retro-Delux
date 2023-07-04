@@ -77,45 +77,45 @@ function love.draw()
     
         -- 1
         if mouse_x >= ColorOne_button_x and mouse_x <= ColorOne_button_x + button_width and
-        mouse_y >= ColorOne_button_Y and mouse_y <= ColorOne_button_Y + button_height and
-        selectButton == 1 then
-        selectColorBar = 1
+        mouse_y >= ColorOne_button_Y and mouse_y <= ColorOne_button_Y + button_height or
+        selectButton == 2 then
+            selectButton = 2
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorOne_button_x , ColorOne_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = red
        end
         -- 2
         if mouse_x >= ColorTwo_button_x and mouse_x <= ColorTwo_button_x + button_width and
-        mouse_y >= ColorTwo_button_Y and mouse_y <= ColorTwo_button_Y + button_height and
-        selectButton == 1 then
-        selectColorBar = 2
+        mouse_y >= ColorTwo_button_Y and mouse_y <= ColorTwo_button_Y + button_height or
+        selectButton == 3 then
+            selectButton = 3
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorTwo_button_x , ColorTwo_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = yellow
        end
         -- 3
         if mouse_x >= ColorThree_button_x and mouse_x <= ColorThree_button_x + button_width and
-        mouse_y >= ColorThree_button_Y and mouse_y <= ColorThree_button_Y + button_height and
-        selectButton == 1 then
-            selectColorBar = 3
+        mouse_y >= ColorThree_button_Y and mouse_y <= ColorThree_button_Y + button_height or
+        selectButton == 4 then
+            selectButton = 4
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorThree_button_x , ColorThree_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = green
        end
         -- 4
         if mouse_x >= ColorFour_button_x and mouse_x <= ColorFour_button_x + button_width and
-        mouse_y >= ColorFour_button_Y and mouse_y <= ColorFour_button_Y + button_height and
-        selectButton == 1 then
-            selectColorBar = 4
+        mouse_y >= ColorFour_button_Y and mouse_y <= ColorFour_button_Y + button_height or
+        selectButton == 5 then
+            selectButton = 5
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorFour_button_x , ColorFour_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = slategray
        end
         -- 5
         if mouse_x >= ColorFive_button_x and mouse_x <= ColorFive_button_x + button_width and
-        mouse_y >= ColorFive_button_Y and mouse_y <= ColorFive_button_Y + button_height and
-        selectButton == 1 then
-            selectColorBar = 5
+        mouse_y >= ColorFive_button_Y and mouse_y <= ColorFive_button_Y + button_height or
+        selectButton == 6 then
+            selectButton = 6
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", ColorFive_button_x , ColorFive_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = white
@@ -129,72 +129,68 @@ function love.draw()
          love.graphics.setColor(yellow)
          love.graphics.rectangle("fill", PlayerOne_button_x, PlayerOne_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
          love.graphics.setColor(slategray)
-
-
-
---1
-         love.graphics.setColor(green)
-         love.graphics.rectangle("fill",ColorOne_button_x, ColorOne_button_Y, button_width, color_button_height, corner_radius, corner_radius)
-         love.graphics.setColor(red)
-         love.graphics.rectangle("fill", ColorOne_button_x, ColorOne_button_Y, WidthBall, color_button_height, 10, 10)
-         love.graphics.setColor(white)
-         if ColorSelectedForPlayerOne == red then
-         love.graphics.draw(check_mark, ColorOne_button_x + 170 , ColorOne_button_Y + 15)
-         end
-         love.graphics.printf("Color One", ColorOne_button_x, ColorOne_button_Y + 7, button_width, "center")
-         ColorOne_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-         ColorOne_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
---2
-         love.graphics.setColor(green)
-         love.graphics.rectangle("fill",ColorTwo_button_x, ColorTwo_button_Y, button_width, color_button_height, corner_radius, corner_radius)
-         love.graphics.setColor(yellow)
-         love.graphics.rectangle("fill", ColorTwo_button_x, ColorTwo_button_Y, WidthBall, color_button_height, 10, 10)       
-         love.graphics.setColor(white)
-         if ColorSelectedForPlayerOne == yellow then
-         love.graphics.draw(check_mark, ColorTwo_button_x + 170 , ColorTwo_button_Y + 15)
-         end
-         love.graphics.printf("Color Two", ColorTwo_button_x, ColorTwo_button_Y + 7, button_width, "center")
-         ColorTwo_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-         ColorTwo_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
---3
-         love.graphics.setColor(green)
-         love.graphics.rectangle("fill",ColorThree_button_x, ColorThree_button_Y, button_width, color_button_height, corner_radius, corner_radius)
-         love.graphics.setColor(green)
-         love.graphics.rectangle("fill", ColorThree_button_x, ColorThree_button_Y, WidthBall, color_button_height, 10, 10)  
-         love.graphics.setColor(white)
-         if ColorSelectedForPlayerOne == green then
-         love.graphics.draw(check_mark, ColorThree_button_x + 170 , ColorThree_button_Y + 15)
-         end
-         love.graphics.printf("Color Three", ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
-         ColorThree_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-         ColorThree_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
---4
-         love.graphics.setColor(green)
-         love.graphics.rectangle("fill",ColorFour_button_x, ColorFour_button_Y, button_width, color_button_height, corner_radius, corner_radius)
-         love.graphics.setColor(slategray)
-         love.graphics.rectangle("fill", ColorFour_button_x, ColorFour_button_Y, WidthBall, color_button_height, 10, 10)  
-         love.graphics.setColor(white)
-         if ColorSelectedForPlayerOne == slategray then
-         love.graphics.draw(check_mark, ColorFour_button_x + 170 , ColorFour_button_Y + 15)
-         end
-         love.graphics.printf("Color Four", ColorFour_button_x, ColorFour_button_Y + 7, button_width, "center")
-         ColorFour_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-         ColorFour_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
---5
-         love.graphics.setColor(green)
-         love.graphics.rectangle("fill",ColorFive_button_x, ColorFive_button_Y, button_width, color_button_height, corner_radius, corner_radius)
-         love.graphics.setColor(white)
-         love.graphics.rectangle("fill", ColorFive_button_x, ColorFive_button_Y, WidthBall, color_button_height, 10, 10)  
-         love.graphics.setColor(white)
-         if ColorSelectedForPlayerOne == white then
-            love.graphics.draw(check_mark, ColorFive_button_x + 170 , ColorFive_button_Y + 15)
-         end
-         
-         love.graphics.printf("Color Five", ColorFive_button_x, ColorFive_button_Y + 7, button_width, "center")
-         ColorFive_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-         ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
         end
+--1
+love.graphics.setColor(green)
+love.graphics.rectangle("fill",ColorOne_button_x, ColorOne_button_Y, button_width, color_button_height, corner_radius, corner_radius)
+love.graphics.setColor(red)
+love.graphics.rectangle("fill", ColorOne_button_x, ColorOne_button_Y, WidthBall, color_button_height, 10, 10)
+love.graphics.setColor(white)
+if ColorSelectedForPlayerOne == red then
+love.graphics.draw(check_mark, ColorOne_button_x + 170 , ColorOne_button_Y + 15)
+end
+love.graphics.printf("Color One", ColorOne_button_x, ColorOne_button_Y + 7, button_width, "center")
+ColorOne_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
+ColorOne_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+--2
+love.graphics.setColor(green)
+love.graphics.rectangle("fill",ColorTwo_button_x, ColorTwo_button_Y, button_width, color_button_height, corner_radius, corner_radius)
+love.graphics.setColor(yellow)
+love.graphics.rectangle("fill", ColorTwo_button_x, ColorTwo_button_Y, WidthBall, color_button_height, 10, 10)       
+love.graphics.setColor(white)
+if ColorSelectedForPlayerOne == yellow then
+love.graphics.draw(check_mark, ColorTwo_button_x + 170 , ColorTwo_button_Y + 15)
+end
+love.graphics.printf("Color Two", ColorTwo_button_x, ColorTwo_button_Y + 7, button_width, "center")
+ColorTwo_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
+ColorTwo_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+--3
+love.graphics.setColor(green)
+love.graphics.rectangle("fill",ColorThree_button_x, ColorThree_button_Y, button_width, color_button_height, corner_radius, corner_radius)
+love.graphics.setColor(green)
+love.graphics.rectangle("fill", ColorThree_button_x, ColorThree_button_Y, WidthBall, color_button_height, 10, 10)  
+love.graphics.setColor(white)
+if ColorSelectedForPlayerOne == green then
+love.graphics.draw(check_mark, ColorThree_button_x + 170 , ColorThree_button_Y + 15)
+end
+love.graphics.printf("Color Three", ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
+ColorThree_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
+ColorThree_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+--4
+love.graphics.setColor(green)
+love.graphics.rectangle("fill",ColorFour_button_x, ColorFour_button_Y, button_width, color_button_height, corner_radius, corner_radius)
+love.graphics.setColor(slategray)
+love.graphics.rectangle("fill", ColorFour_button_x, ColorFour_button_Y, WidthBall, color_button_height, 10, 10)  
+love.graphics.setColor(white)
+if ColorSelectedForPlayerOne == slategray then
+love.graphics.draw(check_mark, ColorFour_button_x + 170 , ColorFour_button_Y + 15)
+end
+love.graphics.printf("Color Four", ColorFour_button_x, ColorFour_button_Y + 7, button_width, "center")
+ColorFour_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
+ColorFour_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+--5
+love.graphics.setColor(green)
+love.graphics.rectangle("fill",ColorFive_button_x, ColorFive_button_Y, button_width, color_button_height, corner_radius, corner_radius)
+love.graphics.setColor(white)
+love.graphics.rectangle("fill", ColorFive_button_x, ColorFive_button_Y, WidthBall, color_button_height, 10, 10)  
+love.graphics.setColor(white)
+if ColorSelectedForPlayerOne == white then
+   love.graphics.draw(check_mark, ColorFive_button_x + 170 , ColorFive_button_Y + 15)
+end
 
+love.graphics.printf("Color Five", ColorFive_button_x, ColorFive_button_Y + 7, button_width, "center")
+ColorFive_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
+ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
     
     -- Main Menu
      if mouse_x >= main_menu_settings_button_x and mouse_x <= main_menu_settings_button_x + button_width and

@@ -106,7 +106,7 @@ function ball_background:draw()
    love.graphics.print(AIScore, love.graphics.getWidth() / 2 + pipeWidth / 2, 10)
 
    -- ball_background
-   love.graphics.setColor(yellow)
+   love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10, 10)
    if AIPoint_Tow_background >= 11 then
       AIPoint_Tow_background = 0

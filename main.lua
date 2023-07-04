@@ -64,6 +64,7 @@ button_blop:setVolume(volumeButton_hitV)
 
 function love.load()
     lang:language()
+      -- Player 1
     if ColorSelectedForPlayerOne == "yellow" then
         ColorSelectedForPlayerOne = yellow
     elseif ColorSelectedForPlayerOne == "slategray" then
@@ -75,7 +76,30 @@ function love.load()
     elseif ColorSelectedForPlayerOne == "white" then
         ColorSelectedForPlayerOne = white
     end
-        
+      -- Player 2
+  if ColorSelectedForPlayerTow == "yellow" then
+    ColorSelectedForPlayerTow = yellow
+elseif ColorSelectedForPlayerTow == "slategray" then
+  ColorSelectedForPlayerTow = slategray
+elseif ColorSelectedForPlayerTow == "green" then
+  ColorSelectedForPlayerTow = green
+elseif ColorSelectedForPlayerTow == "red" then
+  ColorSelectedForPlayerTow = red
+elseif ColorSelectedForPlayerTow == "white" then
+  ColorSelectedForPlayerTow = white
+end
+  -- ball
+  if ColorSelectedForBall == "yellow" then
+    ColorSelectedForBall = yellow
+elseif ColorSelectedForBall == "slategray" then
+  ColorSelectedForBall = slategray
+elseif ColorSelectedForBall == "green" then
+  ColorSelectedForBall = green
+elseif ColorSelectedForBall == "red" then
+  ColorSelectedForBall = red
+elseif ColorSelectedForBall == "white" then
+  ColorSelectedForBall = white
+end
     if OnStartMenu then
         love.mouse.setVisible(true)
         love.audio.play(Marcus_Nyman_MLIM_S2)

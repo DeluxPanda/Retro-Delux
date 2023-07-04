@@ -178,20 +178,36 @@ function keyboard:pong_Button_From_Main_Menu()
 
 
        elseif selectButton == 2 then
+
         if OnStartMenu then
           keyboard:pinball_Buttom_From_Main_Menu()
+
         elseif OnPongMenu then
           keyboard:pong_LMP_Btn_pong_Menu()
+
         elseif paused then
           keyboard:back_to_MainMenu()
+
         elseif OnSettings then
           love.window.setFullscreen(not love.window.getFullscreen())
           love.resize()
           lang:language()
+
         elseif OnCustomization then
             keyboard:settingsCustomizationPlayerTowMenu()
         end
 
+        if OnCustomizationPlayerOne then
+          ColorSelectedForPlayerOne = ColorSelected
+        end
+
+        if OnCustomizationPlayerTow then
+          ColorSelectedForPlayerTow = ColorSelected
+        end
+
+        if OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+        end
 
        elseif selectButton == 3 then
         if OnStartMenu then
@@ -207,6 +223,17 @@ function keyboard:pong_Button_From_Main_Menu()
             keyboard:settingsCustomizationBallMenu()
         end
 
+        if OnCustomizationPlayerOne then
+          ColorSelectedForPlayerOne = ColorSelected
+        end
+
+        if OnCustomizationPlayerTow then
+          ColorSelectedForPlayerTow = ColorSelected
+        end
+
+        if OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+        end
 
        elseif selectButton == 4 then
         if OnStartMenu then
@@ -224,7 +251,17 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:SettingsMenu()
         end
 
+        if OnCustomizationPlayerOne then
+          ColorSelectedForPlayerOne = ColorSelected
+        end
 
+        if OnCustomizationPlayerTow then
+          ColorSelectedForPlayerTow = ColorSelected
+        end
+
+        if OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+        end
 
        elseif selectButton == 5 then
         if OnStartMenu then
@@ -237,15 +274,38 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:settingsCustomizationMenu()
         end
 
+        if OnCustomizationPlayerOne then
+          ColorSelectedForPlayerOne = ColorSelected
+        end
 
+        if OnCustomizationPlayerTow then
+          ColorSelectedForPlayerTow = ColorSelected
+        end
+
+        if OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+        end
 
        elseif selectButton == 6 then
         if OnSettingsAudio then
           Save_stuff()
           keyboard:SettingsMenu()
         end
-        elseif selectButton == 7 then
+
         if OnCustomizationPlayerOne then
+          ColorSelectedForPlayerOne = ColorSelected
+        end
+
+        if OnCustomizationPlayerTow then
+          ColorSelectedForPlayerTow = ColorSelected
+        end
+
+        if OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+        end
+
+        elseif selectButton == 7 then
+        if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
           keyboard:settingsCustomizationMenu()
           Save_stuff()
        end
@@ -253,9 +313,19 @@ function keyboard:pong_Button_From_Main_Menu()
     end
 
     function keyboard:MenuUp()
-      if OnCustomizationPlayerOne then
+      if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
         if selectButton == 1 then
           selectButton = 7
+        elseif selectButton == 2 then
+          selectButton = 6
+        elseif selectButton == 6 then
+          selectButton = 5
+        elseif selectButton == 5 then
+          selectButton = 4
+        elseif selectButton == 4 then
+          selectButton = 3
+        elseif selectButton == 3 then
+          selectButton = 2
           elseif selectButton == 7 then
             selectButton = 1
         end
@@ -323,28 +393,23 @@ function keyboard:pong_Button_From_Main_Menu()
     end
     
     function keyboard:MenuDown()
-      if OnCustomizationPlayerOne then
-        if selectButton == 7 then
-          selectButton = 1
-          elseif selectButton == 1 then
-            selectButton = 7
-        end
-      end
-    if OnCustomizationPlayerOne then
-      if selectButton == 2 then
-        selectButton = 3
-        button_blop:play()
+      if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+        if selectButton == 1 then
+          selectButton = 7
+        elseif selectButton == 2 then
+          selectButton = 3
         elseif selectButton == 3 then
           selectButton = 4
-          button_blop:play()
         elseif selectButton == 4 then
           selectButton = 5
-          button_blop:play()
+        elseif selectButton == 5 then
+          selectButton = 6
         elseif selectButton == 6 then
           selectButton = 2
-          button_blop:play()
+          elseif selectButton == 7 then
+            selectButton = 1
         end
-    end
+      end
 
 
 
@@ -411,205 +476,253 @@ function keyboard:pong_Button_From_Main_Menu()
     end
 
     function keyboard:MenuLeft()
-      if OnCustomizationPlayerOne then
-        return
-      end
-      if OnSettingsAudio then
-        if selectButton == 1 then
-          volumeMainV = volumeMainV - 0.1
-          love.resize()
-          if volumeMainV == 0.1 then
-            volumeMainV = 0.1
-          end
 
-        elseif selectButton == 2 then
-          volumeMusicV = volumeMusicV - 0.1
-          love.resize()
-          if volumeMusicV == 0.1 then
-            volumeMusicV = 0.1
-          end
+      if selectButton == 1 then
 
-        elseif selectButton == 3 then
-          point_GivenV = point_GivenV - 0.1
-          love.resize()
-          if point_GivenV == 0.1 then
-            point_GivenV = 0.1
-          end
+        if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          selectButton = 1
+         end
 
-        elseif selectButton == 4 then
-          volumeHitV = volumeHitV - 0.1
-          love.resize()
-          if volumeHitV == 0.1 then
-            volumeHitV = 0.1
-          end
+         if OnSettingsAudio then
+            volumeMainV = volumeMainV - 0.1
+            love.resize()
+            if volumeMainV == 0.1 then
+              volumeMainV = 0.1
+            end
+            end
 
-        elseif selectButton == 5 then
-          volumeButton_hitV = volumeButton_hitV - 0.1
-        love.resize()
-        if volumeButton_hitV == 0.1 then
-          volumeButton_hitV = 0.1
-        end
-        end
-        end
-
-if OnSettings then
-  if selectButton == 5 then
-    selectButton = 4
-    end
-end
-if OnCustomization then
-  return
-end
-
-        if not OnSettingsAudio then
-        if paused then
-          return
-        elseif selectButton == 5 then
-          selectButton = 3
-          button_blop:play()
-        elseif selectButton == 4 then
-          return
-        else
-          selectButton = 4
-          button_blop:play()
-        end
+            if OnStartMenu or OnPongMenu then
+              OnPongButton = true
+              love.resize()
+              else
+              OnPongButton = false
+              end
+              if OnStartMenu then
+                selectButton = 4
+              end
   
-  
-        if selectButton == 1 then
-          if OnStartMenu or OnPongMenu then
-          OnPongButton = true
-          love.resize()
-          else
-          OnPongButton = false
-          end
+              if  OnPongMenu then
+                selectButton = 4
+              end
         elseif selectButton == 2 then
-          if not OnPongMenu then
+
+          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+            selectButton = 1
+           end
+
+           if OnSettingsAudio then
+           volumeMusicV = volumeMusicV - 0.1
+           love.resize()
+           if volumeMusicV == 0.1 then
+             volumeMusicV = 0.1
+           end
+           end
+
+           if not OnPongMenu then
             OnPongButton = false
             else
               OnPongButton = true
             end
-            else
+
               if not OnPongMenu then
                 OnPongButton = false
                 else
                   OnPongButton = true
                 end
-        end
-      end
+
+        elseif selectButton == 3 then
+
+          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+            selectButton = 1
+           end
+
+           if OnSettingsAudio then
+           point_GivenV = point_GivenV - 0.1
+           love.resize()
+           if point_GivenV == 0.1 then
+             point_GivenV = 0.1
+           end
+           end
+
+           if OnStartMenu then
+            selectButton = 4
+          end
+
+          if  OnPongMenu then
+            selectButton = 4
+          end
+
+        elseif selectButton == 4 then
+
+          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+            selectButton = 1
+           end
+
+           if OnSettingsAudio then
+           volumeHitV = volumeHitV - 0.1
+           love.resize()
+           if volumeHitV == 0.1 then
+             volumeHitV = 0.1
+           end
+           end
+           
+        elseif selectButton == 5 then
+
+          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+            selectButton = 1
+           end
+
+           if OnSettingsAudio then
+            volumeButton_hitV = volumeButton_hitV - 0.1
+          love.resize()
+          if volumeButton_hitV == 0.1 then
+            volumeButton_hitV = 0.1
+          end
+          end
+
+          if OnSettings then
+            selectButton = 4
+          end
+
+          if OnStartMenu then
+            selectButton = 3
+          end
+
+          if  OnPongMenu then
+            selectButton = 3
+          end
+
+        elseif selectButton == 6 then
+
+          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+            selectButton = 1
+           end
+
+         end
     end
 
     function keyboard:MenuRight()
-
-      if OnCustomizationPlayerOne then
-        if selectButton == 1 then
-          selectColorBar = 1
-          selectButton = 1
-          if selectColorBar == 1 then
-            selectColorBar = 2
-            selectButton = 1
-          elseif selectColorBar == 2 then
-              selectColorBar = 3
-              selectButton = 1
-            elseif selectColorBar == 3 then
-              selectColorBar = 4
-              selectButton = 1
-            elseif selectColorBar == 4 then
-              selectColorBar = 5
-              selectButton = 1
-            elseif selectColorBar == 5 then
-              selectColorBar = 1
-              selectButton = 1
-          end
-          end
-      end
+      
+      if selectButton == 1 then
+        if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          selectButton = 2
+        end
 
 
-      if OnCustomization then
-        return
-      end
-
-      if OnSettingsAudio then
-        if selectButton == 1 then
+        if OnSettingsAudio then
           volumeMainV = volumeMainV + 0.1
           love.resize()
           if volumeMainV == 1 then
             volumeMainV = 1
           end
+          end
+
+          if OnStartMenu or OnPongMenu then
+            OnPongButton = true
+            love.resize()
+            else
+            OnPongButton = false
+            end
+
+            if OnStartMenu then
+              selectButton = 5
+            end
+
+            if  OnSettings then
+              selectButton = 5
+            end
+
+            if  OnPongMenu then
+              selectButton = 5
+            end
 
         elseif selectButton == 2 then
+
+          if OnSettingsAudio then
           volumeMusicV = volumeMusicV + 0.1
           love.resize()
           if volumeMusicV == 1 then
             volumeMusicV = 1
           end
+          end
+
+          if not OnPongMenu then
+            OnPongButton = false
+            else
+              OnPongButton = true
+            end
+
+             if not OnPongMenu then
+                OnPongButton = false
+                else
+                  OnPongButton = true
+                end
+            if OnStartMenu then
+              selectButton = 5
+            end
+
+            if  OnSettings then
+              selectButton = 5
+            end
+
+            if  OnPongMenu then
+              selectButton = 5
+            end
 
         elseif selectButton == 3 then
-          point_GivenV = point_GivenV + 0.1
-          love.resize()
-          if point_GivenV == 1 then
-            point_GivenV = 1
-          end
+        
+          if OnSettingsAudio then
+            point_GivenV = point_GivenV + 0.1
+            love.resize()
+            if point_GivenV == 1 then
+              point_GivenV = 1
+            end
+            end
+            if OnStartMenu then
+              selectButton = 5
+            end
+
+            if  OnSettings then
+              selectButton = 5
+            end
+
+            if  OnPongMenu then
+              selectButton = 5
+            end
 
         elseif selectButton == 4 then
-          volumeHitV = volumeHitV + 0.1
-          love.resize()
-          if volumeHitV == 1 then
-            volumeHitV = 1
+ 
+          if OnSettingsAudio then
+            volumeHitV = volumeHitV + 0.1
+            love.resize()
+            if volumeHitV == 1 then
+              volumeHitV = 1
+            end
           end
+            if OnStartMenu then
+              selectButton = 3
+            end
+
+            if  OnSettings then
+              selectButton = 5
+            end
+
+            if  OnPongMenu then
+              selectButton = 3
+            end
 
         elseif selectButton == 5 then
-          volumeButton_hitV = volumeButton_hitV + 0.1
-        love.resize()
-        if volumeButton_hitV == 1 then
-          volumeButton_hitV = 1
-        end
-        end
-        end
 
-        if OnSettings then
-          if selectButton == 4 then
-            selectButton = 5
+          if OnSettingsAudio then
+            volumeButton_hitV = volumeButton_hitV + 0.1
+            love.resize()
+            if volumeButton_hitV == 1 then
+              volumeButton_hitV = 1
+            end
             end
         end
-        if not OnSettingsAudio then
-      left = 0
-      right = 0
-      if paused then
-        return
-      elseif selectButton == 4 then
-        selectButton = 3
-        button_blop:play()
-      elseif selectButton == 5 then
-         left = 1
-         right = 1
-        return
-      else
-        selectButton = 5
-        button_blop:play()
-      end
 
-      if selectButton == 1 then
-        if OnStartMenu or OnPongMenu then
-        OnPongButton = true
-        love.resize()
-        else
-        OnPongButton = false
-        end
-      elseif selectButton == 2 then
-        if not OnPongMenu then
-          OnPongButton = false
-          else
-            OnPongButton = true
-          end
-          else
-            if not OnPongMenu then
-              OnPongButton = false
-              else
-                OnPongButton = true
-              end
-      end
-      end
-    end
+  end
 
     function Save_stuff()
       local file = io.open("settings.conf", "r+")
@@ -632,7 +745,7 @@ end
       file:write(point_GivenV .. "\n")
       file:write(volumeHitV .. "\n")
       file:write(volumeButton_hitV .. "\n")
-
+  -- Player 1
       if ColorSelectedForPlayerOne == yellow then
         ColorSelectedForPlayerOne = "yellow"
     elseif ColorSelectedForPlayerOne == slategray then
@@ -645,19 +758,71 @@ end
         ColorSelectedForPlayerOne = "white"
     end
       file:write(ColorSelectedForPlayerOne .. "\n")
-      file:close()
-      collectgarbage("collect")
-      if ColorSelectedForPlayerOne == "yellow" then
-        ColorSelectedForPlayerOne = yellow
-    elseif ColorSelectedForPlayerOne == "slategray" then
-        ColorSelectedForPlayerOne = slategray
-    elseif ColorSelectedForPlayerOne == "green" then
-        ColorSelectedForPlayerOne = green
-    elseif ColorSelectedForPlayerOne == "red" then
-        ColorSelectedForPlayerOne = red
-    elseif ColorSelectedForPlayerOne == "white" then
-        ColorSelectedForPlayerOne = white
-    end
+
+  -- Player 2
+  if ColorSelectedForPlayerTow == yellow then
+    ColorSelectedForPlayerTow = "yellow"
+elseif ColorSelectedForPlayerTow == slategray then
+  ColorSelectedForPlayerTow = "slategray"
+elseif ColorSelectedForPlayerTow == green then
+  ColorSelectedForPlayerTow = "green"
+elseif ColorSelectedForPlayerTow == red then
+  ColorSelectedForPlayerTow = "red"
+elseif ColorSelectedForPlayerTow == white then
+  ColorSelectedForPlayerTow = "white"
+end
+  file:write(ColorSelectedForPlayerTow .. "\n")
+  -- Ball
+  if ColorSelectedForBall == yellow then
+    ColorSelectedForBall = "yellow"
+elseif ColorSelectedForBall == slategray then
+  ColorSelectedForBall = "slategray"
+elseif ColorSelectedForBall == green then
+  ColorSelectedForBall = "green"
+elseif ColorSelectedForBall == red then
+  ColorSelectedForBall = "red"
+elseif ColorSelectedForBall == white then
+  ColorSelectedForBall = "white"
+end
+  file:write(ColorSelectedForBall .. "\n")
+  file:close()
+  collectgarbage("collect")
+    -- Player 1
+  if ColorSelectedForPlayerOne == "yellow" then
+    ColorSelectedForPlayerOne = yellow
+elseif ColorSelectedForPlayerOne == "slategray" then
+    ColorSelectedForPlayerOne = slategray
+elseif ColorSelectedForPlayerOne == "green" then
+    ColorSelectedForPlayerOne = green
+elseif ColorSelectedForPlayerOne == "red" then
+    ColorSelectedForPlayerOne = red
+elseif ColorSelectedForPlayerOne == "white" then
+    ColorSelectedForPlayerOne = white
+end
+  -- Player 2
+  if ColorSelectedForPlayerTow == "yellow" then
+    ColorSelectedForPlayerTow = yellow
+elseif ColorSelectedForPlayerTow == "slategray" then
+  ColorSelectedForPlayerTow = slategray
+elseif ColorSelectedForPlayerTow == "green" then
+  ColorSelectedForPlayerTow = green
+elseif ColorSelectedForPlayerTow == "red" then
+  ColorSelectedForPlayerTow = red
+elseif ColorSelectedForPlayerTow == "white" then
+  ColorSelectedForPlayerTow = white
+end
+  -- ball
+  if ColorSelectedForBall == "yellow" then
+    ColorSelectedForBall = yellow
+elseif ColorSelectedForBall == "slategray" then
+  ColorSelectedForBall = slategray
+elseif ColorSelectedForBall == "green" then
+  ColorSelectedForBall = green
+elseif ColorSelectedForBall == "red" then
+  ColorSelectedForBall = red
+elseif ColorSelectedForBall == "white" then
+  ColorSelectedForBall = white
+end
     end
 
     
@@ -705,6 +870,30 @@ end
       ColorSelectedForPlayerOne = red
   elseif ColorSelectedForPlayerOne == "white" then
       ColorSelectedForPlayerOne = white
+  end
+    -- Player 2
+    if ColorSelectedForPlayerTow == "yellow" then
+      ColorSelectedForPlayerTow = yellow
+  elseif ColorSelectedForPlayerTow == "slategray" then
+    ColorSelectedForPlayerTow = slategray
+  elseif ColorSelectedForPlayerTow == "green" then
+    ColorSelectedForPlayerTow = green
+  elseif ColorSelectedForPlayerTow == "red" then
+    ColorSelectedForPlayerTow = red
+  elseif ColorSelectedForPlayerTow == "white" then
+    ColorSelectedForPlayerTow = white
+  end
+    -- ball
+    if ColorSelectedForBall == "yellow" then
+      ColorSelectedForBall = yellow
+  elseif ColorSelectedForBall == "slategray" then
+    ColorSelectedForBall = slategray
+  elseif ColorSelectedForBall == "green" then
+    ColorSelectedForBall = green
+  elseif ColorSelectedForBall == "red" then
+    ColorSelectedForBall = red
+  elseif ColorSelectedForBall == "white" then
+    ColorSelectedForBall = white
   end
     end
 

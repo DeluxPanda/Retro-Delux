@@ -108,7 +108,7 @@ function ball_LocalMultiPlayer:draw()
    love.graphics.print(playerTowScore, love.graphics.getWidth() / 2 + pipeWidth / 2, 10)
 
    -- ball_LocalMultiPlayer
-   love.graphics.setColor(1, 255, 0)
+   love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10, 10)
    if WiningPongWhitPoints == true then
    if PlayerPointPong >= 12 then

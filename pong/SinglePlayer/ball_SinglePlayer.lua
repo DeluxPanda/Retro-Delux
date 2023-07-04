@@ -105,7 +105,7 @@ function ball_SinglePlayer:draw()
    love.graphics.print(AIScore, love.graphics.getWidth() / 2 + pipeWidth / 2, 10)
 
    -- ball_SinglePlayer
-   love.graphics.setColor(yellow)
+   love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10,10)
    if WiningPongWhitPoints == true then
       if PlayerPointPong >= 11 then
