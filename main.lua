@@ -54,6 +54,7 @@ WiningPongWhitPoints = true
 love.mouse.setVisible(true)
 
 keyboard:locadsaved()
+
 love.audio.setVolume(volumeMainV)
 Marcus_Nyman_MLIM_S2:setVolume(volumeMusicV)
 Lobby_Time:setVolume(volumeMusicV)
@@ -64,54 +65,6 @@ button_blop:setVolume(volumeButton_hitV)
 
 function love.load()
     lang:language()
-      -- Player 1
-    if ColorSelectedForPlayerOne == "yellow" then
-        ColorSelectedForPlayerOne = yellow
-    elseif ColorSelectedForPlayerOne == "slategray" then
-        ColorSelectedForPlayerOne = slategray
-    elseif ColorSelectedForPlayerOne == "green" then
-        ColorSelectedForPlayerOne = green
-    elseif ColorSelectedForPlayerOne == "red" then
-        ColorSelectedForPlayerOne = red
-    elseif ColorSelectedForPlayerOne == "white" then
-        ColorSelectedForPlayerOne = white
-    end
-      -- Player 2
-  if ColorSelectedForPlayerTow == "yellow" then
-    ColorSelectedForPlayerTow = yellow
-elseif ColorSelectedForPlayerTow == "slategray" then
-  ColorSelectedForPlayerTow = slategray
-elseif ColorSelectedForPlayerTow == "green" then
-  ColorSelectedForPlayerTow = green
-elseif ColorSelectedForPlayerTow == "red" then
-  ColorSelectedForPlayerTow = red
-elseif ColorSelectedForPlayerTow == "white" then
-  ColorSelectedForPlayerTow = white
-end
-  -- ball
-  if ColorSelectedForBall == "yellow" then
-    ColorSelectedForBall = yellow
-elseif ColorSelectedForBall == "slategray" then
-  ColorSelectedForBall = slategray
-elseif ColorSelectedForBall == "green" then
-  ColorSelectedForBall = green
-elseif ColorSelectedForBall == "red" then
-  ColorSelectedForBall = red
-elseif ColorSelectedForBall == "white" then
-  ColorSelectedForBall = white
-end
-  -- Background
-  if ColorSelectedForBackground == "yellow" then
-    ColorSelectedForBackground = yellow
-elseif ColorSelectedForBackground == "slategray" then
-  ColorSelectedForBackground = slategray
-elseif ColorSelectedForBackground == "green" then
-  ColorSelectedForBackground = green
-elseif ColorSelectedForBackground == "red" then
-  ColorSelectedForBackground = red
-elseif ColorSelectedForBackground == "white" then
-  ColorSelectedForBackground = white
-end
 
     if OnStartMenu then
         love.mouse.setVisible(true)

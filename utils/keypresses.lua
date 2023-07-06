@@ -2,6 +2,7 @@ keyboard = {}
 function keyboard:pong_Button_From_Main_Menu()
    OnStartMenu = false
    OnPongMenu = true
+   OnCustomizationBackground = false
    pongMenu()
    love.resize()
    Nostalgia:stop()
@@ -10,6 +11,7 @@ function keyboard:pong_Button_From_Main_Menu()
  function keyboard:pong_SP_Btn_pong_Menu()
    started_SinglePlayer = true
    OnPongMenu = false
+   OnCustomizationBackground = false
    love.filesystem.load("pong/SinglePlayer/SinglePlayer.lua")()
    player_SinglePlayer:load()
    ai_SinglePlayer:load()
@@ -25,6 +27,7 @@ function keyboard:pong_Button_From_Main_Menu()
  function keyboard:pong_LMP_Btn_pong_Menu()
    started_LocalMultiPlayer = true
    OnPongMenu = false
+   OnCustomizationBackground = false
    love.filesystem.load("pong/LocalMultiPlayer/Main_LocalMultiPlayer.lua")()
    player_LocalMultiPlayer:load()
    playerTow_LocalMultiPlayer:load()
@@ -46,7 +49,7 @@ function keyboard:pong_Button_From_Main_Menu()
    started_LocalMultiPlayer = false
    paused = false
    OnCustomization = false
-
+   OnCustomizationBackground = false
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:stop()
    Lobby_Time:stop()
@@ -61,11 +64,12 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = true
   OnSettingsAudio = false
-
+  OnCustomizationBackground = false
   OnCustomization = false
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
+  OnCustomizationBackground = false
   selectButton = 1
   love.filesystem.load("settings.lua")()
   love.resize()
@@ -77,6 +81,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = true
+  OnCustomizationBackground = false
   selectButton = 1
   love.filesystem.load("settingsAudio.lua")()
   love.resize()
@@ -87,11 +92,12 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
-
+  OnCustomizationBackground = false
   OnCustomization = true
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
+  OnCustomizationBackground = false
 
   selectButton = 1
   love.filesystem.load("Customiz/Customization.lua")()
@@ -103,11 +109,12 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
-
+  OnCustomizationBackground = false
   OnCustomization = false
   OnCustomizationPlayerOne = true
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
+  OnCustomizationBackground = false
 
   selectButton = 1
   love.filesystem.load("Customiz/PlayerOne.lua")()
@@ -118,6 +125,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
+  OnCustomizationBackground = false
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerTow = true
@@ -130,11 +138,25 @@ function keyboard:pong_Button_From_Main_Menu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
+  OnCustomizationBackground = false
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationBall = true
   selectButton = 1
   love.filesystem.load("Customiz/Ball.lua")()
+  love.resize()
+  Marcus_Nyman_MLIM_S2:stop()
+ end
+ function keyboard:settingsCustomizationBackgroundMenu()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = false
+  OnCustomization = false
+  OnCustomizationBall = false
+  OnCustomizationBackground = true
+  selectButton = 1
+  love.filesystem.load("Customiz/Background.lua")()
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
  end
@@ -172,7 +194,6 @@ function keyboard:pong_Button_From_Main_Menu()
         end
         end
         if OnCustomization then
-
             keyboard:settingsCustomizationPlayerOneMenu()
          end
 
@@ -209,8 +230,13 @@ function keyboard:pong_Button_From_Main_Menu()
           ColorSelectedForBall = ColorSelected
         end
 
+        if OnCustomizationBackground then
+          ColorSelectedForBackground = ColorSelected
+        end
+
        elseif selectButton == 3 then
         if OnStartMenu then
+          Save_stuff()
           love.event.quit()
         elseif OnPongMenu then
           keyboard:back_to_MainMenu()
@@ -233,6 +259,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
+        end
+
+        if OnCustomizationBackground then
+          ColorSelectedForBackground = ColorSelected
         end
 
        elseif selectButton == 4 then
@@ -263,28 +293,32 @@ function keyboard:pong_Button_From_Main_Menu()
           ColorSelectedForBall = ColorSelected
         end
 
+        if OnCustomizationBackground then
+          ColorSelectedForBackground = ColorSelected
+        end
+
        elseif selectButton == 5 then
-        if OnStartMenu then
+
+        if OnStartMenu or OnPongMenu then
           keyboard:SettingsMenu()
-        elseif OnPongMenu then
-          keyboard:SettingsMenu()
-        elseif paused then
-          return
         elseif OnSettings then
           keyboard:settingsCustomizationMenu()
-        end
-
-        if OnCustomizationPlayerOne then
+        elseif OnCustomization then
+          keyboard:settingsCustomizationBackgroundMenu()
+  
+      elseif OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
-        end
-
-        if OnCustomizationPlayerTow then
+    
+      elseif OnCustomizationPlayerTow then
           ColorSelectedForPlayerTow = ColorSelected
+ 
+      elseif OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+
+      elseif OnCustomizationBackground then
+          ColorSelectedForBackground = ColorSelected
         end
 
-        if OnCustomizationBall then
-          ColorSelectedForBall = ColorSelected
-        end
 
        elseif selectButton == 6 then
         if OnSettingsAudio then
@@ -304,16 +338,27 @@ function keyboard:pong_Button_From_Main_Menu()
           ColorSelectedForBall = ColorSelected
         end
 
+        if OnCustomizationBackground then
+          ColorSelectedForBackground = ColorSelected
+        end
+
         elseif selectButton == 7 then
-        if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+        if OnCustomizationPlayerOne 
+        or OnCustomizationPlayerTow 
+        or OnCustomizationBall 
+        or OnCustomizationBackground then
           keyboard:settingsCustomizationMenu()
           Save_stuff()
+          love.graphics.setBackgroundColor(ColorSelectedForBackground)
        end
       end
     end
 
     function keyboard:MenuUp()
-      if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+      if OnCustomizationPlayerOne 
+      or OnCustomizationPlayerTow 
+      or OnCustomizationBall
+      or OnCustomizationBackground then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -393,7 +438,10 @@ function keyboard:pong_Button_From_Main_Menu()
     end
     
     function keyboard:MenuDown()
-      if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+      if OnCustomizationPlayerOne 
+      or OnCustomizationPlayerTow 
+      or OnCustomizationBall 
+      or OnCustomizationBackground then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -479,7 +527,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
       if selectButton == 1 then
 
-        if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+        if OnCustomizationPlayerOne 
+        or OnCustomizationPlayerTow 
+        or OnCustomizationBall 
+        or OnCustomizationBackground then
           selectButton = 1
          end
 
@@ -506,7 +557,10 @@ function keyboard:pong_Button_From_Main_Menu()
               end
         elseif selectButton == 2 then
 
-          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTow 
+          or OnCustomizationBall 
+          or OnCustomizationBackground then
             selectButton = 1
            end
 
@@ -532,7 +586,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 3 then
 
-          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTow 
+          or OnCustomizationBall 
+          or OnCustomizationBackground then
             selectButton = 1
            end
 
@@ -554,7 +611,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 4 then
 
-          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTow 
+          or OnCustomizationBall 
+          or OnCustomizationBackground then
             selectButton = 1
            end
 
@@ -567,8 +627,13 @@ function keyboard:pong_Button_From_Main_Menu()
            end
            
         elseif selectButton == 5 then
-
-          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          if OnCustomization then
+            selectButton = 4
+          end
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTow 
+          or OnCustomizationBall
+          or OnCustomizationBackground then
             selectButton = 1
            end
 
@@ -594,7 +659,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 6 then
 
-          if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTow 
+          or OnCustomizationBall
+          or OnCustomizationBackground then
             selectButton = 1
            end
 
@@ -604,7 +672,15 @@ function keyboard:pong_Button_From_Main_Menu()
     function keyboard:MenuRight()
       
       if selectButton == 1 then
-        if OnCustomizationPlayerOne or OnCustomizationPlayerTow or OnCustomizationBall then
+
+        if OnCustomization then
+          selectButton = 5
+        end
+
+        if OnCustomizationPlayerOne 
+        or OnCustomizationPlayerTow 
+        or OnCustomizationBall
+        or OnCustomizationBackground then
           selectButton = 2
         end
 
@@ -637,6 +713,10 @@ function keyboard:pong_Button_From_Main_Menu()
             end
 
         elseif selectButton == 2 then
+
+          if OnCustomization then
+            selectButton = 5
+          end
 
           if OnSettingsAudio then
           volumeMusicV = volumeMusicV + 0.1
@@ -671,6 +751,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 3 then
         
+          if OnCustomization then
+            selectButton = 5
+          end
+
           if OnSettingsAudio then
             point_GivenV = point_GivenV + 0.1
             love.resize()
@@ -692,6 +776,10 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 4 then
  
+          if OnCustomization then
+            selectButton = 5
+          end
+
           if OnSettingsAudio then
             volumeHitV = volumeHitV + 0.1
             love.resize()
@@ -786,18 +874,18 @@ elseif ColorSelectedForBall == white then
 end
   file:write(ColorSelectedForBall .. "\n")
   -- Background
-  if ColorSelectedForBackground == yellow then
-    ColorSelectedForBackground = "yellow"
-elseif ColorSelectedForBackground == slategray then
-  ColorSelectedForBackground = "slategray"
-elseif ColorSelectedForBackground == green then
-  ColorSelectedForBackground = "green"
-elseif ColorSelectedForBackground == red then
-  ColorSelectedForBackground = "red"
-elseif ColorSelectedForBackground == white then
-  ColorSelectedForBackground = "white"
+  if ColorSelectedForBackground == yellow_backgrund then
+    ColorSelectedForBackground = "yellow_backgrund"
+elseif ColorSelectedForBackground == slategray_backgrund then
+  ColorSelectedForBackground = "slategray_backgrund"
+elseif ColorSelectedForBackground == green_backgrund then
+  ColorSelectedForBackground = "green_backgrund"
+elseif ColorSelectedForBackground == red_backgrund then
+  ColorSelectedForBackground = "red_backgrund"
+elseif ColorSelectedForBackground == white_backgrund then
+  ColorSelectedForBackground = "white_backgrund"
 end
-  file:write(ColorSelectedForBall .. "\n")
+  file:write(ColorSelectedForBackground .. "\n")
   file:close()
   collectgarbage("collect")
     -- Player 1
@@ -837,16 +925,16 @@ elseif ColorSelectedForBall == "white" then
   ColorSelectedForBall = white
 end
   -- Background
-  if ColorSelectedForBackground == "yellow" then
-    ColorSelectedForBackground = yellow
-elseif ColorSelectedForBackground == "slategray" then
-  ColorSelectedForBackground = slategray
-elseif ColorSelectedForBackground == "green" then
-  ColorSelectedForBackground = green
-elseif ColorSelectedForBackground == "red" then
-  ColorSelectedForBackground = red
-elseif ColorSelectedForBackground == "white" then
-  ColorSelectedForBackground = white
+  if ColorSelectedForBackground == "yellow_backgrund" then
+    ColorSelectedForBackground = yellow_backgrund
+elseif ColorSelectedForBackground == "slategray_backgrund" then
+  ColorSelectedForBackground = slategray_backgrund
+elseif ColorSelectedForBackground == "green_backgrund" then
+  ColorSelectedForBackground = green_backgrund
+elseif ColorSelectedForBackground == "red_backgrund" then
+  ColorSelectedForBackground = red_backgrund
+elseif ColorSelectedForBackground == "white_backgrund" then
+  ColorSelectedForBackground = white_backgrund
 end
     end
 
@@ -865,6 +953,7 @@ end
     local line8 = file:read("*line")
     local line9 = file:read("*line")
     local line10 = file:read("*line")
+    local line11 = file:read("*line")
     volumeMainV = line3
     volumeMusicV = line4
     point_GivenV = line5
@@ -873,6 +962,7 @@ end
     ColorSelectedForPlayerOne = line8 --player_1
     ColorSelectedForPlayerTow = line9 --player_2
     ColorSelectedForBall = line10 --Ball
+    ColorSelectedForBackground = line11 --Background
     file:close()
     local line = nil
     local line2 = nil
@@ -884,42 +974,80 @@ end
     local line8 = nil
     local line9 = nil
     local line10 = nil
+    local line11 = nil
     collectgarbage("collect")
-    if ColorSelectedForPlayerOne == "yellow" then
-      ColorSelectedForPlayerOne = yellow
-  elseif ColorSelectedForPlayerOne == "slategray" then
-      ColorSelectedForPlayerOne = slategray
-  elseif ColorSelectedForPlayerOne == "green" then
-      ColorSelectedForPlayerOne = green
-  elseif ColorSelectedForPlayerOne == "red" then
-      ColorSelectedForPlayerOne = red
-  elseif ColorSelectedForPlayerOne == "white" then
-      ColorSelectedForPlayerOne = white
-  end
-    -- Player 2
-    if ColorSelectedForPlayerTow == "yellow" then
-      ColorSelectedForPlayerTow = yellow
-  elseif ColorSelectedForPlayerTow == "slategray" then
-    ColorSelectedForPlayerTow = slategray
-  elseif ColorSelectedForPlayerTow == "green" then
-    ColorSelectedForPlayerTow = green
-  elseif ColorSelectedForPlayerTow == "red" then
-    ColorSelectedForPlayerTow = red
-  elseif ColorSelectedForPlayerTow == "white" then
-    ColorSelectedForPlayerTow = white
-  end
-    -- ball
-    if ColorSelectedForBall == "yellow" then
-      ColorSelectedForBall = yellow
-  elseif ColorSelectedForBall == "slategray" then
-    ColorSelectedForBall = slategray
-  elseif ColorSelectedForBall == "green" then
-    ColorSelectedForBall = green
-  elseif ColorSelectedForBall == "red" then
-    ColorSelectedForBall = red
-  elseif ColorSelectedForBall == "white" then
-    ColorSelectedForBall = white
-  end
+    if volumeMainV == nil then
+      volumeMainV = 0.5
+    end
+    if volumeMusicV == nil then
+      volumeMusicV = 0.5
+    end
+    if point_GivenV == nil then
+      point_GivenV = 0.5
+    end
+    if volumeHitV == nil then 
+      volumeHitV = 0.5
+    end
+    if volumeButton_hitV == nil then
+      volumeButton_hitV = 0.5
+    end
+      -- Player 1
+      if ColorSelectedForPlayerOne == "yellow" then
+        ColorSelectedForPlayerOne = yellow
+    elseif ColorSelectedForPlayerOne == "slategray" then
+        ColorSelectedForPlayerOne = slategray
+    elseif ColorSelectedForPlayerOne == "green" then
+        ColorSelectedForPlayerOne = green
+    elseif ColorSelectedForPlayerOne == "red" then
+        ColorSelectedForPlayerOne = red
+    elseif ColorSelectedForPlayerOne == "white" then
+        ColorSelectedForPlayerOne = white
+      else
+        ColorSelectedForPlayerOne = green
+    end
+      -- Player 2
+      if ColorSelectedForPlayerTow == "yellow" then
+        ColorSelectedForPlayerTow = yellow
+    elseif ColorSelectedForPlayerTow == "slategray" then
+      ColorSelectedForPlayerTow = slategray
+    elseif ColorSelectedForPlayerTow == "green" then
+      ColorSelectedForPlayerTow = green
+    elseif ColorSelectedForPlayerTow == "red" then
+      ColorSelectedForPlayerTow = red
+    elseif ColorSelectedForPlayerTow == "white" then
+      ColorSelectedForPlayerTow = white
+    else
+      ColorSelectedForPlayerTow = red
+    end
+  -- ball
+  if ColorSelectedForBall == "yellow" then
+    ColorSelectedForBall = yellow
+elseif ColorSelectedForBall == "slategray" then
+  ColorSelectedForBall = slategray
+elseif ColorSelectedForBall == "green" then
+  ColorSelectedForBall = green
+elseif ColorSelectedForBall == "red" then
+  ColorSelectedForBall = red
+elseif ColorSelectedForBall == "white" then
+  ColorSelectedForBall = white
+else
+  ColorSelectedForBall = yellow
+end
+  -- Background
+  if ColorSelectedForBackground == "yellow_backgrund" then
+    ColorSelectedForBackground = yellow_backgrund
+elseif ColorSelectedForBackground == "slategray_backgrund" then
+  ColorSelectedForBackground = slategray_backgrund
+elseif ColorSelectedForBackground == "green_backgrund" then
+  ColorSelectedForBackground = green_backgrund
+elseif ColorSelectedForBackground == "red_backgrund" then
+  ColorSelectedForBackground = red_backgrund
+elseif ColorSelectedForBackground == "white_backgrund" then
+  ColorSelectedForBackground = white_backgrund
+else
+  ColorSelectedForBackground = slategray_backgrund
+end
+love.graphics.setBackgroundColor(ColorSelectedForBackground)
     end
 
 
@@ -928,7 +1056,7 @@ end
  love.event.quit("restart")
   end
   if key == "h" then
-    ColorSelectedForPlayerOne = ColorSelected
+   print(OnCustomizationBackground)
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
@@ -964,6 +1092,7 @@ end
    or OnCustomizationPlayerOne
    or OnCustomizationPlayerTow
    or OnCustomizationBall
+   or OnCustomizationBackground
    then
     love.mouse.setPosition( 0, 0 )
    if key == "up" then
