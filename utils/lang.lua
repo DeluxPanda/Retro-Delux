@@ -64,6 +64,8 @@ if lang_eng then
     PlayerOneName = "Player 1"
     PlayerTowName = "Player 2"
     BallName = "Ball"
+    maxPointsName = "Max points"
+    BackgroundName = "Background"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -101,5 +103,7 @@ elseif lang_swe then
     PlayerOneName = "Spelare 1"
     PlayerTowName = "Spelare 2"
     BallName = "Boll"
+    maxPointsName = "Maxpoäng" 
+    BackgroundName = "Bakgrund"
 end
 end

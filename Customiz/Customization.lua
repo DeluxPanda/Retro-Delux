@@ -109,5 +109,5 @@ end
          love.graphics.setColor(green)
          love.graphics.rectangle("fill", customiz_button_x, customiz_button_y, button_width, button_height, corner_radius, corner_radius)
          love.graphics.setColor(255, 255, 255)
-         love.graphics.printf(CustomizeName, customiz_button_x, customiz_button_y + 10, button_width, "center")
+         love.graphics.printf(BackgroundName, customiz_button_x, customiz_button_y + 10, button_width, "center")
   end

@@ -272,8 +272,6 @@ function keyboard:pong_Button_From_Main_Menu()
           Save_stuff()
           love.resize()
           keyboard:back_to_MainMenu()
-        elseif OnPongMenu then
-          keyboard:Credits()
         elseif paused then
           return
         end
@@ -886,8 +884,11 @@ elseif ColorSelectedForBackground == white_backgrund then
   ColorSelectedForBackground = "white_backgrund"
 end
   file:write(ColorSelectedForBackground .. "\n")
+  file:write(PointCunt .. "\n")
+
   file:close()
   collectgarbage("collect")
+  PointCunt = tonumber(PointCunt)
     -- Player 1
   if ColorSelectedForPlayerOne == "yellow" then
     ColorSelectedForPlayerOne = yellow
@@ -937,7 +938,6 @@ elseif ColorSelectedForBackground == "white_backgrund" then
   ColorSelectedForBackground = white_backgrund
 end
     end
-
     
     function keyboard:locadsaved()
     local file = io.open("settings.conf", "r")
@@ -954,6 +954,7 @@ end
     local line9 = file:read("*line")
     local line10 = file:read("*line")
     local line11 = file:read("*line")
+    local line12 = file:read("*line")
     volumeMainV = line3
     volumeMusicV = line4
     point_GivenV = line5
@@ -963,6 +964,8 @@ end
     ColorSelectedForPlayerTow = line9 --player_2
     ColorSelectedForBall = line10 --Ball
     ColorSelectedForBackground = line11 --Background
+    PointCunt = line12
+
     file:close()
     local line = nil
     local line2 = nil
@@ -975,6 +978,7 @@ end
     local line9 = nil
     local line10 = nil
     local line11 = nil
+    local line12 = nil
     collectgarbage("collect")
     if volumeMainV == nil then
       volumeMainV = 0.5
@@ -991,6 +995,9 @@ end
     if volumeButton_hitV == nil then
       volumeButton_hitV = 0.5
     end
+    if PointCunt == nil then
+      PointCunt = 11
+      end
       -- Player 1
       if ColorSelectedForPlayerOne == "yellow" then
         ColorSelectedForPlayerOne = yellow
@@ -1052,11 +1059,24 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
 
 
  function love.keypressed(key)
+  if selectButton == 4 and OnPongMenu then
+    if key == "x" then
+      PointCunt = PointCunt - 1
+      if PointCunt <= 1 then
+        PointCunt = 1
+      end
+    elseif key == "y" then
+        PointCunt = PointCunt + 1
+        if PointCunt >= 99999999 then
+          PointCunt = 99999999
+        end
+    end
+  end
   if key == "r" then
  love.event.quit("restart")
   end
   if key == "h" then
-   print(OnCustomizationBackground)
+   print(PointCunt)
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
@@ -1148,6 +1168,19 @@ end
       end
     keyboard:Enter_things()
  end
+ if selectButton == 4 and OnPongMenu then
+  if button == "x" then
+    PointCunt = PointCunt - 1
+    if PointCunt <= 1 then
+      PointCunt = 1
+    end
+  elseif button == "y" then
+      PointCunt = PointCunt + 1
+      if PointCunt >= 99999999 then
+        PointCunt = 99999999
+      end
+  end
+end
 end
 
  function love.focus(focus)

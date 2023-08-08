@@ -19,8 +19,8 @@ pongMenu = {}
    main_menu_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
    main_menu_button_y = love.graphics.getHeight() - 60
 
-   credits_button_x = 10
-   credits_button_y = love.graphics.getHeight() - 60
+   raunds_button_x = 10
+   raunds_button_y = love.graphics.getHeight() - 60
 
  -- Hover over the Buttons --
  local mouse_x, mouse_y = love.mouse.getPosition()
@@ -48,13 +48,13 @@ pongMenu = {}
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", main_menu_button_x , main_menu_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
     end
-    -- Credits
-    if mouse_x >= credits_button_x and mouse_x <= credits_button_x + button_width and
-        mouse_y >= credits_button_y and mouse_y <= credits_button_y + button_height or
+    -- raunds
+    if mouse_x >= raunds_button_x and mouse_x <= raunds_button_x + button_width and
+        mouse_y >= raunds_button_y and mouse_y <= raunds_button_y + button_height or
         selectButton == 4 then
          selectButton = 4
         love.graphics.setColor(yellow)
-        love.graphics.rectangle("fill", credits_button_x, credits_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
+        love.graphics.rectangle("fill", raunds_button_x, raunds_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
     end
     -- Settings
     if mouse_x >= Settings_button_x and mouse_x <= Settings_button_x + button_width and
@@ -107,9 +107,21 @@ pongMenu = {}
             Settings_button_y = love.graphics.getHeight() - 60
             -- Credits
             love.graphics.setColor(green)
-            love.graphics.rectangle("fill", credits_button_x, credits_button_y, button_width, button_height, corner_radius, corner_radius)
-            love.graphics.setColor(255, 255, 255)
-            love.graphics.printf(CreditsName, credits_button_x, credits_button_y + 10, button_width, "center")
-            credits_button_x = 10
-            credits_button_y = love.graphics.getHeight() - 60
+            love.graphics.rectangle("fill", raunds_button_x, raunds_button_y, button_width, button_height, corner_radius, corner_radius)
+            love.graphics.setColor(white)
+            love.graphics.rectangle("fill", 70 - 10, raunds_button_y, button_width - 100, button_height, corner_radius, corner_radius)
+            love.graphics.setColor(slategray)
+        
+            love.graphics.printf(PointCunt, raunds_button_x, raunds_button_y + 10, button_width, "center")
+        
+            love.graphics.printf("< X", raunds_button_x, raunds_button_y + 10, button_width, "left")
+            love.graphics.printf("Y >", raunds_button_x, raunds_button_y + 10, button_width, "right")
+        
+            love.graphics.setColor(green)
+            love.graphics.rectangle("fill",raunds_button_x, raunds_button_y - 40, button_width, button_height - 20, corner_radius, corner_radius)
+
+            love.graphics.setColor(white)
+            love.graphics.printf(maxPointsName, raunds_button_x , raunds_button_y - 40, button_width, "center")
+            raunds_button_x = 10
+            raunds_button_y = love.graphics.getHeight() - 60
         end 

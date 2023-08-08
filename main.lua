@@ -1,3 +1,7 @@
+if io.open("settings.conf", "r") == nil then
+    file = io.open("settings.conf", "w")
+file:close()
+end
 -- pong
 require ("pong/pongMenu")
 -- pong Singel Player
@@ -19,8 +23,6 @@ require("utils/keypresses")
 require("utils/lang")
 require("utils/color")
 require ('utils/simple-slider')
-
-
 
 Game_Titl_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 50)
 Button_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
@@ -51,6 +53,7 @@ WiningPongWhitPoints = true
  selectButton = 1
  joystick_timer = 0
  joystick_delay = 0.2
+
 love.mouse.setVisible(true)
 
 keyboard:locadsaved()
@@ -65,7 +68,7 @@ button_blop:setVolume(volumeButton_hitV)
 
 function love.load()
     lang:language()
-
+print(PointCunt)
     if OnStartMenu then
         love.mouse.setVisible(true)
         love.audio.play(Marcus_Nyman_MLIM_S2)
