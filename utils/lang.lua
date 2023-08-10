@@ -64,8 +64,11 @@ if lang_eng then
     PlayerOneName = "Player 1"
     PlayerTowName = "Player 2"
     BallName = "Ball"
-    maxPointsName = "Max points"
+    maxPointsName = "First to"
     BackgroundName = "Background"
+    About_GameName = "About Game"
+    MusicName = "Music"
+    DevelopersName = "Developers"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -87,7 +90,7 @@ elseif lang_swe then
     PlayerTowWin = "Spelare två vann"
     PlayerYouWin = "Du vann"
     PlayerAIWin = "Datorn vann"
-    GameResetName = "försök igen"
+    GameResetName = "Försök igen"
     MainVolumeName = "Huvudvolym"
     BackgroundMusic = "Bakgrundsmusik"
     pointGivenVolume = "Poäng ges"
@@ -103,7 +106,10 @@ elseif lang_swe then
     PlayerOneName = "Spelare 1"
     PlayerTowName = "Spelare 2"
     BallName = "Boll"
-    maxPointsName = "Maxpoäng" 
+    maxPointsName = "Först till" 
     BackgroundName = "Bakgrund"
+    About_GameName = "Om spelet"
+    MusicName = "Musik"
+    DevelopersName = "Utvecklare"
 end
 end

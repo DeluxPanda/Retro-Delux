@@ -9,10 +9,9 @@ function keyboard:pong_Button_From_Main_Menu()
  end
 
  function keyboard:pong_SP_Btn_pong_Menu()
-   started_SinglePlayer = true
+  love.filesystem.load("pong/SinglePlayer/SinglePlayer.lua")()
    OnPongMenu = false
    OnCustomizationBackground = false
-   love.filesystem.load("pong/SinglePlayer/SinglePlayer.lua")()
    player_SinglePlayer:load()
    ai_SinglePlayer:load()
    ball_SinglePlayer:load()
@@ -22,6 +21,7 @@ function keyboard:pong_Button_From_Main_Menu()
    love.resize()
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:play()
+   started_SinglePlayer = true
  end
  
  function keyboard:pong_LMP_Btn_pong_Menu()
@@ -50,6 +50,7 @@ function keyboard:pong_Button_From_Main_Menu()
    paused = false
    OnCustomization = false
    OnCustomizationBackground = false
+   OnCredits = false
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:stop()
    Lobby_Time:stop()
@@ -102,7 +103,6 @@ function keyboard:pong_Button_From_Main_Menu()
   selectButton = 1
   love.filesystem.load("Customiz/Customization.lua")()
   love.resize()
-  Marcus_Nyman_MLIM_S2:stop()
  end
  function keyboard:settingsCustomizationPlayerOneMenu()
   OnStartMenu = false
@@ -119,7 +119,6 @@ function keyboard:pong_Button_From_Main_Menu()
   selectButton = 1
   love.filesystem.load("Customiz/PlayerOne.lua")()
   love.resize()
-  Marcus_Nyman_MLIM_S2:stop()
  end
  function keyboard:settingsCustomizationPlayerTowMenu()
   OnStartMenu = false
@@ -132,7 +131,6 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/PlayerTow.lua")()
   selectButton = 1
   love.resize()
-  Marcus_Nyman_MLIM_S2:stop()
  end
  function keyboard:settingsCustomizationBallMenu()
   OnStartMenu = false
@@ -145,7 +143,6 @@ function keyboard:pong_Button_From_Main_Menu()
   selectButton = 1
   love.filesystem.load("Customiz/Ball.lua")()
   love.resize()
-  Marcus_Nyman_MLIM_S2:stop()
  end
  function keyboard:settingsCustomizationBackgroundMenu()
   OnStartMenu = false
@@ -158,10 +155,14 @@ function keyboard:pong_Button_From_Main_Menu()
   selectButton = 1
   love.filesystem.load("Customiz/Background.lua")()
   love.resize()
-  Marcus_Nyman_MLIM_S2:stop()
  end
  function keyboard:Credits()
-   print("Credits")
+  OnStartMenu = false
+  OnPongMenu = false
+  OnCredits = true
+  selectButton = 1
+  love.filesystem.load("Credits.lua")()
+  love.resize()
  end
  function keyboard:Enter_things()
   
@@ -376,32 +377,24 @@ function keyboard:pong_Button_From_Main_Menu()
       if OnCustomization then
         if selectButton == 4 then
           selectButton = 3
-          button_blop:play()
         elseif selectButton == 3 then
           selectButton = 2
-          button_blop:play()
         elseif selectButton == 2 then
           selectButton = 1
-          button_blop:play()
         elseif selectButton == 1 then
           selectButton = 4
-          button_blop:play()
         end
       end
 
       if OnSettings then
         if selectButton == 4 then
           selectButton = 3
-          button_blop:play()
         elseif selectButton == 3 then
           selectButton = 2
-          button_blop:play()
         elseif selectButton == 2 then
           selectButton = 1
-          button_blop:play()
         elseif selectButton == 1 then
           selectButton = 4
-          button_blop:play()
         end
         end
 
@@ -424,13 +417,10 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnStartMenu or OnPongMenu or paused then
           if selectButton == 3 then
             selectButton = 2
-            button_blop:play()
           elseif selectButton == 2 then
             selectButton = 1
-            button_blop:play()
           elseif selectButton == 1 then
             selectButton = 3
-            button_blop:play()
           end
           end
     end
@@ -462,32 +452,24 @@ function keyboard:pong_Button_From_Main_Menu()
       if OnCustomization then 
         if selectButton == 1 then
           selectButton = 2
-          button_blop:play()
           elseif selectButton == 2 then
             selectButton = 3
-            button_blop:play()
           elseif selectButton == 3 then
             selectButton = 4
-            button_blop:play()
           elseif selectButton == 4 then
             selectButton = 1
-            button_blop:play()
           end
           end
 
       if OnSettings then
         if selectButton == 1 then
         selectButton = 2
-        button_blop:play()
         elseif selectButton == 2 then
           selectButton = 3
-          button_blop:play()
         elseif selectButton == 3 then
           selectButton = 4
-          button_blop:play()
         elseif selectButton == 4 then
           selectButton = 1
-          button_blop:play()
         end
         end
 
@@ -510,19 +492,15 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnStartMenu or OnPongMenu or paused then
           if selectButton == 1 then
             selectButton = 2
-            button_blop:play()
           elseif selectButton == 2 then
             selectButton = 3
-            button_blop:play()
           elseif selectButton == 3 then
             selectButton = 1
-            button_blop:play()
           end
           end
     end
 
     function keyboard:MenuLeft()
-
       if selectButton == 1 then
 
         if OnCustomizationPlayerOne 
@@ -668,7 +646,6 @@ function keyboard:pong_Button_From_Main_Menu()
     end
 
     function keyboard:MenuRight()
-      
       if selectButton == 1 then
 
         if OnCustomization then
@@ -1068,8 +1045,8 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
         Save_stuff()
       end
     elseif key == "y" then
-        if tonumber(PointCunt) >= 99999999 then
-          PointCunt = 99999999
+        if tonumber(PointCunt) >= 99999 then
+          PointCunt = 99999
         else
           PointCunt = PointCunt + 1
           Save_stuff()
@@ -1094,7 +1071,7 @@ end
    or key == "end"
    or key == "menu"
    then
-     if not (OnStartMenu or OnPongMenu or OnSettings or OnSettingsAudio) then
+    if  (started_SinglePlayer or started_LocalMultiPlayer) then
        paused = not paused
        love.mouse.setVisible(paused)
        if not paused then
@@ -1103,8 +1080,6 @@ end
         else
           Lobby_Time:play()
        end
-     elseif OnPongMenu or OnSettings then
-      keyboard:back_to_MainMenu()
       end
    end
    if OnStartMenu 
@@ -1121,18 +1096,32 @@ end
     love.mouse.setPosition( 0, 0 )
    if key == "up" then
     keyboard:MenuUp()
+    if not OnSettingsAudio then
+      button_blop:play()
+      end
    elseif key == "down" then
     keyboard:MenuDown()
+    if not OnSettingsAudio then
+      button_blop:play()
+      end
    elseif key == "right" then
     keyboard:MenuRight()
+    if not OnSettingsAudio then
+      button_blop:play()
+      end
    elseif key == "left" then
     keyboard:MenuLeft()
+    if not OnSettingsAudio then
+      button_blop:play()
+      end
    end
   end
    -- Enter things
    if key == "return" then
-    button_blop:play()
     keyboard:Enter_things()
+    if not OnSettingsAudio then
+      button_blop:play()
+      end
  end
 end
 
@@ -1142,7 +1131,7 @@ end
    or button == "back"
    or button == "start"
    then
-     if not (OnStartMenu or OnPongMenu or OnSettings or OnSettingsAudio) then
+     if  (started_SinglePlayer or started_LocalMultiPlayer) then
        paused = not paused
        love.mouse.setVisible(paused)
        if not paused then
@@ -1157,12 +1146,24 @@ end
     love.mouse.setPosition( 0, 0 )
     if button == "dpup" then
       keyboard:MenuUp()
+      if not OnSettingsAudio then
+        button_blop:play()
+        end
     elseif button == "dpdown" then
       keyboard:MenuDown()
+      if not OnSettingsAudio then
+        button_blop:play()
+        end
     elseif button == "dpright" then
       keyboard:MenuRight()
+      if not OnSettingsAudio then
+        button_blop:play()
+        end
     elseif button == "dpleft" then
       keyboard:MenuLeft()
+      if not OnSettingsAudio then
+        button_blop:play()
+        end
     end
   end
    -- Enter things
@@ -1181,8 +1182,8 @@ end
         Save_stuff()
     end
   elseif button == "y" then
-      if tonumber(PointCunt) >= 99999999 then
-        PointCunt = 99999999
+      if tonumber(PointCunt) >= 99999 then
+        PointCunt = 99999
       else
         PointCunt = PointCunt + 1
         Save_stuff()

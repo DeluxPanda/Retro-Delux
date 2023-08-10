@@ -9,6 +9,7 @@ function ai_SinglePlayer:load()
    self.yvel = 0
 end
 
+
 function ai_SinglePlayer:update(dt)
    ai_SinglePlayer:move(dt)
    ai_SinglePlayer:acquai_SinglePlayerTraget()

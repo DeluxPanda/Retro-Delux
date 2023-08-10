@@ -1,4 +1,5 @@
 ball_SinglePlayer =  {}
+
  AIPointPong = 0
  PlayerPointPong = 0
  function math_random()

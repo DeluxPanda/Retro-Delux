@@ -121,7 +121,7 @@ pongMenu = {}
             love.graphics.rectangle("fill",raunds_button_x, raunds_button_y - 40, button_width, button_height - 20, corner_radius, corner_radius)
 
             love.graphics.setColor(white)
-            love.graphics.printf(maxPointsName, raunds_button_x , raunds_button_y - 40, button_width, "center")
+            love.graphics.printf(maxPointsName .. " " ..PointCunt, raunds_button_x , raunds_button_y - 40, button_width, "center")
             raunds_button_x = 10
             raunds_button_y = love.graphics.getHeight() - 60
         end 

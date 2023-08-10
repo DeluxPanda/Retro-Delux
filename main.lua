@@ -53,6 +53,7 @@ WiningPongWhitPoints = true
  selectButton = 1
  joystick_timer = 0
  joystick_delay = 0.2
+ NotPlayedBefore = true
 
 love.mouse.setVisible(true)
 

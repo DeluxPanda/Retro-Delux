@@ -1,4 +1,4 @@
-local countdown = 10 -- starting value
+
 function love.load()
    if started_SinglePlayer then
    player_SinglePlayer:load()
@@ -7,11 +7,21 @@ function love.load()
 end
 end
 
---while countdown > 0 do
---  print(countdown)
---  countdown = countdown - 1
---  love.timer.sleep(1) -- wait one second before continuing
---end
+function countdown()
+   started_SinglePlayer = false
+   OnPongMenu = false
+   OnCustomizationBackground = false
+   local countdown = 10 -- starting value
+   while countdown > 0 do
+      print(countdown)
+      countdown = countdown - 1
+      love.timer.sleep(1) -- wait one second before continuing
+    end
+    if countdown == 0 then
+      started_SinglePlayer = true
+    end
+end
+
 
 function love.update(dt)
    if started_SinglePlayer then
@@ -57,3 +67,4 @@ function checkCollision(a, b)
    end
 end
 end
+countdown()

@@ -1,4 +1,5 @@
 player_SinglePlayer =  {}
+
 function player_SinglePlayer:load()
    self.Height = 100
    self.Width = 20

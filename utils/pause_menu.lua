@@ -5,6 +5,7 @@ local button_padding = 20
 local button_start_y = 500
 local corner_radius = 10
  function pause_menu()
+
     love.mouse.setVisible(true)
 
     Nostalgia:stop()
@@ -23,7 +24,6 @@ local corner_radius = 10
 
    quit_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
    quit_button_y = love.graphics.getHeight() - 60
-
 
 -- Hover over the Buttons --
 local mouse_x, mouse_y = love.mouse.getPosition()
