@@ -25,5 +25,14 @@ function love.resize(w, h)
 
       ball_LocalMultiPlayer:load()
       ball_LocalMultiPlayer:draw()
+      elseif OnPongMenu then
+               -- background
+               ai_background:load()
+               ai_Tow_background:load()
+               ball_background:load()
+
+               ai_background:draw()
+               ai_Tow_background:draw()
+               ball_background:draw()
    end
 end

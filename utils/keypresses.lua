@@ -888,7 +888,6 @@ end
 
   file:close()
   collectgarbage("collect")
-  PointCunt = tonumber(PointCunt)
     -- Player 1
   if ColorSelectedForPlayerOne == "yellow" then
     ColorSelectedForPlayerOne = yellow
@@ -1061,14 +1060,19 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
  function love.keypressed(key)
   if selectButton == 4 and OnPongMenu then
     if key == "x" then
-      PointCunt = PointCunt - 1
-      if PointCunt <= 1 then
+       
+      if tonumber(PointCunt) <= 1 then
         PointCunt = 1
+      else
+        PointCunt = PointCunt - 1
+        Save_stuff()
       end
     elseif key == "y" then
-        PointCunt = PointCunt + 1
-        if PointCunt >= 99999999 then
+        if tonumber(PointCunt) >= 99999999 then
           PointCunt = 99999999
+        else
+          PointCunt = PointCunt + 1
+          Save_stuff()
         end
     end
   end
@@ -1170,14 +1174,18 @@ end
  end
  if selectButton == 4 and OnPongMenu then
   if button == "x" then
-    PointCunt = PointCunt - 1
-    if PointCunt <= 1 then
+    if tonumber(PointCunt) <= 1 then
       PointCunt = 1
+      else
+        PointCunt = PointCunt - 1
+        Save_stuff()
     end
   elseif button == "y" then
-      PointCunt = PointCunt + 1
-      if PointCunt >= 99999999 then
+      if tonumber(PointCunt) >= 99999999 then
         PointCunt = 99999999
+      else
+        PointCunt = PointCunt + 1
+        Save_stuff()
       end
   end
 end

@@ -109,7 +109,7 @@ function ball_SinglePlayer:draw()
    love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10,10)
    if WiningPongWhitPoints == true then
-      if PlayerPointPong >= PointCunt then
+      if PlayerPointPong >= tonumber(PointCunt) then
          WiningPong = true
          paused  = true
                -- Game Title
@@ -119,7 +119,7 @@ function ball_SinglePlayer:draw()
                 GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
                 GameTitle_y = 80
     end
-    if AIPointPong >= PointCunt then
+    if AIPointPong >= tonumber(PointCunt) then
       WiningPong = true
       paused  = true
                   -- Game Title

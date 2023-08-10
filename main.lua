@@ -68,7 +68,6 @@ button_blop:setVolume(volumeButton_hitV)
 
 function love.load()
     lang:language()
-print(PointCunt)
     if OnStartMenu then
         love.mouse.setVisible(true)
         love.audio.play(Marcus_Nyman_MLIM_S2)

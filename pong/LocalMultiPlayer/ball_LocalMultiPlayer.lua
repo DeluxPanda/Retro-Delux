@@ -111,7 +111,7 @@ function ball_LocalMultiPlayer:draw()
    love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10, 10)
    if WiningPongWhitPoints == true then
-   if PlayerPointPong >= PointCunt then
+   if PlayerPointPong >= tonumber(PointCunt) then
       WiningPong = true
       paused  = true
             -- Game Title
@@ -122,7 +122,7 @@ function ball_LocalMultiPlayer:draw()
              GameTitle_y = 80
  end
 
- if playerTowPointPong >= PointCunt then
+ if playerTowPointPong >= tonumber(PointCunt) then
    WiningPong = true
    paused  = true
                -- Game Title
