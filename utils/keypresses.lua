@@ -164,6 +164,15 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Credits.lua")()
   love.resize()
  end
+ function keyboard:Help()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnCredits = false
+  onHelp = true
+  selectButton = 1
+  love.filesystem.load("pong/help.lua")()
+  love.resize()
+ end
  function keyboard:Enter_things()
   
       if selectButton == 1 then
@@ -197,6 +206,12 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomization then
             keyboard:settingsCustomizationPlayerOneMenu()
          end
+         if onHelp then
+          onHelp = false
+          if paused then
+            paused = false
+           end
+         end
 
 
        elseif selectButton == 2 then
@@ -208,7 +223,7 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:pong_LMP_Btn_pong_Menu()
 
         elseif paused then
-          keyboard:back_to_MainMenu()
+          keyboard:Help()
 
         elseif OnSettings then
           love.window.setFullscreen(not love.window.getFullscreen())
@@ -242,7 +257,7 @@ function keyboard:pong_Button_From_Main_Menu()
         elseif OnPongMenu then
           keyboard:back_to_MainMenu()
         elseif paused then
-          love.event.quit()
+          keyboard:back_to_MainMenu()
         elseif OnSettings then
           keyboard:settingsAudioMenu()
         end

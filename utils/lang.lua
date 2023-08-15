@@ -35,7 +35,7 @@ if lang_eng then
     CreditsName = "Credits"
     pinballName = "Pinball"
     GameExitName = "Exit Game"
-    GameContinueName = "continue"
+    GameContinueName = "Continue"
     main_menuName = "Main Menu"
     pauseName = "Paused"
     if (love.window.getFullscreen() == true) then
@@ -69,6 +69,11 @@ if lang_eng then
     About_GameName = "About Game"
     MusicName = "Music"
     DevelopersName = "Developers"
+    HelpName = "Help"
+    UPName = "UP:"
+    DownName = "Down:"
+    joystickDownName = "joystick down"
+    joystickUpName = "joystick up"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -111,5 +116,10 @@ elseif lang_swe then
     About_GameName = "Om spelet"
     MusicName = "Musik"
     DevelopersName = "Utvecklare"
+    HelpName = "Hjälp"
+    UPName = "UPP:"
+    DownName = "Ner:"
+    joystickDownName = "joystick ner"
+    joystickUpName = "joystick upp"
 end
 end

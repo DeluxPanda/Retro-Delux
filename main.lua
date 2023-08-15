@@ -26,6 +26,7 @@ require ('utils/simple-slider')
 
 Game_Titl_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 50)
 Button_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
+emoji_font = love.graphics.newFont("Fonts/DejaVuSans.ttf", 30)
 blip = love.audio.newSource("Music/ping_pong_8bit_beeep.mp3", "static")
 blip_win = love.audio.newSource("Music/ping_pong_8bit_peeeeeep.mp3", "static")
 button_blop = love.audio.newSource("Music/ping_pong_8bit_plop.mp3", "static")
