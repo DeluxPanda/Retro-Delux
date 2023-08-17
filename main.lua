@@ -1,9 +1,11 @@
 if io.open("settings.conf", "r") == nil then
     file = io.open("settings.conf", "w")
 file:close()
-end
+end 
+HasNotPlaydeBefore = true
 -- pong
 require ("pong/pongMenu")
+require ("pong/help")
 -- pong Singel Player
 require("pong/SinglePlayer/player_SinglePlayer")
 require("pong/SinglePlayer/ai_SinglePlayer")

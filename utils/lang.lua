@@ -74,6 +74,7 @@ if lang_eng then
     DownName = "Down:"
     joystickDownName = "joystick down"
     joystickUpName = "joystick up"
+    ArtistName = "Artist"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -121,5 +122,6 @@ elseif lang_swe then
     DownName = "Ner:"
     joystickDownName = "joystick ner"
     joystickUpName = "joystick upp"
+    ArtistName = "Artist"
 end
 end

@@ -1,4 +1,3 @@
-local countdown = 10 -- starting value
 function love.load()
    if started_LocalMultiPlayer then
    player_LocalMultiPlayer:load()
@@ -7,15 +6,9 @@ function love.load()
    end
 end
 
---while countdown > 0 do
---  print(countdown)
---  countdown = countdown - 1
---  love.timer.sleep(1) -- wait one second before continuing
---end
-
 function love.update(dt)
    if started_LocalMultiPlayer then
-   if not paused then
+   if not paused and not helper then
     player_LocalMultiPlayer:update(dt)
     ball_LocalMultiPlayer:update(dt)
     playerTow_LocalMultiPlayer:update(dt)
@@ -40,15 +33,25 @@ end
 
 function love.draw()
    if started_LocalMultiPlayer then
+      if not helper then
    player_LocalMultiPlayer:draw()
    ball_LocalMultiPlayer:draw()
    playerTow_LocalMultiPlayer:draw()
-   if paused then
-      pause_menu()
-   end
+end
+if paused then
+pause_menu()
+end
+if helper then
+selectButton = 1
+print ("Player started")
+help()
 end
 end
-
+end
+if HasNotPlaydeBefore then
+   helper = true
+   HasNotPlaydeBefore = false
+end
 function checkCollision(a, b)
    if started_LocalMultiPlayer then
    if a.x + a.Width > b.x and a.x < b.x + b.Width and a.y + a.Height > b.y and a.y < b.y + b.Height then

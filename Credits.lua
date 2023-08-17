@@ -23,8 +23,14 @@ function love.draw()
          selectButton == 1 then
           selectButton = 1
          love.graphics.setColor(yellow)
+         local Button_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 50)
+         love.graphics.setFont(Button_font)
          love.graphics.rectangle("fill", Developers_Creduts_button_x, Developers_Creduts_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
-     end
+         love.graphics.printf(DevelopersName..":", GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+         love.graphics.printf("DeluxerPanda", GameTitle_x, Developers_Creduts_button_y + 50, button_start_y, "center")
+     --    love.graphics.printf(HelpName, GameTitle_x, GameTitle_y, button_start_y, "center")
+     
+        end
     
      -- Music
      if mouse_x >= Music_Credits_button_x and mouse_x <= Music_Credits_button_x + button_width and
@@ -32,8 +38,20 @@ function love.draw()
          selectButton == 2 then
           selectButton = 2
          love.graphics.setColor(yellow)
+         local Button_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
+         love.graphics.setFont(Button_font)
          love.graphics.rectangle("fill", Music_Credits_button_x , Music_Credits_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
-     end
+      love.graphics.printf(MusicName..":", GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+    
+      love.graphics.printf("Fluency's Melody  MLIM S2 Music 1\n "..ArtistName..":".."STAMSITE", GameTitle_x + 100, Developers_Creduts_button_y, button_start_y, "center")
+     
+      love.graphics.printf("8 Bit Nostalgia\n "..ArtistName..":".."Fesliyan Studios Background Music", GameTitle_x + 100, Music_Credits_button_y, button_start_y, "center")
+      
+      love.graphics.printf("Lobby Time\n "..ArtistName..":".."Kevin MacLeod", GameTitle_x + 100, About_Game_Credits_button_y, button_start_y, "center")
+      
+
+    
+    end
     
       -- About_Game
       if mouse_x >= About_Game_Credits_button_x and mouse_x <= About_Game_Credits_button_x + button_width and
@@ -41,7 +59,10 @@ function love.draw()
       selectButton == 3 then
        selectButton = 3
       love.graphics.setColor(yellow)
+      local Button_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 50)
+      love.graphics.setFont(Button_font)
       love.graphics.rectangle("fill", About_Game_Credits_button_x , About_Game_Credits_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
+      love.graphics.printf(About_GameName..":", GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
     end
     
      -- Main Menu

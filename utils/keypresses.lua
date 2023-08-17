@@ -10,8 +10,6 @@ function keyboard:pong_Button_From_Main_Menu()
 
  function keyboard:pong_SP_Btn_pong_Menu()
   love.filesystem.load("pong/SinglePlayer/SinglePlayer.lua")()
-   OnPongMenu = false
-   OnCustomizationBackground = false
    player_SinglePlayer:load()
    ai_SinglePlayer:load()
    ball_SinglePlayer:load()
@@ -22,12 +20,10 @@ function keyboard:pong_Button_From_Main_Menu()
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:play()
    started_SinglePlayer = true
+   OnPongMenu = false
  end
  
  function keyboard:pong_LMP_Btn_pong_Menu()
-   started_LocalMultiPlayer = true
-   OnPongMenu = false
-   OnCustomizationBackground = false
    love.filesystem.load("pong/LocalMultiPlayer/Main_LocalMultiPlayer.lua")()
    player_LocalMultiPlayer:load()
    playerTow_LocalMultiPlayer:load()
@@ -38,6 +34,8 @@ function keyboard:pong_Button_From_Main_Menu()
    love.resize()
    Marcus_Nyman_MLIM_S2:stop()
    Nostalgia:play()
+   started_LocalMultiPlayer = true
+   OnPongMenu = false
  end
  function keyboard:pinball_Buttom_From_Main_Menu()
   print("pinball inte klart")
@@ -164,15 +162,7 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Credits.lua")()
   love.resize()
  end
- function keyboard:Help()
-  OnStartMenu = false
-  OnPongMenu = false
-  OnCredits = false
-  onHelp = true
-  selectButton = 1
-  love.filesystem.load("pong/help.lua")()
-  love.resize()
- end
+
  function keyboard:Enter_things()
   
       if selectButton == 1 then
@@ -206,11 +196,8 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomization then
             keyboard:settingsCustomizationPlayerOneMenu()
          end
-         if onHelp then
-          onHelp = false
-          if paused then
-            paused = false
-           end
+         if helper then
+          helper = false
          end
 
 
@@ -223,7 +210,9 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:pong_LMP_Btn_pong_Menu()
 
         elseif paused then
-          keyboard:Help()
+          helper = true
+          paused = false
+          selectButton = 1
 
         elseif OnSettings then
           love.window.setFullscreen(not love.window.getFullscreen())
@@ -1087,6 +1076,7 @@ end
    or key == "menu"
    then
     if  (started_SinglePlayer or started_LocalMultiPlayer) then
+      if not helper then
        paused = not paused
        love.mouse.setVisible(paused)
        if not paused then
@@ -1096,6 +1086,7 @@ end
           Lobby_Time:play()
        end
       end
+   end
    end
    if OnStartMenu 
    or OnPongMenu 
@@ -1147,6 +1138,7 @@ end
    or button == "start"
    then
      if  (started_SinglePlayer or started_LocalMultiPlayer) then
+      if not helper then
        paused = not paused
        love.mouse.setVisible(paused)
        if not paused then
@@ -1157,6 +1149,7 @@ end
        end
      end
     end
+  end
   if OnStartMenu or OnPongMenu or paused or OnSettings or OnSettingsAudio then
     love.mouse.setPosition( 0, 0 )
     if button == "dpup" then
@@ -1209,11 +1202,13 @@ end
 
  function love.focus(focus)
    if (started_SinglePlayer or started_LocalMultiPlayer) then
+    if not helper then
      if not focus then
        paused = true
        love.mouse.setVisible(paused)
      end
    end
+ end
  end
 
  function love.mousereleased( x, y, button, istouch, presses )

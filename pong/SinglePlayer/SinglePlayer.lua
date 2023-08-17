@@ -9,7 +9,7 @@ end
 
 function love.update(dt)
    if started_SinglePlayer then
-   if not paused then
+   if not paused and not helper then
    player_SinglePlayer:update(dt)
    ball_SinglePlayer:update(dt)
    ai_SinglePlayer:update(dt)
@@ -31,17 +31,28 @@ local joystick = love.joystick.getJoysticks()[1]
 end
 end
 end
+
 function love.draw()
    if started_SinglePlayer then
-   player_SinglePlayer:draw()
-   ball_SinglePlayer:draw()
-   ai_SinglePlayer:draw()
-   if paused then
-   pause_menu()
+     if not helper then
+         player_SinglePlayer:draw()
+         ball_SinglePlayer:draw()
+         ai_SinglePlayer:draw()
+      end
+      if paused then
+       pause_menu()
+      end
+      if helper then
+       selectButton = 1
+       help()
+      end
    end
 end
-end
 
+if HasNotPlaydeBefore then
+   helper = true
+   HasNotPlaydeBefore = false
+end
 function checkCollision(a, b)
    if started_SinglePlayer then
    if a.x + a.Width > b.x and a.x < b.x + b.Width and a.y + a.Height > b.y and a.y < b.y + b.Height then
