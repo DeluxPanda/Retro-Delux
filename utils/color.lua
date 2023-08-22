@@ -3,7 +3,7 @@
    green = { 0, 170/255, 0 }
    red = { 255, 0, 0 }
    white = {1, 1, 1 }
-
+   neonBlue = {33/255, 150/255, 243/255}
    gary = {0.5, 0.5, 0.5, 1}
 --backgrund
 yellow_backgrund = { 100, 100, 0, 0 }

@@ -1,6 +1,7 @@
 
 
 function love.draw()
+    love.graphics.setBackgroundColor(slategray)
 GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
 GameTitle_y = 50
 

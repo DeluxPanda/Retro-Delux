@@ -39,7 +39,7 @@ function love.update(dt)
 end
 
 function love.draw()
-
+  love.graphics.setBackgroundColor(slategray)
   local mouse_x, mouse_y = love.mouse.getPosition()
   -- Game Title
   love.graphics.setFont(Game_Titl_font)

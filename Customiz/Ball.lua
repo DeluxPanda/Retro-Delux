@@ -25,7 +25,7 @@ local check_mark = love.graphics.newImage("Images/check_mark.png")
 
 
 function love.draw()
-
+    love.graphics.setBackgroundColor(ColorSelectedForBackground)
     love.graphics.setColor(ColorSelected)
     love.graphics.rectangle("fill", x, y, Width, Height,10, 10)
 

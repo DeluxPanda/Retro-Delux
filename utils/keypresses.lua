@@ -156,6 +156,7 @@ function keyboard:pong_Button_From_Main_Menu()
  end
  function keyboard:Credits()
   OnStartMenu = false
+  OnSettingsAudio = false
   OnPongMenu = false
   OnCredits = true
   selectButton = 1
@@ -198,6 +199,8 @@ function keyboard:pong_Button_From_Main_Menu()
          end
          if helper then
           helper = false
+          Nostalgia:play()
+          Lobby_Time:stop()
          end
 
 
@@ -283,7 +286,9 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomization then
           keyboard:SettingsMenu()
         end
-
+        if OnCredits then
+          --keyboard:back_to_MainMenu()
+        end
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
@@ -299,6 +304,7 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomizationBackground then
           ColorSelectedForBackground = ColorSelected
         end
+
 
        elseif selectButton == 5 then
 
@@ -427,6 +433,18 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 3
           end
           end
+
+          if OnSettings then
+            if selectButton == 1 then
+            selectButton = 4
+            elseif selectButton == 4 then
+              selectButton = 3
+            elseif selectButton == 3 then
+              selectButton = 2
+            elseif selectButton == 2 then
+              selectButton = 1
+            end
+            end
     end
     
     function keyboard:MenuDown()
@@ -465,17 +483,7 @@ function keyboard:pong_Button_From_Main_Menu()
           end
           end
 
-      if OnSettings then
-        if selectButton == 1 then
-        selectButton = 2
-        elseif selectButton == 2 then
-          selectButton = 3
-        elseif selectButton == 3 then
-          selectButton = 4
-        elseif selectButton == 4 then
-          selectButton = 1
-        end
-        end
+
 
         if OnSettingsAudio then
           if selectButton == 1 then
@@ -502,6 +510,18 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 1
           end
           end
+
+          if OnCredits then
+            if selectButton == 1 then
+              selectButton = 2
+            elseif selectButton == 2 then
+              selectButton = 3
+            elseif selectButton == 3 then
+              selectButton = 4
+            elseif selectButton == 4 then
+              selectButton = 1
+            end
+            end
     end
 
     function keyboard:MenuLeft()
@@ -1098,6 +1118,7 @@ end
    or OnCustomizationPlayerTow
    or OnCustomizationBall
    or OnCustomizationBackground
+   or OnCredits
    then
     love.mouse.setPosition( 0, 0 )
    if key == "up" then
@@ -1150,7 +1171,7 @@ end
      end
     end
   end
-  if OnStartMenu or OnPongMenu or paused or OnSettings or OnSettingsAudio then
+  if OnStartMenu or OnPongMenu or paused or OnSettings or OnSettingsAudio or OnCredits then
     love.mouse.setPosition( 0, 0 )
     if button == "dpup" then
       keyboard:MenuUp()
