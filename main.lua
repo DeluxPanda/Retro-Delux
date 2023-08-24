@@ -186,6 +186,12 @@ function love.draw()
          OnPongButton = true
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", pongMenu_button_x , pongMenu_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
+
+        love.graphics.setColor(yellow)
+        local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
+        love.graphics.setFont(PongName_font)
+        love.graphics.printf(PongName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+       
     end
     -- pinball
     if mouse_x >= pinball_button_x and mouse_x <= pinball_button_x + button_width and
@@ -195,6 +201,12 @@ function love.draw()
          OnPongButton = false
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", pinball_button_x , pinball_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
+    
+        love.graphics.setColor(yellow)
+        local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
+        love.graphics.setFont(PongName_font)
+        love.graphics.printf(pinballName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+       
     end
     -- GameExit
     if mouse_x >= quit_button_x and mouse_x <= quit_button_x + button_width and
@@ -225,9 +237,9 @@ function love.draw()
     end
         -- Game Title
         love.graphics.setFont(Game_Titl_font)
-        love.graphics.setColor(255, 255, 255)
+        love.graphics.setColor(white)
         love.graphics.printf(GameTitleName, GameTitle_x, GameTitle_y, button_start_y, "center")
-
+       
         love.graphics.setFont(Button_font)
         -- pongMenu
         love.graphics.setColor(green)

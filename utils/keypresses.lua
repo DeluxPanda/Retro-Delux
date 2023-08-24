@@ -39,7 +39,8 @@ function keyboard:pong_Button_From_Main_Menu()
  end
  function keyboard:pinball_Buttom_From_Main_Menu()
   print("pinball inte klart")
-  love.system.openURL("https://deluxerpanda.se/")
+ -- love.system.openURL("https://deluxerpanda.se/")
+
  end
  function keyboard:back_to_MainMenu()
    OnStartMenu = true
@@ -170,7 +171,7 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnStartMenu then
           keyboard:pong_Button_From_Main_Menu()
         elseif OnPongMenu then
-          keyboard:pong_LMP_Btn_pong_Menu()
+          keyboard:pong_SP_Btn_pong_Menu()
         elseif paused then
           if WiningPong == true then
             WiningPong = false
@@ -180,6 +181,7 @@ function keyboard:pong_Button_From_Main_Menu()
           paused = not paused
           love.mouse.setVisible(paused)
           if not paused then
+            Lobby_Time:stop()
              Nostalgia:play()
             end
 

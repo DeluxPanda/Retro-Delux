@@ -9,6 +9,7 @@ local corner_radius = 10
     love.mouse.setVisible(true)
 
     Nostalgia:stop()
+    Lobby_Time:play()
 
          -- Set the button positions
          local button_width = 200
