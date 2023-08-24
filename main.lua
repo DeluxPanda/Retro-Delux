@@ -1,8 +1,11 @@
 if io.open("settings.conf", "r") == nil then
     file = io.open("settings.conf", "w")
 file:close()
-end 
 HasNotPlaydeBefore = true
+else
+    HasNotPlaydeBefore = false
+end 
+
 -- pong
 require ("pong/pongMenu")
 require ("pong/help")
@@ -42,6 +45,7 @@ started_SinglePlayer = false
 started_LocalMultiPlayer = false
 OnPongMenu = false
 OnSettings = false
+OnCredits = false
 OnSettingsAudio = false
 OnCustomization = false
 OnStartMenu = true

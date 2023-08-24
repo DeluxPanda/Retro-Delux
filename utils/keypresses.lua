@@ -10,17 +10,17 @@ function keyboard:pong_Button_From_Main_Menu()
 
  function keyboard:pong_SP_Btn_pong_Menu()
   love.filesystem.load("pong/SinglePlayer/SinglePlayer.lua")()
-   player_SinglePlayer:load()
-   ai_SinglePlayer:load()
-   ball_SinglePlayer:load()
-   PlayerTowPointPong = 0
-   PlayerPointPong = 0
-   love.mouse.setVisible(false)
-   love.resize()
-   Marcus_Nyman_MLIM_S2:stop()
-   Nostalgia:play()
-   started_SinglePlayer = true
-   OnPongMenu = false
+  player_SinglePlayer:load()
+  ai_SinglePlayer:load()
+  ball_SinglePlayer:load()
+  PlayerTowPointPong = 0
+  PlayerPointPong = 0
+  love.mouse.setVisible(false)
+  love.resize()
+  Marcus_Nyman_MLIM_S2:stop()
+  Nostalgia:play()
+  started_SinglePlayer = true
+  OnPongMenu = false
  end
  
  function keyboard:pong_LMP_Btn_pong_Menu()
@@ -170,7 +170,7 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnStartMenu then
           keyboard:pong_Button_From_Main_Menu()
         elseif OnPongMenu then
-          keyboard:pong_SP_Btn_pong_Menu()
+          keyboard:pong_LMP_Btn_pong_Menu()
         elseif paused then
           if WiningPong == true then
             WiningPong = false
@@ -193,16 +193,15 @@ function keyboard:pong_Button_From_Main_Menu()
             lang_swe = true
             lang:language()
         end
-        end
-        if OnCustomization then
-            keyboard:settingsCustomizationPlayerOneMenu()
-         end
-         if helper then
-          helper = false
-          Nostalgia:play()
-          Lobby_Time:stop()
-         end
 
+        elseif OnCustomization then
+            keyboard:settingsCustomizationPlayerOneMenu()
+         elseif helper then
+          helper = false
+          paused = true
+          love.graphics.setBackgroundColor(ColorSelectedForBackground)
+         end
+        
 
        elseif selectButton == 2 then
 
@@ -282,12 +281,11 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:back_to_MainMenu()
         elseif paused then
           return
-        end
+        elseif OnCredits then
+          keyboard:back_to_MainMenu()
+        end 
         if OnCustomization then
           keyboard:SettingsMenu()
-        end
-        if OnCredits then
-          --keyboard:back_to_MainMenu()
         end
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
@@ -396,18 +394,6 @@ function keyboard:pong_Button_From_Main_Menu()
         end
       end
 
-      if OnSettings then
-        if selectButton == 4 then
-          selectButton = 3
-        elseif selectButton == 3 then
-          selectButton = 2
-        elseif selectButton == 2 then
-          selectButton = 1
-        elseif selectButton == 1 then
-          selectButton = 4
-        end
-        end
-
         if OnSettingsAudio then
           if selectButton == 6 then
           selectButton = 5
@@ -445,6 +431,19 @@ function keyboard:pong_Button_From_Main_Menu()
               selectButton = 1
             end
             end
+
+            if OnCredits then
+              if selectButton == 4 then
+                selectButton = 3
+              elseif selectButton == 3 then
+                selectButton = 2
+              elseif selectButton == 2 then
+                selectButton = 1
+              elseif selectButton == 1 then
+                selectButton = 4
+              end
+              end
+
     end
     
     function keyboard:MenuDown()
@@ -510,6 +509,18 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 1
           end
           end
+
+          if OnSettings then
+            if selectButton == 1 then
+              selectButton = 2
+            elseif selectButton == 2 then
+              selectButton = 3
+            elseif selectButton == 3 then
+              selectButton = 4
+            elseif selectButton == 4 then
+              selectButton = 1
+            end
+            end
 
           if OnCredits then
             if selectButton == 1 then
@@ -1081,7 +1092,7 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
  love.event.quit("restart")
   end
   if key == "h" then
-   print(PointCunt)
+    selectButton = 4
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())

@@ -43,7 +43,6 @@ pause_menu()
 end
 if helper then
 selectButton = 1
-print ("Player started")
 help()
 end
 end

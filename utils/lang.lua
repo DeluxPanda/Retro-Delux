@@ -68,7 +68,7 @@ if lang_eng then
     BackgroundName = "Background"
     About_GameName = "About Game"
     MusicName = "Music"
-    DevelopersName = "Developers"
+    DevelopersName = "Developer"
     HelpName = "Help"
     UPName = "UP:"
     DownName = "Down:"
