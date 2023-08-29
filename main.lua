@@ -130,7 +130,7 @@ function love.update(dt)
     end
     end
 
-   local joystickcount = love.joystick.getJoystickCount()
+    local joystickcount = love.joystick.getJoystickCount()
     if (joystickcount > 0) then
 
   joystick_timer = joystick_timer + dt
@@ -138,10 +138,9 @@ function love.update(dt)
    
     local threshold = 0.5
     local joystick = love.joystick.getJoysticks()[1]
+    
     if joystick:getAxis(2) < -threshold then
         keyboard:MenuUp()
-        success = joystick:setVibration(1, 1)
-        wait(1, function() joystick:setVibration(0, 0) end)
     elseif joystick:getAxis(2) > threshold then
         keyboard:MenuDown()
     elseif joystick:getAxis(1) < -threshold then
@@ -154,15 +153,7 @@ function love.update(dt)
     end
 
 end
---
-function love.gamepadaxis( joystick, axis, value )
-	if axis == 'triggerleft' or axis == 'triggerright' then
-		local left = joystick:getGamepadAxis("triggerleft")
-		local right = joystick:getGamepadAxis("triggerright")
-		success = joystick:setVibration(left, right)
-	end
-end
---
+
 function love.draw()
   love.graphics.setBackgroundColor(ColorSelectedForBackground)
     if OnStartMenu or OnPongMenu then

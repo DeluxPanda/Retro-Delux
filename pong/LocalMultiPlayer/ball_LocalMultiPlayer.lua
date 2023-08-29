@@ -34,7 +34,6 @@ function ball_LocalMultiPlayer:collision()
       local collisionposition = middelball - middelplayer
       self.xvel = self.speed
       self.yvel = collisionposition * 5
-      -- print("player")
       blip:play()
    end
    if checkCollision(self, playerTow_LocalMultiPlayer) then
@@ -43,7 +42,6 @@ function ball_LocalMultiPlayer:collision()
       local collisionposition = middelball - middelplayerTow
       self.xvel = -self.speed
       self.yvel = collisionposition * 5
-      --print("playerTow")
       blip:play()
    end
 
@@ -64,7 +62,6 @@ function ball_LocalMultiPlayer:collision()
       self.speed = self.speed + 5
       self.yvel = random_yvel
       self.xvel = self.speed
-      print(random_yvel)
       playerTowPointPong = playerTowPointPong + 1
       messageplayerTow = {playerTowPointPong}
       blip_win:play()
@@ -78,7 +75,6 @@ function ball_LocalMultiPlayer:collision()
       self.xvel = -self.speed
       PlayerPointPong = PlayerPointPong + 1
       messagePlayer = {PlayerPointPong}
-      print(self.speed)
       blip_win:play()
    end
 end
