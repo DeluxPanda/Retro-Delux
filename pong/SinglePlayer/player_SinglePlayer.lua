@@ -14,16 +14,16 @@ function player_SinglePlayer:update(dt)
 end
 
 function player_SinglePlayer:move(dt)
--- hand conrller Start
-   local joystick = love.joystick.getJoysticks()[1]
-   local joystickcount = love.joystick.getJoystickCount()
-   if (joystickcount > 0) then
-   local threshold = 0.5
-   if joystick:getAxis(2) < -threshold then
-      self.y = self.y - self.speed * dt
-   elseif joystick:getAxis(2) > threshold then
-      self.y = self.y + self.speed * dt
-   end
+-- Hand Controller
+local joystick = love.joystick.getJoysticks()[1]
+local joystickcount = love.joystick.getJoystickCount()
+if (joystickcount > 0) then
+local threshold = 0.5 -- adjust this as needed
+if joystick:getAxis(2) < -threshold or joystick:getAxis(1) < -threshold then
+   self.y = self.y - self.speed * dt
+elseif joystick:getAxis(2) > threshold or joystick:getAxis(1) > threshold then
+   self.y = self.y + self.speed * dt
+end
 end
 -- hand conrller End
 

@@ -5,7 +5,7 @@ HasNotPlaydeBefore = true
 else
     HasNotPlaydeBefore = false
 end 
- 
+
 -- pong
 require ("pong/pongMenu")
 require ("pong/help")
@@ -75,6 +75,7 @@ blip:setVolume(volumeHitV)
 button_blop:setVolume(volumeButton_hitV)
 
 function love.load()
+    love.mouse.setPosition( 0, 0 )
     lang:language()
     if OnStartMenu then
         love.mouse.setVisible(true)

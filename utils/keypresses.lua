@@ -366,8 +366,7 @@ function keyboard:pong_Button_From_Main_Menu()
     function keyboard:MenuUp()
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTow 
-      or OnCustomizationBall
-      or OnCustomizationBackground then
+      or OnCustomizationBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -384,6 +383,21 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 1
         end
       end
+
+      if OnCustomizationBackground then
+        if selectButton == 2 then
+          selectButton = 4
+        elseif selectButton == 4 then
+          selectButton = 3
+        elseif selectButton == 3 then
+          selectButton = 2
+        elseif selectButton == 1 then
+          selectButton = 7
+        elseif selectButton == 7 then
+          selectButton = 1
+        end
+      end
+
       if OnCustomization then
         if selectButton == 4 then
           selectButton = 3
@@ -451,8 +465,7 @@ function keyboard:pong_Button_From_Main_Menu()
     function keyboard:MenuDown()
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTow 
-      or OnCustomizationBall 
-      or OnCustomizationBackground then
+      or OnCustomizationBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -469,7 +482,19 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 1
         end
       end
-
+      if OnCustomizationBackground then
+        if selectButton == 2 then
+          selectButton = 3
+        elseif selectButton == 3 then
+          selectButton = 4
+        elseif selectButton == 4 then
+          selectButton = 2
+        elseif selectButton == 1 then
+          selectButton = 7
+        elseif selectButton == 7 then
+          selectButton = 1
+        end
+      end
 
 
       if OnCustomization then 
@@ -1054,14 +1079,10 @@ else
   ColorSelectedForBall = yellow
 end
   -- Background
-  if ColorSelectedForBackground == "yellow_backgrund" then
-    ColorSelectedForBackground = yellow_backgrund
-elseif ColorSelectedForBackground == "slategray_backgrund" then
+if ColorSelectedForBackground == "slategray_backgrund" then
   ColorSelectedForBackground = slategray_backgrund
 elseif ColorSelectedForBackground == "green_backgrund" then
   ColorSelectedForBackground = green_backgrund
-elseif ColorSelectedForBackground == "red_backgrund" then
-  ColorSelectedForBackground = red_backgrund
 elseif ColorSelectedForBackground == "white_backgrund" then
   ColorSelectedForBackground = white_backgrund
 else

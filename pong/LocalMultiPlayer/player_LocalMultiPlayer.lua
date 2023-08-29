@@ -18,9 +18,9 @@ function player_LocalMultiPlayer:move(dt)
    local joystickcount = love.joystick.getJoystickCount()
    if (joystickcount > 0) then
    local threshold = 0.5 -- adjust this as needed
-   if joystick:getAxis(2) < -threshold then
+   if joystick:getAxis(2) < -threshold or joystick:getAxis(1) < -threshold then
       self.y = self.y - self.speed * dt
-   elseif joystick:getAxis(2) > threshold then
+   elseif joystick:getAxis(2) > threshold or joystick:getAxis(1) > threshold then
       self.y = self.y + self.speed * dt
    end
 end

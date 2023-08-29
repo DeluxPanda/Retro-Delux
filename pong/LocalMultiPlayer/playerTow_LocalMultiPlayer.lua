@@ -26,9 +26,9 @@ function playerTow_LocalMultiPlayer:move(dt)
    elseif (joystickcount > 0) then
       local joystick = love.joystick.getJoysticks()[1]
       local threshold = 0.5 -- adjust this as needed
-      if joystick:getAxis(4) < -threshold then
+      if joystick:getAxis(4) < -threshold or joystick:getAxis(3) < -threshold then
          self.y = self.y - self.speed * dt
-      elseif joystick:getAxis(4) > threshold then
+      elseif joystick:getAxis(4) > threshold or joystick:getAxis(3) > threshold then
          self.y = self.y + self.speed * dt
       end
 end
