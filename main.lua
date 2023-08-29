@@ -6,6 +6,18 @@ else
     HasNotPlaydeBefore = false
 end 
 
+
+local filepaths = love.filesystem.getDirectoryItems("stttings")
+
+for i, filename in ipairs(filepaths) do
+    -- For each filename, check whether it's in the save directory or not.
+    local path = "stttings/".."filename"
+    if love.filesystem.getRealDirectory(path) == love.filesystem.getSaveDirectory() then
+        -- This file is in the save directory.
+    end
+end
+
+
 -- pong
 require ("pong/pongMenu")
 require ("pong/help")

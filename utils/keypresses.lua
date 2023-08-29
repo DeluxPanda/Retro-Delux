@@ -911,14 +911,10 @@ elseif ColorSelectedForBall == white then
 end
   file:write(ColorSelectedForBall .. "\n")
   -- Background
-  if ColorSelectedForBackground == yellow_backgrund then
-    ColorSelectedForBackground = "yellow_backgrund"
-elseif ColorSelectedForBackground == slategray_backgrund then
+if ColorSelectedForBackground == slategray_backgrund then
   ColorSelectedForBackground = "slategray_backgrund"
 elseif ColorSelectedForBackground == green_backgrund then
   ColorSelectedForBackground = "green_backgrund"
-elseif ColorSelectedForBackground == red_backgrund then
-  ColorSelectedForBackground = "red_backgrund"
 elseif ColorSelectedForBackground == white_backgrund then
   ColorSelectedForBackground = "white_backgrund"
 end
