@@ -129,29 +129,27 @@ function love.update(dt)
         ball_background:update(dt)
     end
     end
-
     local joystickcount = love.joystick.getJoystickCount()
-    if (joystickcount > 0) then
+if (joystickcount > 0) then
 
-  joystick_timer = joystick_timer + dt
-  if joystick_timer >= joystick_delay then
-   
-    local threshold = 0.5
-    local joystick = love.joystick.getJoysticks()[1]
-    
-    if joystick:getAxis(2) < -threshold then
-        keyboard:MenuUp()
-    elseif joystick:getAxis(2) > threshold then
-        keyboard:MenuDown()
-    elseif joystick:getAxis(1) < -threshold then
-        keyboard:MenuLeft()
-    elseif joystick:getAxis(1) > threshold then
-        keyboard:MenuRight()
-    end
-    joystick_timer = 0
-  end
-    end
+joystick_timer = joystick_timer + dt
+if joystick_timer >= joystick_delay then
 
+local threshold = 0.5
+local joystick = love.joystick.getJoysticks()[1]
+
+if joystick:getAxis(2) < -threshold then
+    keyboard:MenuUp()
+elseif joystick:getAxis(2) > threshold then
+    keyboard:MenuDown()
+elseif joystick:getAxis(1) < -threshold then
+    keyboard:MenuLeft()
+elseif joystick:getAxis(1) > threshold then
+    keyboard:MenuRight()
+end
+joystick_timer = 0
+end
+end
 end
 
 function love.draw()
