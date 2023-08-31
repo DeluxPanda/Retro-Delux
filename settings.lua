@@ -79,7 +79,7 @@ end
          love.graphics.setFont(Button_font)
 
          -- lang_settings
-         love.graphics.setColor(green)
+         love.graphics.setColor(NormalButtons)
          love.graphics.rectangle("fill", lang_settings_button_x, lang_settings_button_y, button_width, button_height + 30, corner_radius, corner_radius)
          love.graphics.setColor(255, 255, 255)
          love.graphics.printf(language, lang_settings_button_x, lang_settings_button_y + 10, button_width, "center")
@@ -87,7 +87,7 @@ end
          lang_settings_button_y =  fullscreen_settings_button_y + button_height + button_padding
 
           -- fullscreen
-         love.graphics.setColor(green)
+         love.graphics.setColor(NormalButtons)
          love.graphics.rectangle("fill", fullscreen_settings_button_x, fullscreen_settings_button_y, button_width, button_height, corner_radius, corner_radius)
          love.graphics.setColor(255, 255, 255)
          love.graphics.printf(fullscreenName, fullscreen_settings_button_x, fullscreen_settings_button_y + 10, button_width, "center")
@@ -95,7 +95,7 @@ end
          fullscreen_settings_button_y = love.graphics.getHeight() / 2 - button_height / 2
 
         -- Audio
-        love.graphics.setColor(green)
+        love.graphics.setColor(NormalButtons)
         love.graphics.rectangle("fill", audio_settings_button_x, audio_settings_button_y, button_width, button_height, corner_radius, corner_radius)
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(settingsAudioName, audio_settings_button_x, audio_settings_button_y + 10, button_width, "center")
@@ -103,7 +103,7 @@ end
         audio_settings_button_y = love.graphics.getHeight() / 2 - button_height / 2
          
          -- Menu Menu
-         love.graphics.setColor(red)
+         love.graphics.setColor(BackOrCloseButton)
          love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
          love.graphics.setColor(255, 255, 255)
          love.graphics.printf(main_menuName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
@@ -111,7 +111,7 @@ end
          main_menu_settings_button_y = love.graphics.getHeight() - 60
 
          -- customiz
-         love.graphics.setColor(green)-- 0, 0, 0.737, 1
+         love.graphics.setColor(NormalButtons)
          love.graphics.rectangle("fill", customiz_button_x, customiz_button_y, button_width, button_height, corner_radius, corner_radius)
          love.graphics.setColor(255, 255, 255)
          love.graphics.printf(CustomizeName, customiz_button_x, customiz_button_y + 10, button_width, "center")

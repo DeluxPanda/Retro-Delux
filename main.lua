@@ -4,20 +4,7 @@ file:close()
 HasNotPlaydeBefore = true
 else
     HasNotPlaydeBefore = false
-end 
-
-
-local filepaths = love.filesystem.getDirectoryItems("stttings")
-
-for i, filename in ipairs(filepaths) do
-    -- For each filename, check whether it's in the save directory or not.
-    local path = "stttings/".."filename"
-    if love.filesystem.getRealDirectory(path) == love.filesystem.getSaveDirectory() then
-        -- This file is in the save directory.
-    end
 end
-
-
 -- pong
 require ("pong/pongMenu")
 require ("pong/help")
@@ -143,7 +130,7 @@ function love.update(dt)
     end
     local joystickcount = love.joystick.getJoystickCount()
 if (joystickcount > 0) then
-
+    joystick_delay = 0.2
 joystick_timer = joystick_timer + dt
 if joystick_timer >= joystick_delay then
 
@@ -244,7 +231,7 @@ function love.draw()
        
         love.graphics.setFont(Button_font)
         -- pongMenu
-        love.graphics.setColor(green)
+        love.graphics.setColor(NormalButtons)
         love.graphics.rectangle("fill", pongMenu_button_x, pongMenu_button_y, button_width, button_height, corner_radius, corner_radius)
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(PongName, pongMenu_button_x, pongMenu_button_y + 10, button_width, "center")
@@ -254,17 +241,17 @@ function love.draw()
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(pinballName, pinball_button_x, pinball_button_y + 10, button_width, "center")
         -- Settings
-        love.graphics.setColor(green)-- 0, 0, 0.737, 1
+        love.graphics.setColor(NormalButtons)
         love.graphics.rectangle("fill", Settings_button_x, Settings_button_y, button_width, button_height, corner_radius, corner_radius)
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(SettingsName, Settings_button_x, Settings_button_y + 10, button_width, "center")
         -- GameExit
-        love.graphics.setColor(red)
+        love.graphics.setColor(BackOrCloseButton)
         love.graphics.rectangle("fill", quit_button_x, quit_button_y, button_width, button_height, corner_radius, corner_radius)
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(GameExitName, quit_button_x, quit_button_y + 10, button_width, "center")
         -- Credits
-        love.graphics.setColor(green)
+        love.graphics.setColor(NormalButtons)
         love.graphics.rectangle("fill", credits_button_x, credits_button_y, button_width, button_height, corner_radius, corner_radius)
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(CreditsName, credits_button_x, credits_button_y + 10, button_width, "center")

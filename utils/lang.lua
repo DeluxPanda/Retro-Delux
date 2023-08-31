@@ -76,6 +76,11 @@ if lang_eng then
     joystickUpName = "joystick up"
     ArtistName = "Artist"
     About_Game_Text = "This game traps you in the classic Pong game while giving you the ability to customize not only the color of the ball but also your paddle and background."
+    ColorNameYellow = "Yellow"
+    ColorNameGreen = "Green"
+    ColorNameRed = "Red"
+    ColorNameWhite = "White"
+    ColorNameBlack = "Black"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -125,5 +130,10 @@ elseif lang_swe then
     joystickUpName = "joystick upp"
     ArtistName = "Artist"
     About_Game_Text = "Det här spelet fångar dig in i det klassiska Pong-spelet samtidigt som det ger dig möjligheten att anpassa inte bara bollens färg utan också anpassa din paddel och bakgrund."
+    ColorNameYellow = "Yellow"
+    ColorNameGreen = "Green"
+    ColorNameRed = "Red"
+    ColorNameWhite = "White"
+    ColorNameBlack = "Black"
 end
 end

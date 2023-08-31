@@ -370,8 +370,6 @@ function keyboard:pong_Button_From_Main_Menu()
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
-          selectButton = 6
-        elseif selectButton == 6 then
           selectButton = 5
         elseif selectButton == 5 then
           selectButton = 4
@@ -379,8 +377,6 @@ function keyboard:pong_Button_From_Main_Menu()
           selectButton = 3
         elseif selectButton == 3 then
           selectButton = 2
-          elseif selectButton == 7 then
-            selectButton = 1
         end
       end
 
@@ -475,11 +471,7 @@ function keyboard:pong_Button_From_Main_Menu()
         elseif selectButton == 4 then
           selectButton = 5
         elseif selectButton == 5 then
-          selectButton = 6
-        elseif selectButton == 6 then
           selectButton = 2
-          elseif selectButton == 7 then
-            selectButton = 1
         end
       end
       if OnCustomizationBackground then
@@ -695,15 +687,6 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 3
           end
 
-        elseif selectButton == 6 then
-
-          if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTow 
-          or OnCustomizationBall
-          or OnCustomizationBackground then
-            selectButton = 1
-           end
-
          end
     end
 
@@ -873,8 +856,6 @@ function keyboard:pong_Button_From_Main_Menu()
   -- Player 1
       if ColorSelectedForPlayerOne == yellow then
         ColorSelectedForPlayerOne = "yellow"
-    elseif ColorSelectedForPlayerOne == slategray then
-        ColorSelectedForPlayerOne = "slategray"
     elseif ColorSelectedForPlayerOne == green then
         ColorSelectedForPlayerOne = "green"
     elseif ColorSelectedForPlayerOne == red then
@@ -887,8 +868,6 @@ function keyboard:pong_Button_From_Main_Menu()
   -- Player 2
   if ColorSelectedForPlayerTow == yellow then
     ColorSelectedForPlayerTow = "yellow"
-elseif ColorSelectedForPlayerTow == slategray then
-  ColorSelectedForPlayerTow = "slategray"
 elseif ColorSelectedForPlayerTow == green then
   ColorSelectedForPlayerTow = "green"
 elseif ColorSelectedForPlayerTow == red then
@@ -900,8 +879,6 @@ end
   -- Ball
   if ColorSelectedForBall == yellow then
     ColorSelectedForBall = "yellow"
-elseif ColorSelectedForBall == slategray then
-  ColorSelectedForBall = "slategray"
 elseif ColorSelectedForBall == green then
   ColorSelectedForBall = "green"
 elseif ColorSelectedForBall == red then
@@ -926,8 +903,6 @@ end
     -- Player 1
   if ColorSelectedForPlayerOne == "yellow" then
     ColorSelectedForPlayerOne = yellow
-elseif ColorSelectedForPlayerOne == "slategray" then
-    ColorSelectedForPlayerOne = slategray
 elseif ColorSelectedForPlayerOne == "green" then
     ColorSelectedForPlayerOne = green
 elseif ColorSelectedForPlayerOne == "red" then
@@ -938,8 +913,6 @@ end
   -- Player 2
   if ColorSelectedForPlayerTow == "yellow" then
     ColorSelectedForPlayerTow = yellow
-elseif ColorSelectedForPlayerTow == "slategray" then
-  ColorSelectedForPlayerTow = slategray
 elseif ColorSelectedForPlayerTow == "green" then
   ColorSelectedForPlayerTow = green
 elseif ColorSelectedForPlayerTow == "red" then
@@ -950,8 +923,6 @@ end
   -- ball
   if ColorSelectedForBall == "yellow" then
     ColorSelectedForBall = yellow
-elseif ColorSelectedForBall == "slategray" then
-  ColorSelectedForBall = slategray
 elseif ColorSelectedForBall == "green" then
   ColorSelectedForBall = green
 elseif ColorSelectedForBall == "red" then
@@ -1035,8 +1006,6 @@ end
       -- Player 1
       if ColorSelectedForPlayerOne == "yellow" then
         ColorSelectedForPlayerOne = yellow
-    elseif ColorSelectedForPlayerOne == "slategray" then
-        ColorSelectedForPlayerOne = slategray
     elseif ColorSelectedForPlayerOne == "green" then
         ColorSelectedForPlayerOne = green
     elseif ColorSelectedForPlayerOne == "red" then
@@ -1049,8 +1018,6 @@ end
       -- Player 2
       if ColorSelectedForPlayerTow == "yellow" then
         ColorSelectedForPlayerTow = yellow
-    elseif ColorSelectedForPlayerTow == "slategray" then
-      ColorSelectedForPlayerTow = slategray
     elseif ColorSelectedForPlayerTow == "green" then
       ColorSelectedForPlayerTow = green
     elseif ColorSelectedForPlayerTow == "red" then
@@ -1063,8 +1030,6 @@ end
   -- ball
   if ColorSelectedForBall == "yellow" then
     ColorSelectedForBall = yellow
-elseif ColorSelectedForBall == "slategray" then
-  ColorSelectedForBall = slategray
 elseif ColorSelectedForBall == "green" then
   ColorSelectedForBall = green
 elseif ColorSelectedForBall == "red" then

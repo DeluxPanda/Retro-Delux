@@ -98,7 +98,7 @@ function love.draw()
         end
 
 --1
-love.graphics.setColor(green)
+love.graphics.setColor(NormalButtons)
 love.graphics.rectangle("fill",ColorThree_button_x, ColorThree_button_Y, button_width, color_button_height, corner_radius, corner_radius)
 love.graphics.setColor(green)
 love.graphics.rectangle("fill", ColorThree_button_x, ColorThree_button_Y, WidthBall, color_button_height, 10, 10)  
@@ -106,11 +106,11 @@ love.graphics.setColor(white)
 if ColorSelectedForBackground == green_backgrund then
 love.graphics.draw(check_mark, ColorThree_button_x + 170 , ColorThree_button_Y + 15)
 end
-love.graphics.printf("Color Three", ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
+love.graphics.printf(ColorNameGreen, ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
 ColorThree_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
 ColorThree_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
 --2
-love.graphics.setColor(green)
+love.graphics.setColor(NormalButtons)
 love.graphics.rectangle("fill",ColorFour_button_x, ColorFour_button_Y, button_width, color_button_height, corner_radius, corner_radius)
 love.graphics.setColor(slategray)
 love.graphics.rectangle("fill", ColorFour_button_x, ColorFour_button_Y, WidthBall, color_button_height, 10, 10)  
@@ -118,11 +118,11 @@ love.graphics.setColor(white)
 if ColorSelectedForBackground == slategray_backgrund then
 love.graphics.draw(check_mark, ColorFour_button_x + 170 , ColorFour_button_Y + 15)
 end
-love.graphics.printf("Color Four", ColorFour_button_x, ColorFour_button_Y + 7, button_width, "center")
+love.graphics.printf(ColorNameBlack, ColorFour_button_x, ColorFour_button_Y + 7, button_width, "center")
 ColorFour_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
 ColorFour_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
 --3
-love.graphics.setColor(green)
+love.graphics.setColor(NormalButtons)
 love.graphics.rectangle("fill",ColorFive_button_x, ColorFive_button_Y, button_width, color_button_height, corner_radius, corner_radius)
 love.graphics.setColor(white)
 love.graphics.rectangle("fill", ColorFive_button_x, ColorFive_button_Y, WidthBall, color_button_height, 10, 10)  
@@ -131,7 +131,7 @@ if ColorSelectedForBackground == white_backgrund then
    love.graphics.draw(check_mark, ColorFive_button_x + 170 , ColorFive_button_Y + 15)
 end
 
-love.graphics.printf("Color Five", ColorFive_button_x, ColorFive_button_Y + 7, button_width, "center")
+love.graphics.printf(ColorNameWhite, ColorFive_button_x, ColorFive_button_Y + 7, button_width, "center")
 ColorFive_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
 ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
     
@@ -156,7 +156,7 @@ ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button
              love.graphics.setFont(Button_font)
     
              -- Color Select Tab
-             love.graphics.setColor(green)
+             love.graphics.setColor(NormalButtons)
              love.graphics.rectangle("fill",PlayerOne_button_x, PlayerOne_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(255, 255, 255)
              love.graphics.printf(SelectColorName, PlayerOne_button_x, PlayerOne_button_y + 10, button_width, "center")
@@ -164,7 +164,7 @@ ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button
              PlayerOne_button_y =  PlayerTow_settings_button_y + button_height + button_padding
     
              -- Menu Menu
-             love.graphics.setColor(red)
+             love.graphics.setColor(BackOrCloseButton)
              love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
              love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")

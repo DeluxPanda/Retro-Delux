@@ -90,7 +90,7 @@ PlayerTow_y = GameTitle_y + 20
              love.graphics.setFont(Button_font)
     
              -- Play Button
-             love.graphics.setColor(red)
+             love.graphics.setColor(BackOrCloseButton)
              love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
              love.graphics.printf(GameContinueName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")

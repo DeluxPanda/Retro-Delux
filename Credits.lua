@@ -104,7 +104,7 @@ local STAMSITE = {
              love.graphics.setFont(Button_font)
     
              -- Developers
-             love.graphics.setColor(green)
+             love.graphics.setColor(NormalButtons)
              love.graphics.rectangle("fill",Developers_Creduts_button_x, Developers_Creduts_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
              love.graphics.printf(DevelopersName, Developers_Creduts_button_x, Developers_Creduts_button_y + 10, button_width, "center")
@@ -112,7 +112,7 @@ local STAMSITE = {
              Developers_Creduts_button_y =  Music_Credits_button_y + button_height + button_padding
     
               -- Music
-             love.graphics.setColor(green)
+             love.graphics.setColor(NormalButtons)
              love.graphics.rectangle("fill", Music_Credits_button_x,Music_Credits_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
              love.graphics.printf(MusicName, Music_Credits_button_x, Music_Credits_button_y + 10, button_width, "center")
@@ -120,7 +120,7 @@ local STAMSITE = {
              Music_Credits_button_y = love.graphics.getHeight() / 2 - button_height / 2
     
             --  About_Game
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", About_Game_Credits_button_x, About_Game_Credits_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(white)
             love.graphics.printf(About_GameName, About_Game_Credits_button_x, About_Game_Credits_button_y + 10, button_width, "center")
@@ -128,7 +128,7 @@ local STAMSITE = {
             About_Game_Credits_button_y = love.graphics.getHeight() / 2 - button_height / 2
              
              -- Menu Menu
-             love.graphics.setColor(red)
+             love.graphics.setColor(BackOrCloseButton)
              love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
              love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")

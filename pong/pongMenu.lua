@@ -78,35 +78,35 @@ pongMenu = {}
 
             love.graphics.setFont(Button_font)
              -- pong
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", pong_SinglePlayer_button_x, pong_SinglePlayer_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(SinglePlayerName, pong_SinglePlayer_button_x, pong_SinglePlayer_button_y + 10, button_width, "center")
             pong_SinglePlayer_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
             pong_SinglePlayer_button_y = love.graphics.getHeight() / 2 - button_height / 2
             -- LocalMultiPlayer
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", pong_LocalMultiPlayer_button_x, pong_LocalMultiPlayer_button_y, button_width, button_height + 30, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(LocalMultiPlayerName, pong_LocalMultiPlayer_button_x, pong_LocalMultiPlayer_button_y + 10, button_width, "center")
             pong_LocalMultiPlayer_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
             pong_LocalMultiPlayer_button_y =  pong_SinglePlayer_button_y + button_height + button_padding
             -- Menu Menu
-            love.graphics.setColor(red)
+            love.graphics.setColor(BackOrCloseButton)
             love.graphics.rectangle("fill", main_menu_button_x, main_menu_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(main_menuName, main_menu_button_x, main_menu_button_y + 10, button_width, "center")
             main_menu_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
             main_menu_button_y = love.graphics.getHeight() - 60
             -- Settings
-            love.graphics.setColor(green)-- 0, 0, 0.737, 1
+            love.graphics.setColor(NormalButtons)-- 0, 0, 0.737, 1
             love.graphics.rectangle("fill", Settings_button_x, Settings_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(SettingsName, Settings_button_x, Settings_button_y + 10, button_width, "center")
             Settings_button_x = love.graphics.getWidth() - button_width - 10
             Settings_button_y = love.graphics.getHeight() - 60
             -- Credits
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", raunds_button_x, raunds_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(white)
             love.graphics.rectangle("fill", 70 - 10, raunds_button_y, button_width - 100, button_height, corner_radius, corner_radius)
@@ -117,7 +117,7 @@ pongMenu = {}
             love.graphics.printf("< X", raunds_button_x, raunds_button_y + 10, button_width, "left")
             love.graphics.printf("Y >", raunds_button_x, raunds_button_y + 10, button_width, "right")
         
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill",raunds_button_x, raunds_button_y - 40, button_width, button_height - 20, corner_radius, corner_radius)
 
             love.graphics.setColor(white)

@@ -68,7 +68,7 @@ end
              GameTitle_y = 80
              love.graphics.setFont(Button_font)
              -- continue
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", continue_button_x, continue_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(GameContinueName, continue_button_x, continue_button_y + 10, button_width, "center")
@@ -77,7 +77,7 @@ end
         else
             love.graphics.setFont(Button_font)
             -- continue
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", continue_button_x, continue_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(GameResetName, continue_button_x, continue_button_y + 10, button_width, "center")
@@ -87,7 +87,7 @@ end
         love.graphics.setFont(Button_font)
 
             -- Help
-            love.graphics.setColor(green)
+            love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", Help_button_x, Help_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(HelpName, Help_button_x, Help_button_y + 10, button_width, "center")
@@ -95,7 +95,7 @@ end
             Help_button_y = love.graphics.getHeight() - 60
 
             -- main_menu
-            love.graphics.setColor(red)
+            love.graphics.setColor(BackOrCloseButton)
             love.graphics.rectangle("fill", main_menu_button_x, main_menu_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
             love.graphics.printf(main_menuName, main_menu_button_x, main_menu_button_y + 10, button_width, "center")
