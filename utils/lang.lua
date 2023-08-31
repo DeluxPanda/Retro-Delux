@@ -130,10 +130,10 @@ elseif lang_swe then
     joystickUpName = "joystick upp"
     ArtistName = "Artist"
     About_Game_Text = "Det här spelet fångar dig in i det klassiska Pong-spelet samtidigt som det ger dig möjligheten att anpassa inte bara bollens färg utan också anpassa din paddel och bakgrund."
-    ColorNameYellow = "Yellow"
-    ColorNameGreen = "Green"
-    ColorNameRed = "Red"
-    ColorNameWhite = "White"
-    ColorNameBlack = "Black"
+    ColorNameYellow = "Gul"
+    ColorNameGreen = "Grön"
+    ColorNameRed = "Röd"
+    ColorNameWhite = "Vit"
+    ColorNameBlack = "Svart"
 end
 end

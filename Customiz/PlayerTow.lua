@@ -144,7 +144,7 @@ ColorTwo_button_Y =  PlayerTow_settings_button_y + color_button_height + button_
 --3
 love.graphics.setColor(NormalButtons)
 love.graphics.rectangle("fill",ColorThree_button_x, ColorThree_button_Y, button_width, color_button_height, corner_radius, corner_radius)
-love.graphics.setColor(greenButton)
+love.graphics.setColor(green)
 love.graphics.rectangle("fill", ColorThree_button_x, ColorThree_button_Y, WidthBall, color_button_height, 10, 10)  
 love.graphics.setColor(white)
 if ColorSelectedForPlayerTow == green then

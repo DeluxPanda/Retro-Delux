@@ -64,7 +64,7 @@ function love.draw()
         mouse_y >= ColorThree_button_Y and mouse_y <= ColorThree_button_Y + button_height or
         selectButton == 2 then
             selectButton = 2
-        love.graphics.setColor(yellow)
+        love.graphics.setColor(green)
         love.graphics.rectangle("fill", ColorThree_button_x , ColorThree_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = green_backgrund
        end
@@ -73,7 +73,7 @@ function love.draw()
         mouse_y >= ColorFour_button_Y and mouse_y <= ColorFour_button_Y + button_height or
         selectButton == 3 then
             selectButton = 3
-        love.graphics.setColor(yellow)
+        love.graphics.setColor(slategray)
         love.graphics.rectangle("fill", ColorFour_button_x , ColorFour_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = slategray_backgrund
        end
@@ -82,7 +82,7 @@ function love.draw()
         mouse_y >= ColorFive_button_Y and mouse_y <= ColorFive_button_Y + button_height or
         selectButton == 4 then
             selectButton = 4
-        love.graphics.setColor(yellow)
+        love.graphics.setColor(white)
         love.graphics.rectangle("fill", ColorFive_button_x , ColorFive_button_Y, button_width + 5, color_button_height + 5, corner_radius, corner_radius)
         ColorSelected = white_backgrund
        end
