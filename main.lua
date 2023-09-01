@@ -5,6 +5,7 @@ HasNotPlaydeBefore = true
 else
     HasNotPlaydeBefore = false
 end
+
 -- pong
 require ("pong/pongMenu")
 require ("pong/help")
