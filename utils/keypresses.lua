@@ -50,7 +50,7 @@ function keyboard:pong_Button_From_Main_Menu()
    OnCustomization = false
    OnCustomizationBackground = false
    OnCredits = false
-   Marcus_Nyman_MLIM_S2:stop()
+   Marcus_Nyman_MLIM_S2:pause()
    Nostalgia:stop()
    Lobby_Time:stop()
    love.filesystem.load("main.lua")()
@@ -1076,7 +1076,7 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
  love.event.quit("restart")
   end
   if key == "h" then
-    selectButton = 4
+
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())

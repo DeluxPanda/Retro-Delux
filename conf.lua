@@ -49,4 +49,5 @@
    t.modules.video = true              -- Enable the video module (boolean)
    t.modules.window = true             -- Enable the window module (boolean)
 end
+fisrt_game_start = true
 

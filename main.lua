@@ -79,8 +79,11 @@ function love.load()
     lang:language()
     if OnStartMenu then
         love.mouse.setVisible(true)
+    if fisrt_game_start then
         love.audio.play(Marcus_Nyman_MLIM_S2)
-     --   keyboard:GetVolume()
+        fisrt_game_start = false
+    end
+
         -- Set the button positions
         GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
         GameTitle_y = 80
