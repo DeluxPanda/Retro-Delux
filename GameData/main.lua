@@ -83,7 +83,7 @@ function love.load()
     --    love.audio.play(Marcus_Nyman_MLIM_S2)
         fisrt_game_start = false
     end
-
+    love.audio.play(Marcus_Nyman_MLIM_S2)
         -- Set the button positions
         GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
         GameTitle_y = 80
