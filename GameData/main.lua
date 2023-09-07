@@ -74,6 +74,9 @@ blip_win:setVolume(point_GivenV)
 blip:setVolume(volumeHitV)
 button_blop:setVolume(volumeButton_hitV)
 
+joystickcount = love.joystick.getJoystickCount()
+L_Or_W_os = love.system.getOS()
+
 function love.load()
     love.mouse.setPosition( 0, 0 )
     lang:language()

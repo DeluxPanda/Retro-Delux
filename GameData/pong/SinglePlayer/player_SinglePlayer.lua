@@ -16,7 +16,6 @@ end
 function player_SinglePlayer:move(dt)
 -- Hand Controller
 local joystick = love.joystick.getJoysticks()[1]
-local joystickcount = love.joystick.getJoystickCount()
 if (joystickcount > 0) then
 local threshold = 0.5 -- adjust this as needed
 if joystick:getAxis(2) < -threshold or joystick:getAxis(1) < -threshold then

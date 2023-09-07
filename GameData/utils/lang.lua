@@ -81,6 +81,7 @@ if lang_eng then
     ColorNameRed = "Red"
     ColorNameWhite = "White"
     ColorNameBlack = "Black"
+    ControllerFail = "The control cannot be found, are you sure you are running Linux or Windows"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -135,5 +136,6 @@ elseif lang_swe then
     ColorNameRed = "Röd"
     ColorNameWhite = "Vit"
     ColorNameBlack = "Svart"
+    ControllerFail = "Kontrollen kan inte hittas, är du säker på att du kör Linux eller Windows"
 end
 end

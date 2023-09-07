@@ -35,7 +35,6 @@ function love.draw()
          love.graphics.setFont(font_dev)
          love.graphics.setColor(neonBlue)
          love.graphics.printf("DeluxerPanda", GameTitle_x + 100, Music_Credits_button_y, button_start_y, "center")
-     --    love.graphics.printf(HelpName, GameTitle_x, GameTitle_y, button_start_y, "center")
      
         end
     
