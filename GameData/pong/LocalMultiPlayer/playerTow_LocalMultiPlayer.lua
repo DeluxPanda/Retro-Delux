@@ -58,10 +58,6 @@ elseif (joystickcount > 0) then
    elseif joystick:getAxis(4) > threshold or joystick:getAxis(5) > threshold then
       self.y = self.y + self.speed * dt
    end
-   else
-      if (joystickcount <= 0) then
-        
-      end
 end
 -- Controller ends
 

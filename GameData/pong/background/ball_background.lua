@@ -84,6 +84,11 @@ end
 function ball_background:move(dt)
    self.x = self.x + self.xvel * dt
    self.y = self.y + self.yvel * dt
+   random_yvel = nil
+   random_y = nil
+   random_x = nil
+   collectgarbage("collect")
+   math_random()
 end
 
 function ball_background:draw()
@@ -109,12 +114,26 @@ function ball_background:draw()
    love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10, 10)
    if AIPoint_Tow_background >= 11 then
+      AIPoint_Tow_background = nil
+      AIPoint_background = nil
+      messagePlayer = nil
+       messageAI = nil
+      collectgarbage("collect")
       AIPoint_Tow_background = 0
       AIPoint_background = 0
+      messagePlayer = 0
+      messageAI = 0
 end
 if AIPoint_background >= 11 then
+   AIPoint_Tow_background = nil
+   AIPoint_background = nil
+   messagePlayer = nil
+   messageAI = nil
+   collectgarbage("collect")
    AIPoint_Tow_background = 0
    AIPoint_background = 0
+   messagePlayer = 0
+   messageAI = 0
 end
 end
 

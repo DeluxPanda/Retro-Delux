@@ -1,5 +1,7 @@
 player_SinglePlayer =  {}
-
+AIPoint_Tow_background = nil
+AIPoint_background = nil
+collectgarbage("collect")
 function player_SinglePlayer:load()
    self.Height = 100
    self.Width = 20

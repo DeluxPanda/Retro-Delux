@@ -83,6 +83,10 @@ end
 function ball_LocalMultiPlayer:move(dt)
    self.x = self.x + self.xvel * dt
    self.y = self.y + self.yvel * dt
+
+   random_yvel = nil
+   collectgarbage("collect")
+   math_random()
 end
 
 function ball_LocalMultiPlayer:draw()

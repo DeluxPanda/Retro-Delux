@@ -1,4 +1,7 @@
 player_LocalMultiPlayer =  {}
+AIPoint_Tow_background = nil
+AIPoint_background = nil
+collectgarbage("collect")
 function player_LocalMultiPlayer:load()
    self.x = 50
    self.y = love.graphics.getHeight() / 2

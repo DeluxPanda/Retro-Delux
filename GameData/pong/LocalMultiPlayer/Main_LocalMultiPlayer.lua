@@ -1,3 +1,5 @@
+PlayerTowPointPong = 0
+PlayerPointPong = 0
 function love.load()
    if started_LocalMultiPlayer then
    player_LocalMultiPlayer:load()

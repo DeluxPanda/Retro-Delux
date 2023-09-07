@@ -1,7 +1,4 @@
 ball_SinglePlayer =  {}
-
- AIPointPong = 0
- PlayerPointPong = 0
  function math_random()
    math.randomseed(os.time())
    random_yvel = math.random(0, 100)
@@ -85,6 +82,9 @@ end
 function ball_SinglePlayer:move(dt)
    self.x = self.x + self.xvel * dt
    self.y = self.y + self.yvel * dt
+   random_yvel = nil
+   collectgarbage("collect")
+   math_random()
 end
 
 function ball_SinglePlayer:draw()

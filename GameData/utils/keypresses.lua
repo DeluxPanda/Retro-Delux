@@ -6,6 +6,11 @@ function keyboard:pong_Button_From_Main_Menu()
    pongMenu()
    love.resize()
    Nostalgia:stop()
+   AIPoint_Tow_background = nil
+   AIPoint_background = nil
+   collectgarbage("collect")
+   AIPoint_Tow_background = 0
+   AIPoint_background = 0
  end
 
  function keyboard:pong_SP_Btn_pong_Menu()
@@ -13,7 +18,10 @@ function keyboard:pong_Button_From_Main_Menu()
   player_SinglePlayer:load()
   ai_SinglePlayer:load()
   ball_SinglePlayer:load()
-  PlayerTowPointPong = 0
+  AIPointPong = nil
+  PlayerPointPong = nil
+  collectgarbage("collect")
+  AIPointPong = 0
   PlayerPointPong = 0
   love.mouse.setVisible(false)
   love.resize()
@@ -28,6 +36,9 @@ function keyboard:pong_Button_From_Main_Menu()
    player_LocalMultiPlayer:load()
    playerTow_LocalMultiPlayer:load()
    ball_LocalMultiPlayer:load()
+   AIPointPong = nil
+   PlayerPointPong = nil
+   collectgarbage("collect")
    AIPointPong = 0
    PlayerPointPong = 0
    love.mouse.setVisible(false)
@@ -50,12 +61,20 @@ function keyboard:pong_Button_From_Main_Menu()
    OnCustomization = false
    OnCustomizationBackground = false
    OnCredits = false
+   PlayerTowPointPong = nil
+   PlayerPointPong = nil
+   AIPointPong = nil
+   PlayerPointPong = nil
+   AIPoint_Tow_background = nil
+   AIPoint_background = nil
+   collectgarbage("collect")
+   AIPoint_Tow_background = 0
+   AIPoint_background = 0
    Marcus_Nyman_MLIM_S2:pause()
    Nostalgia:stop()
    Lobby_Time:stop()
    love.filesystem.load("main.lua")()
-   AIPoint_Tow_background = 0
-   AIPoint_background = 0
+   collectgarbage("collect")
    love.resize()
  end
  
