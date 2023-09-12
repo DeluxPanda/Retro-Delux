@@ -1,2 +1,2 @@
-"./GameData/love2d/Linux/love-11.4-x86_64.AppImage" "./GameData/"
+"./GameData/love2d/Windows/love.exe" "./GameData/"
 
