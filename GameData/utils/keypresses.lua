@@ -48,10 +48,26 @@ function keyboard:pong_Button_From_Main_Menu()
    started_LocalMultiPlayer = true
    OnPongMenu = false
  end
- function keyboard:pinball_Buttom_From_Main_Menu()
-  print("pinball inte klart")
- -- love.system.openURL("https://deluxerpanda.se/")
-
+ function keyboard:pinball_Buttom_From_Main_Menu() 
+  OnStartMenu = false
+  started_SinglePlayer = false
+  started_LocalMultiPlayer = false
+  paused = false
+  OnCustomization = false
+  OnCustomizationBackground = false
+  OnCredits = false
+  OnPinballMenu = true
+  PlayerTowPointPong = nil
+  PlayerPointPong = nil
+  AIPointPong = nil
+  PlayerPointPong = nil
+  AIPoint_Tow_background = nil
+  AIPoint_background = nil
+  collectgarbage("collect")
+  Marcus_Nyman_MLIM_S2:pause()
+  Nostalgia:stop()
+  Lobby_Time:play()
+  love.filesystem.load("PinBall/PinBallMainMenu.lua")()
  end
  function keyboard:back_to_MainMenu()
    OnStartMenu = true
@@ -61,6 +77,7 @@ function keyboard:pong_Button_From_Main_Menu()
    OnCustomization = false
    OnCustomizationBackground = false
    OnCredits = false
+   OnPinballMenu = false
    PlayerTowPointPong = nil
    PlayerPointPong = nil
    AIPointPong = nil
@@ -217,12 +234,15 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif OnCustomization then
             keyboard:settingsCustomizationPlayerOneMenu()
+            
          elseif helper then
           helper = false
           paused = true
           love.graphics.setBackgroundColor(ColorSelectedForBackground)
-         end
-        
+
+        elseif OnPinballMenu then
+          keyboard:back_to_MainMenu()
+        end
 
        elseif selectButton == 2 then
 

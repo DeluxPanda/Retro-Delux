@@ -173,7 +173,7 @@ function love.draw()
     end
     if OnStartMenu or OnSettings then
         local mouse_x, mouse_y = love.mouse.getPosition()
-    -- Hover over the Buttons --
+
     -- pongMenu
     if mouse_x >= pongMenu_button_x and mouse_x <= pongMenu_button_x + button_width and
         mouse_y >= pongMenu_button_y and mouse_y <= pongMenu_button_y + button_height or
@@ -202,7 +202,6 @@ function love.draw()
         local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
         love.graphics.setFont(PongName_font)
         love.graphics.printf(pinballName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
-       
     end
     -- GameExit
     if mouse_x >= quit_button_x and mouse_x <= quit_button_x + button_width and
