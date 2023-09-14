@@ -2,8 +2,6 @@ if io.open("settings.conf", "r") == nil then
     file = io.open("settings.conf", "w")
 file:close()
 HasNotPlaydeBefore = true
-else
-    HasNotPlaydeBefore = false
 end
 
 -- pong
