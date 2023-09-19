@@ -1133,7 +1133,7 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
     Marcus_Nyman_MLIM_S2:pause()
     Nostalgia:stop()
     Lobby_Time:play()
-    love.filesystem.load("PinBall/PinBallGame.lua")()
+    love.filesystem.load("PinBall/PinBallMain.lua")()
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
