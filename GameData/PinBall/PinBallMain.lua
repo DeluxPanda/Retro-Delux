@@ -1,16 +1,16 @@
 require ("GameData.PinBall.FlippersOne")
 require ("GameData.PinBall.FlipperTow")
-require ("GameData.PinBall.Ball")
+require ("GameData.PinBall.FlipperBall")
 function love.load()
-    Ball:load()
+    FlipperBall:load()
 end
 function love.update(dt)
     FlippersOne:update(dt)
     FlippersTow:update(dt)
-    Ball:update(dt)
+    FlipperBall:update(dt)
 end
 function love.draw()
     FlippersOne:draw()
     FlippersTow:draw()
-    Ball:draw()
+    FlipperBall:draw()
 end

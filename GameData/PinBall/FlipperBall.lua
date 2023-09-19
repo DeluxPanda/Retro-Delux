@@ -1,4 +1,4 @@
-Ball = {}
+FlipperBall = {}
 local x = love.graphics.getWidth() / 2
 local y = love.graphics.getHeight() / 2
 local width = 20
@@ -7,21 +7,21 @@ local speed = 200
 local xvel = -200
 local yvel = 300
 
-function Ball:load()
+function FlipperBall:load()
     randomizeYVel()
 end
 
-function Ball:update(dt)
-    Ball:move(dt)
-    Ball:collision()
+function FlipperBall:update(dt)
+    FlipperBall:move(dt)
+    FlipperBall:collision()
 end
 
-function Ball:randomizeYVel()
+function FlipperBall:randomizeYVel()
     math.randomseed(os.time())
     yvel = math.random(200, 300)
 end
 
-function Ball:collision()
+function FlipperBall:collision()
     if y < 0 then
         y = 0
         yvel = -yvel
@@ -39,14 +39,12 @@ function Ball:collision()
     end
 end
 
-function Ball:move(dt)
+function FlipperBall:move(dt)
     x = x + xvel * dt
     y = y + yvel * dt
 end
 
-function Ball:draw()
-    love.graphics.setColor(ColorSelectedForBall)
+function FlipperBall:draw()
+    love.graphics.setColor(ColorSelectedForFlipperBall)
     love.graphics.rectangle("fill", x, y, width, height, 10, 10)
 end
-
-return Ball
