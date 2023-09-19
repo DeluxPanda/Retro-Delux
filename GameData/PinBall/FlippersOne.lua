@@ -1,9 +1,9 @@
 FlippersOne = {}
-local angle = 0.3
+local angle = 0.8
 local Height = 20
 local Width = 100
 
-local x = (love.graphics.getWidth() / 2) - (Width / 2) - 100 + 36
+local x = (love.graphics.getWidth() / 2) - (Width / 2) - 100 + 48
 local y = love.graphics.getHeight() - 50
 
 function FlippersOne:update(dt)
@@ -14,7 +14,7 @@ function FlipperOneMove(dt)
     if love.keyboard.isDown("left") then
         angle = -0.5
     else
-        angle = 0.3
+        angle = 0.8
     end
 end
 
