@@ -56,7 +56,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomization = false
   OnCustomizationBackground = false
   OnCredits = false
-  OnPinballMenu = true
+  OnPinballGame = true
   PlayerTowPointPong = nil
   PlayerPointPong = nil
   AIPointPong = nil
@@ -73,11 +73,12 @@ function keyboard:pong_Button_From_Main_Menu()
    OnStartMenu = true
    started_SinglePlayer = false
    started_LocalMultiPlayer = false
+   started_PinBall = false
+   OnPinballGame = false
    paused = false
    OnCustomization = false
    OnCustomizationBackground = false
    OnCredits = false
-   OnPinballMenu = false
    PlayerTowPointPong = nil
    PlayerPointPong = nil
    AIPointPong = nil
@@ -240,7 +241,7 @@ function keyboard:pong_Button_From_Main_Menu()
           paused = true
           love.graphics.setBackgroundColor(ColorSelectedForBackground)
           HasNotPlaydeBefore = false
-        elseif OnPinballMenu then
+        elseif OnPinballGame then
           keyboard:back_to_MainMenu()
         end
 
@@ -1111,6 +1112,11 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
         end
     end
   end
+  if OnPinballGame == true then
+  if key == "space" then
+    started_PinBall = true
+  end
+end
   if key == "r" then
  love.event.quit("restart")
   end
@@ -1122,7 +1128,7 @@ love.graphics.setBackgroundColor(ColorSelectedForBackground)
     OnCustomization = false
     OnCustomizationBackground = false
     OnCredits = false
-    OnPinballMenu = true
+    OnPinballGame = true
     PlayerTowPointPong = nil
     PlayerPointPong = nil
     AIPointPong = nil
@@ -1147,7 +1153,7 @@ end
    or key == "end"
    or key == "menu"
    then
-    if  (started_SinglePlayer or started_LocalMultiPlayer) then
+    if  (started_SinglePlayer or started_LocalMultiPlayer or OnPinballGame) then
       if not helper then
        paused = not paused
        love.mouse.setVisible(paused)
@@ -1210,7 +1216,7 @@ end
    or button == "back"
    or button == "start"
    then
-     if  (started_SinglePlayer or started_LocalMultiPlayer) then
+     if  (started_SinglePlayer or started_LocalMultiPlayer or OnPinballGame) then
       if not helper then
        paused = not paused
        love.mouse.setVisible(paused)
@@ -1274,7 +1280,7 @@ end
 end
 
  function love.focus(focus)
-   if (started_SinglePlayer or started_LocalMultiPlayer) then
+   if (started_SinglePlayer or started_LocalMultiPlayer or OnPinballGame) then
     if not helper then
      if not focus then
        paused = true

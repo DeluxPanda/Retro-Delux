@@ -1,6 +1,6 @@
 
 function love.resize(w, h)
-   if OnStartMenu then
+   if OnStartMenu  then
       love.draw()
       love.load()
    elseif OnSettingsAudio then
@@ -34,5 +34,11 @@ function love.resize(w, h)
                ai_background:draw()
                ai_Tow_background:draw()
                ball_background:draw()
+      elseif OnPinballGame then
+         FlippersOne:draw()
+         FlippersTow:draw()
+         if started_PinBall == true then
+         FlipperBall:draw()
+         end
    end
 end

@@ -15,6 +15,11 @@ require("pong/SinglePlayer/ball_SinglePlayer")
 require("pong/LocalMultiPlayer/player_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/playerTow_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/ball_LocalMultiPlayer")
+-- pinball
+require ("PinBall/help")
+require ("PinBall/FlipperTow")
+require ("PinBall/FlipperOne")
+require ("PinBall/FlipperBall")
 -- background
 require("pong/background/ai_background")
 require("pong/background/ai_Tow_background")
@@ -41,6 +46,7 @@ Lobby_Time = love.audio.newSource("Music/Lobby-Time.mp3", "stream")
 Lobby_Time:setLooping(true)
 started_SinglePlayer = false
 started_LocalMultiPlayer = false
+started_PinBall = false
 OnPongMenu = false
 OnSettings = false
 OnCredits = false
