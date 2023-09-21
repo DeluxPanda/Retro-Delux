@@ -2,10 +2,10 @@ FlipperOne = {}
 local angle = 0.8
 
 function FlipperOne:load()
-    self.x = (love.graphics.getWidth() / 2) - (100 / 2) - 100 + 48
-    self.y = love.graphics.getHeight() - 50
-    self.Width = 100
-    self.Height = 20
+--    self.x = (love.graphics.getWidth() / 2) - (100 / 2) - 100 + 48
+--    self.y = love.graphics.getHeight() - 50
+--    self.Width = 100
+--    self.Height = 20
 end
 
 function FlipperOne:update(dt)
