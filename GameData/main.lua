@@ -269,9 +269,11 @@ end
 end
 
 function checkCollision(a, b)
+    if OnStartMenu or OnPongMenu then
     if a.x + a.Width > b.x and a.x < b.x + b.Width and a.y + a.Height > b.y and a.y < b.y + b.Height then
         return true
     else
         return false
     end
+end
 end
