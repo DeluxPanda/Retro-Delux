@@ -1,7 +1,6 @@
 
 
     if OnPinballGame == true then 
-        print("aaaa")   
     FlipperOne:load()
     FlipperTow:load()
     FlipperBall:load()

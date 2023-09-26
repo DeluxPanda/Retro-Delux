@@ -90,7 +90,15 @@ local STAMSITE = {
           selectButton = 4
          love.graphics.setColor(yellow)
          love.graphics.rectangle("fill", main_menu_settings_button_x , main_menu_settings_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
-     end
+     
+         love.graphics.printf(main_menuName..":", GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+       
+         local font_dev = love.graphics.newFont("Fonts/NEONLEDLight.otf", 50)
+         love.graphics.setFont(font_dev)
+         love.graphics.setColor(green)
+         love.graphics.printf(main_menuName, GameTitle_x + 100, Music_Credits_button_y, button_start_y, "center")
+     
+        end
     
     
              -- Game Title
@@ -130,7 +138,7 @@ local STAMSITE = {
              love.graphics.setColor(BackOrCloseButton)
              love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
-             love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
+             love.graphics.printf(main_menuName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
              main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
              main_menu_settings_button_y = love.graphics.getHeight() - 60
 

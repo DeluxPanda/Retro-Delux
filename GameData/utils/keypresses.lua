@@ -140,6 +140,22 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/Customization.lua")()
   love.resize()
  end
+ function keyboard:settingsCustomizationMenuPongOrPinBall()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = false
+  OnCustomizationBackground = false
+  OnCustomization = true
+  OnCustomizationPlayerOne = false
+  OnCustomizationPlayerTow = false
+  OnCustomizationBall = false
+  OnCustomizationBackground = false
+
+  selectButton = 1
+  love.filesystem.load("Customiz/PongOrPinBall.lua")()
+  love.resize()
+ end
  function keyboard:settingsCustomizationPlayerOneMenu()
   OnStartMenu = false
   OnPongMenu = false
@@ -351,7 +367,7 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnStartMenu or OnPongMenu then
           keyboard:SettingsMenu()
         elseif OnSettings then
-          keyboard:settingsCustomizationMenu()
+          keyboard:settingsCustomizationMenuPongOrPinBall()
         elseif OnCustomization then
           keyboard:settingsCustomizationBackgroundMenu()
   
