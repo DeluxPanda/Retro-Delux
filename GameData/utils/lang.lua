@@ -83,6 +83,8 @@ if lang_eng then
     ColorNameBlack = "Black"
     ControllerFail = "The control cannot be found, are you sure you are running Linux or Windows"
     CommingSoonName = "Comming Soon"
+    FlipperOneName = "Flipper 1"
+    FlipperTowName = "Flipper 2"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -139,5 +141,7 @@ elseif lang_swe then
     ColorNameBlack = "Svart"
     ControllerFail = "Kontrollen kan inte hittas, är du säker på att du kör Linux eller Windows"
     CommingSoonName = "Kommer snart"
+    FlipperOneName = "Flipper 1"
+    FlipperTowName = "Flipper 2"
 end
 end

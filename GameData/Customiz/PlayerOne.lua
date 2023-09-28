@@ -67,6 +67,7 @@ function love.draw()
     customiz_button_x = love.graphics.getWidth() - button_width - 10
     customiz_button_y = love.graphics.getHeight() - 60
     
+    PlayerTow_settings_button_y =  PlayerOne_button_y + button_height + button_padding
     
     -- Hover over the Buttons --
     local mouse_x, mouse_y = love.mouse.getPosition()

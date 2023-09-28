@@ -11,7 +11,7 @@ function love.draw()
   
   audio_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
   audio_settings_button_y =  PlayerTow_settings_button_y + button_height + button_padding
-  
+
   main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
   main_menu_settings_button_y = love.graphics.getHeight() - 60
   

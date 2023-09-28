@@ -132,9 +132,26 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = false
-
+  
   selectButton = 1
   love.filesystem.load("Customiz/Customization.lua")()
+  love.resize()
+ end
+ function keyboard:settingsCustomizationPinBallMenu()
+  OnStartMenu = false
+  OnPongMenu = false
+  OnSettings = false
+  OnSettingsAudio = false
+  OnCustomization = false
+  OnCustomizationPinBall = true
+  OnCustomizationPlayerOne = false
+  OnCustomizationPlayerTow = false
+  OnCustomizationBall = false
+  OnCustomizationBackground = false
+  PongOrPinBall = false
+  
+  selectButton = 1
+  love.filesystem.load("Customiz/Customization_PinBall.lua")()
   love.resize()
  end
  function keyboard:settingsCustomizationMenuPongOrPinBall()
@@ -264,7 +281,7 @@ end
             lang:language()
         end
 
-        elseif OnCustomization then
+        elseif OnCustomization or OnCustomizationPinBall then
             keyboard:settingsCustomizationPlayerOneMenu()
             
          elseif helper then
@@ -279,6 +296,10 @@ end
         end
 
        elseif selectButton == 2 then
+
+        if PongOrPinBall then
+          keyboard:settingsCustomizationPinBallMenu()
+        end
 
         if OnStartMenu then
           keyboard:pinball_Buttom_From_Main_Menu()
@@ -296,7 +317,7 @@ end
           love.resize()
           lang:language()
 
-        elseif OnCustomization then
+        elseif OnCustomization or OnCustomizationPinBall then
             keyboard:settingsCustomizationPlayerTowMenu()
         end
 
@@ -326,7 +347,7 @@ end
           keyboard:back_to_MainMenu()
         elseif OnSettings then
           keyboard:settingsAudioMenu()
-        elseif OnCustomization then
+        elseif OnCustomization or OnCustomizationPinBall then
           keyboard:settingsCustomizationBallMenu()
         elseif PongOrPinBall then
             keyboard:SettingsMenu()
@@ -360,9 +381,9 @@ end
           return
         elseif OnCredits then
           keyboard:back_to_MainMenu()
-      elseif OnCustomization then
-          keyboard:settingsCustomizationMenuPongOrPinBall()
-      elseif PongOrPinBall == true then
+        elseif OnCustomization or OnCustomizationPinBall then
+            keyboard:settingsCustomizationMenuPongOrPinBall()
+        elseif PongOrPinBall == true then
             keyboard:settingsCustomizationBackgroundMenu()
         end
 
@@ -470,7 +491,7 @@ end
         end
       end
 
-      if OnCustomization then
+      if OnCustomization or OnCustomizationPinBall then
         if selectButton == 4 then
           selectButton = 3
         elseif selectButton == 3 then
@@ -574,7 +595,7 @@ end
       end
 
 
-      if OnCustomization then 
+      if OnCustomization or OnCustomizationPinBall then 
         if selectButton == 1 then
           selectButton = 2
           elseif selectButton == 2 then
@@ -1211,6 +1232,7 @@ end
    or OnSettings 
    or OnSettingsAudio 
    or OnCustomization
+   or OnCustomizationPinBall
    or OnCustomizationPlayerOne
    or OnCustomizationPlayerTow
    or OnCustomizationBall
