@@ -4,11 +4,11 @@ local Ball_x_Direction = 0
 local Ball_y_Direction = love.graphics.getHeight() - 50
 
 function FlipperBall:load()
-    self.x = love.graphics.getWidth() - 50
-    self.y = love.graphics.getHeight() - 30
+    self.x = love.graphics.getWidth()
+    self.y = love.graphics.getHeight()
     self.Width = 20
     self.Height = 20
-    self.y = love.graphics.getHeight() - self.Height
+
     Ball_y_Direction = -Ball_y_Direction
 end
 
@@ -33,7 +33,6 @@ function FlipperBall:collision()
         -- botten
         self.x = love.graphics.getWidth() - 50
         self.y = love.graphics.getHeight() - 50
-        self.y = love.graphics.getHeight() - self.Height
         Ball_y_Direction = -Ball_y_Direction
         print("Dead")
     end
@@ -50,7 +49,10 @@ end
 if love.keyboard.isDown("left") then
    if checkCollision(self, FlipperOne) then
        print("1")
-       Ball_y_Direction = -Ball_y_Direction
+       local middelball = self.y + self.Height / 2
+       local middelplayerTow = FlipperOne.y + FlipperOne.Height / 2
+       local collisionposition = middelball - middelplayerTow
+       Ball_y_Direction = collisionposition * 10
        Ball_x_Direction = -Ball_x_Direction
     end
  elseif checkCollision(self, FlipperOne) then
@@ -60,7 +62,10 @@ if love.keyboard.isDown("left") then
  if love.keyboard.isDown("right") then
     if checkCollision(self, FlipperTow) then
         print("2")
-        Ball_y_Direction = -Ball_y_Direction
+        local middelball = self.y + self.Height / 2
+        local middelplayer = FlipperTow.y + FlipperTow.Height / 2
+        local collisionposition = middelball - middelplayer
+        Ball_y_Direction = collisionposition * 10
         Ball_x_Direction = -Ball_x_Direction
     end
 elseif checkCollision(self, FlipperTow) then
@@ -71,19 +76,6 @@ end
 function FlipperBall:move(dt)
     self.x = self.x + Ball_x_Direction * dt
     self.y = self.y + Ball_y_Direction * dt
-    if love.keyboard.isDown("t") then
-    print(" x: ".. self.x .. " Y: " .. self.y)
-    end
-
-    if love.keyboard.isDown("d") then
-        self.x = self.x + 0.1
-    elseif love.keyboard.isDown("w") then
-        self.y = self.y + -0.1
-    elseif love.keyboard.isDown("s") then
-            self.y = self.y + 0.1
-        elseif love.keyboard.isDown("a") then
-            self.x = self.x + -0.1
-        end
 end
 
 function FlipperBall:draw()

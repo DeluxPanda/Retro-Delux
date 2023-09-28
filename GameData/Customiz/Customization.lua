@@ -72,6 +72,12 @@ end
             GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
             GameTitle_y = 80
   
+            love.graphics.setColor(yellow)
+            local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
+            love.graphics.setFont(PongName_font)
+            love.graphics.printf(PongName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+           
+
            love.graphics.setFont(Button_font)
   
            -- PlayerOne

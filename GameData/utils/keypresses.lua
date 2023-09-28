@@ -107,6 +107,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
+  PongOrPinBall = false
   selectButton = 1
   love.filesystem.load("settings.lua")()
   love.resize()
@@ -135,6 +136,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
+  PongOrPinBall = false
 
   selectButton = 1
   love.filesystem.load("Customiz/Customization.lua")()
@@ -146,12 +148,12 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettings = false
   OnSettingsAudio = false
   OnCustomizationBackground = false
-  OnCustomization = true
+  OnCustomization = false
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
-
+  PongOrPinBall = true
   selectButton = 1
   love.filesystem.load("Customiz/PongOrPinBall.lua")()
   love.resize()
@@ -259,6 +261,8 @@ function keyboard:pong_Button_From_Main_Menu()
           HasNotPlaydeBefore = false
         elseif OnPinballGame then
           keyboard:back_to_MainMenu()
+          elseif PongOrPinBall == true then
+            keyboard:settingsCustomizationMenu()
         end
 
        elseif selectButton == 2 then
@@ -313,7 +317,9 @@ function keyboard:pong_Button_From_Main_Menu()
         if OnCustomization then
             keyboard:settingsCustomizationBallMenu()
         end
-
+        if PongOrPinBall then
+          keyboard:SettingsMenu()
+        end
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
@@ -343,7 +349,7 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:back_to_MainMenu()
         end 
         if OnCustomization then
-          keyboard:SettingsMenu()
+          keyboard:settingsCustomizationMenuPongOrPinBall()
         end
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
@@ -461,7 +467,16 @@ function keyboard:pong_Button_From_Main_Menu()
           selectButton = 4
         end
       end
-
+      
+      if PongOrPinBall then
+        if selectButton == 1 then
+          selectButton = 3
+        elseif selectButton == 3 then
+          selectButton = 2
+        elseif selectButton == 2 then
+          selectButton = 1
+        end
+      end
         if OnSettingsAudio then
           if selectButton == 6 then
           selectButton = 5
@@ -557,7 +572,16 @@ function keyboard:pong_Button_From_Main_Menu()
           end
           end
 
-
+          if PongOrPinBall then 
+            if selectButton == 1 then
+              selectButton = 2
+              elseif selectButton == 2 then
+                selectButton = 3
+              elseif selectButton == 3 then
+                selectButton = 1
+              end
+              end
+          
 
         if OnSettingsAudio then
           if selectButton == 1 then
@@ -716,6 +740,10 @@ function keyboard:pong_Button_From_Main_Menu()
           if OnCustomization then
             selectButton = 4
           end
+          if PongOrPinBall then
+            selectButton = 4
+          end
+          
           if OnCustomizationPlayerOne 
           or OnCustomizationPlayerTow 
           or OnCustomizationBall
@@ -753,6 +781,10 @@ function keyboard:pong_Button_From_Main_Menu()
           selectButton = 5
         end
 
+        if PongOrPinBall then
+          selectButton = 4
+        end
+        
         if OnCustomizationPlayerOne 
         or OnCustomizationPlayerTow 
         or OnCustomizationBall
@@ -794,6 +826,10 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 5
           end
 
+          if PongOrPinBall then
+            selectButton = 4
+          end
+
           if OnSettingsAudio then
           volumeMusicV = volumeMusicV + 0.1
           love.resize()
@@ -831,6 +867,10 @@ function keyboard:pong_Button_From_Main_Menu()
             selectButton = 5
           end
 
+          if PongOrPinBall then
+            selectButton = 4
+          end
+
           if OnSettingsAudio then
             point_GivenV = point_GivenV + 0.1
             love.resize()
@@ -854,6 +894,10 @@ function keyboard:pong_Button_From_Main_Menu()
  
           if OnCustomization then
             selectButton = 5
+          end
+
+          if PongOrPinBall then
+            selectButton = 4
           end
 
           if OnSettingsAudio then
@@ -1193,6 +1237,7 @@ end
    or OnCustomizationBall
    or OnCustomizationBackground
    or OnCredits
+   or PongOrPinBall
    then
     love.mouse.setPosition( 0, 0 )
    if key == "up" then

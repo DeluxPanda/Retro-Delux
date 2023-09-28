@@ -32,7 +32,7 @@ function love.draw()
 
     GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
     GameTitle_y = 50
-    
+
     PlayerOne_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
     PlayerOne_button_y = love.graphics.getHeight() / 2 - button_height / 2 - 30
     -- 1
@@ -186,6 +186,12 @@ ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button
               GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
               GameTitle_y = 80
     
+              love.graphics.setColor(yellow)
+              local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
+              love.graphics.setFont(PongName_font)
+              love.graphics.printf(PlayerTowName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+             
+
              love.graphics.setFont(Button_font)
     
              -- Color Select Tab

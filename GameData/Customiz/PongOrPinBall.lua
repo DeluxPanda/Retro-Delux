@@ -36,8 +36,8 @@ function love.draw()
    -- Main Menu
    if mouse_x >= main_menu_settings_button_x and mouse_x <= main_menu_settings_button_x + button_width and
        mouse_y >= main_menu_settings_button_y and mouse_y <= main_menu_settings_button_y + button_height or
-       selectButton == 4 then
-        selectButton = 4
+       selectButton == 3 then
+        selectButton = 3
        love.graphics.setColor(yellow)
        love.graphics.rectangle("fill", main_menu_settings_button_x , main_menu_settings_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
    end
