@@ -12,6 +12,8 @@ function love.draw()
   local main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
   local main_menu_settings_button_y = love.graphics.getHeight() - 60
   
+  local Background_button_x = love.graphics.getWidth() - button_width - 10
+  local Background_button_y = love.graphics.getHeight() - 60
   
   -- Hover over the Buttons --
   local mouse_x, mouse_y = love.mouse.getPosition()
@@ -33,6 +35,16 @@ function love.draw()
        love.graphics.rectangle("fill", PinBall_button_x , PinBall_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
    end
   
+   --Background
+   if mouse_x >= Background_button_x and mouse_x <= Background_button_x + button_width and
+   mouse_y >= Background_button_y and mouse_y <= Background_button_y + button_height or
+   selectButton == 4 then
+    selectButton = 4
+   love.graphics.setColor(yellow)
+   love.graphics.rectangle("fill", Background_button_x , Background_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
+   end
+     
+
    -- Main Menu
    if mouse_x >= main_menu_settings_button_x and mouse_x <= main_menu_settings_button_x + button_width and
        mouse_y >= main_menu_settings_button_y and mouse_y <= main_menu_settings_button_y + button_height or
@@ -66,7 +78,13 @@ function love.draw()
            love.graphics.printf(pinballName, PinBall_button_x, PinBall_button_y + 10, button_width, "center")
            PinBall_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
            PinBall_button_y = love.graphics.getHeight() / 2 - button_height / 2
-  
+
+           --Background
+           love.graphics.setColor(NormalButtons)
+           love.graphics.rectangle("fill", Background_button_x, Background_button_y, button_width, button_height, corner_radius, corner_radius)
+           love.graphics.setColor(255, 255, 255)
+           love.graphics.printf(BackgroundName, Background_button_x, Background_button_y + 10, button_width, "center")
+
            -- Menu Menu
            love.graphics.setColor(BackOrCloseButton)
            love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)

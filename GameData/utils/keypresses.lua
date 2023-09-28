@@ -2,7 +2,6 @@ keyboard = {}
 function keyboard:pong_Button_From_Main_Menu()
    OnStartMenu = false
    OnPongMenu = true
-   OnCustomizationBackground = false
    pongMenu()
    love.resize()
    Nostalgia:stop()
@@ -53,8 +52,6 @@ function keyboard:pong_Button_From_Main_Menu()
   started_SinglePlayer = false
   started_LocalMultiPlayer = false
   paused = false
-  OnCustomization = false
-  OnCustomizationBackground = false
   OnCredits = false
   OnPinballGame = true
   PlayerTowPointPong = nil
@@ -101,7 +98,6 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = true
   OnSettingsAudio = false
-  OnCustomizationBackground = false
   OnCustomization = false
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
@@ -130,7 +126,6 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
-  OnCustomizationBackground = false
   OnCustomization = true
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
@@ -147,7 +142,6 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
-  OnCustomizationBackground = false
   OnCustomization = false
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
@@ -163,7 +157,6 @@ function keyboard:pong_Button_From_Main_Menu()
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
-  OnCustomizationBackground = false
   OnCustomization = false
   OnCustomizationPlayerOne = true
   OnCustomizationPlayerTow = false
@@ -178,7 +171,6 @@ function keyboard:pong_Button_From_Main_Menu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
-  OnCustomizationBackground = false
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerTow = true
@@ -206,6 +198,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomization = false
   OnCustomizationBall = false
   OnCustomizationBackground = true
+  PongOrPinBall = false
   selectButton = 1
   love.filesystem.load("Customiz/Background.lua")()
   love.resize()
@@ -219,7 +212,27 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Credits.lua")()
   love.resize()
  end
-
+function keyboard:PinBall_Game_Main_Menu()
+  OnStartMenu = false
+  started_SinglePlayer = false
+  started_LocalMultiPlayer = false
+  paused = false
+  OnCustomization = false
+  OnCustomizationBackground = false
+  OnCredits = false
+  OnPinballGame = true
+  PlayerTowPointPong = nil
+  PlayerPointPong = nil
+  AIPointPong = nil
+  PlayerPointPong = nil
+  AIPoint_Tow_background = nil
+  AIPoint_background = nil
+  collectgarbage("collect")
+  Marcus_Nyman_MLIM_S2:pause()
+  Nostalgia:stop()
+  Lobby_Time:play()
+  love.filesystem.load("PinBall/PinBallMain.lua")()
+end
  function keyboard:Enter_things()
   
       if selectButton == 1 then
@@ -313,13 +326,13 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:back_to_MainMenu()
         elseif OnSettings then
           keyboard:settingsAudioMenu()
+        elseif OnCustomization then
+          keyboard:settingsCustomizationBallMenu()
+        elseif PongOrPinBall then
+            keyboard:SettingsMenu()
         end
-        if OnCustomization then
-            keyboard:settingsCustomizationBallMenu()
-        end
-        if PongOrPinBall then
-          keyboard:SettingsMenu()
-        end
+
+
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
@@ -347,10 +360,14 @@ function keyboard:pong_Button_From_Main_Menu()
           return
         elseif OnCredits then
           keyboard:back_to_MainMenu()
-        end 
-        if OnCustomization then
+      elseif OnCustomization then
           keyboard:settingsCustomizationMenuPongOrPinBall()
+      elseif PongOrPinBall == true then
+            keyboard:settingsCustomizationBackgroundMenu()
         end
+
+
+
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
@@ -374,9 +391,6 @@ function keyboard:pong_Button_From_Main_Menu()
           keyboard:SettingsMenu()
         elseif OnSettings then
           keyboard:settingsCustomizationMenuPongOrPinBall()
-        elseif OnCustomization then
-          keyboard:settingsCustomizationBackgroundMenu()
-  
       elseif OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
     
@@ -418,7 +432,7 @@ function keyboard:pong_Button_From_Main_Menu()
         or OnCustomizationPlayerTow 
         or OnCustomizationBall 
         or OnCustomizationBackground then
-          keyboard:settingsCustomizationMenu()
+          keyboard:settingsCustomizationMenuPongOrPinBall()
           Save_stuff()
           love.graphics.setBackgroundColor(ColorSelectedForBackground)
        end
@@ -735,15 +749,11 @@ function keyboard:pong_Button_From_Main_Menu()
              volumeHitV = 0.1
            end
            end
-           
+           if PongOrPinBall then
+            selectButton = 3
+          end
         elseif selectButton == 5 then
-          if OnCustomization then
-            selectButton = 4
-          end
-          if PongOrPinBall then
-            selectButton = 4
-          end
-          
+
           if OnCustomizationPlayerOne 
           or OnCustomizationPlayerTow 
           or OnCustomizationBall
@@ -776,10 +786,6 @@ function keyboard:pong_Button_From_Main_Menu()
 
     function keyboard:MenuRight()
       if selectButton == 1 then
-
-        if OnCustomization then
-          selectButton = 5
-        end
 
         if PongOrPinBall then
           selectButton = 4
@@ -822,9 +828,6 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 2 then
 
-          if OnCustomization then
-            selectButton = 5
-          end
 
           if PongOrPinBall then
             selectButton = 4
@@ -863,9 +866,6 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 3 then
         
-          if OnCustomization then
-            selectButton = 5
-          end
 
           if PongOrPinBall then
             selectButton = 4
@@ -892,9 +892,6 @@ function keyboard:pong_Button_From_Main_Menu()
 
         elseif selectButton == 4 then
  
-          if OnCustomization then
-            selectButton = 5
-          end
 
           if PongOrPinBall then
             selectButton = 4
@@ -1181,25 +1178,7 @@ end
  love.event.quit("restart")
   end
   if key == "h" then 
-    OnStartMenu = false
-    started_SinglePlayer = false
-    started_LocalMultiPlayer = false
-    paused = false
-    OnCustomization = false
-    OnCustomizationBackground = false
-    OnCredits = false
-    OnPinballGame = true
-    PlayerTowPointPong = nil
-    PlayerPointPong = nil
-    AIPointPong = nil
-    PlayerPointPong = nil
-    AIPoint_Tow_background = nil
-    AIPoint_background = nil
-    collectgarbage("collect")
-    Marcus_Nyman_MLIM_S2:pause()
-    Nostalgia:stop()
-    Lobby_Time:play()
-    love.filesystem.load("PinBall/PinBallMain.lua")()
+    keyboard:PinBall_Game_Main_Menu()
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
