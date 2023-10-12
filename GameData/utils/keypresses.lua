@@ -132,26 +132,44 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = false
-  
+
   selectButton = 1
   love.filesystem.load("Customiz/Customization.lua")()
   love.resize()
  end
  function keyboard:settingsCustomizationPinBallMenu()
-  OnStartMenu = false
-  OnPongMenu = false
-  OnSettings = false
-  OnSettingsAudio = false
-  OnCustomization = false
   OnCustomizationPinBall = true
-  OnCustomizationPlayerOne = false
-  OnCustomizationPlayerTow = false
-  OnCustomizationBall = false
-  OnCustomizationBackground = false
+  OnCustomizationPinBallPlayerOne = false
+  OnCustomizationPinBallPlayerTow = false
+  OnCustomizationPinBallBall = false
   PongOrPinBall = false
-  
+
   selectButton = 1
   love.filesystem.load("Customiz/Customization_PinBall.lua")()
+  love.resize()
+ end
+ function keyboard:settingsCustomizationPinBallPlayerOneMenu()
+  OnCustomizationPinBall = false
+  OnCustomizationPinBallPlayerOne = true
+
+  selectButton = 1
+  love.filesystem.load("Customiz/PinBall/PlayerOne.lua")()
+  love.resize()
+ end
+ function keyboard:settingsCustomizationPinBallPlayerTowMenu()
+  OnCustomizationPinBall = false
+  OnCustomizationPinBallPlayerTow = true
+
+  selectButton = 1
+  love.filesystem.load("Customiz/PinBall/PlayerTow.lua")()
+  love.resize()
+ end
+ function keyboard:settingsCustomizationPinBallBallMenu()
+  OnCustomizationPinBall = false
+  OnCustomizationPinBallBall = true
+
+  selectButton = 1
+  love.filesystem.load("Customiz/PinBall/Ball.lua")()
   love.resize()
  end
  function keyboard:settingsCustomizationMenuPongOrPinBall()
@@ -160,6 +178,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettings = false
   OnSettingsAudio = false
   OnCustomization = false
+  OnCustomizationPinBall = false
   OnCustomizationPlayerOne = false
   OnCustomizationPlayerTow = false
   OnCustomizationBall = false
@@ -281,8 +300,10 @@ end
             lang:language()
         end
 
-        elseif OnCustomization or OnCustomizationPinBall then
+        elseif OnCustomization then
             keyboard:settingsCustomizationPlayerOneMenu()
+        elseif OnCustomizationPinBall then
+          keyboard:settingsCustomizationPinBallPlayerOneMenu()
             
          elseif helper then
           helper = false
@@ -316,9 +337,11 @@ end
           love.window.setFullscreen(not love.window.getFullscreen())
           love.resize()
           lang:language()
-
-        elseif OnCustomization or OnCustomizationPinBall then
+        elseif OnCustomization then
             keyboard:settingsCustomizationPlayerTowMenu()
+          end
+        if OnCustomizationPinBall then
+          keyboard:settingsCustomizationPinBallPlayerTowMenu()
         end
 
         if OnCustomizationPlayerOne then
@@ -347,8 +370,10 @@ end
           keyboard:back_to_MainMenu()
         elseif OnSettings then
           keyboard:settingsAudioMenu()
-        elseif OnCustomization or OnCustomizationPinBall then
+        elseif OnCustomization then
           keyboard:settingsCustomizationBallMenu()
+        elseif OnCustomizationPinBall then
+          keyboard:settingsCustomizationPinBallBallMenu()
         elseif PongOrPinBall then
             keyboard:SettingsMenu()
         end
@@ -449,14 +474,37 @@ end
         end
 
         elseif selectButton == 7 then
-        if OnCustomizationPlayerOne 
-        or OnCustomizationPlayerTow 
-        or OnCustomizationBall 
-        or OnCustomizationBackground then
-          keyboard:settingsCustomizationMenuPongOrPinBall()
+        if OnCustomizationPlayerOne then
+          keyboard:settingsCustomizationMenu()
           Save_stuff()
-          love.graphics.setBackgroundColor(ColorSelectedForBackground)
+          selectButton = 1
+        end
+        if OnCustomizationPlayerTow then
+          keyboard:settingsCustomizationMenu()
+          Save_stuff()
+          selectButton = 2
+        end
+        if OnCustomizationBall then
+          keyboard:settingsCustomizationMenu()
+          Save_stuff()
+          selectButton = 3
+          --love.graphics.setBackgroundColor(ColorSelectedForBackground)
        end
+       if OnCustomizationPinBallPlayerOne then
+        keyboard:settingsCustomizationPinBallMenu()
+        Save_stuff()
+        selectButton = 1
+      end
+      if OnCustomizationPinBallPlayerTow then
+        keyboard:settingsCustomizationPinBallMenu()
+        Save_stuff()
+        selectButton = 2
+      end
+      if OnCustomizationPinBallBall then
+        keyboard:settingsCustomizationPinBallMenu()
+        Save_stuff()
+        selectButton = 3
+     end
       end
     end
 

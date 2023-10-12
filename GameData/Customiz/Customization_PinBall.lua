@@ -56,7 +56,7 @@ function love.draw()
            -- Game Title
            love.graphics.setFont(Game_Titl_font)
             love.graphics.setColor(white)
-            love.graphics.printf(CustomizeName, GameTitle_x, GameTitle_y, button_start_y, "center")
+            love.graphics.printf("CustomizeName", GameTitle_x, GameTitle_y, button_start_y, "center")
             GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
             GameTitle_y = 80
   
