@@ -94,7 +94,11 @@ PlayerTow_y = GameTitle_y + 20
              love.graphics.setColor(BackOrCloseButton)
              love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)
+             if OnPongMenu then
+                love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
+             else
              love.graphics.printf(GameContinueName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
+            end
              main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
              main_menu_settings_button_y = love.graphics.getHeight() - 60
 

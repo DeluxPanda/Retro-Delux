@@ -131,6 +131,7 @@ function wait(duration, callback)
 end
 
 function love.update(dt)
+    if not helper then
     if OnStartMenu or OnPongMenu then
         if OnPongButton then
         -- background
@@ -139,6 +140,7 @@ function love.update(dt)
         ball_background:update(dt)
     end
     end
+end
     local joystickcount = love.joystick.getJoystickCount()
 if (joystickcount > 0) then
     joystick_delay = 0.2
@@ -164,6 +166,7 @@ end
 
 function love.draw()
   love.graphics.setBackgroundColor(ColorSelectedForBackground)
+  if not helper then
     if OnStartMenu or OnPongMenu then
             -- background
             if OnPongButton then
@@ -172,6 +175,7 @@ function love.draw()
             ball_background:draw()
             end
             end
+        end
     if OnPongMenu then
         pongMenu()
     end

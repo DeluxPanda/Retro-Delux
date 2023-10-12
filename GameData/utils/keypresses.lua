@@ -317,7 +317,9 @@ end
         end
 
        elseif selectButton == 2 then
-
+        if OnCustomizationPinBall then
+          keyboard:settingsCustomizationPinBallPlayerTowMenu()
+        end
         if PongOrPinBall then
           keyboard:settingsCustomizationPinBallMenu()
         end
@@ -340,9 +342,6 @@ end
         elseif OnCustomization then
             keyboard:settingsCustomizationPlayerTowMenu()
           end
-        if OnCustomizationPinBall then
-          keyboard:settingsCustomizationPinBallPlayerTowMenu()
-        end
 
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
@@ -433,8 +432,10 @@ end
 
        elseif selectButton == 5 then
 
-        if OnStartMenu or OnPongMenu then
+        if OnStartMenu then
           keyboard:SettingsMenu()
+      elseif OnPongMenu then
+          helper = true
         elseif OnSettings then
           keyboard:settingsCustomizationMenuPongOrPinBall()
       elseif OnCustomizationPlayerOne then
@@ -511,7 +512,10 @@ end
     function keyboard:MenuUp()
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTow 
-      or OnCustomizationBall then
+      or OnCustomizationBall
+      or OnCustomizationPinBallPlayerOne
+      or OnCustomizationPinBallPlayerTow
+      or OnCustomizationPinBallBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -615,7 +619,10 @@ end
     function keyboard:MenuDown()
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTow 
-      or OnCustomizationBall then
+      or OnCustomizationBall
+      or OnCustomizationPinBallPlayerOne
+      or OnCustomizationPinBallPlayerTow
+      or OnCustomizationPinBallBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -723,7 +730,10 @@ end
         if OnCustomizationPlayerOne 
         or OnCustomizationPlayerTow 
         or OnCustomizationBall 
-        or OnCustomizationBackground then
+        or OnCustomizationBackground
+        or OnCustomizationPinBallPlayerOne
+        or OnCustomizationPinBallPlayerTow
+        or OnCustomizationPinBallBall then
           selectButton = 1
          end
 
@@ -753,7 +763,10 @@ end
           if OnCustomizationPlayerOne 
           or OnCustomizationPlayerTow 
           or OnCustomizationBall 
-          or OnCustomizationBackground then
+          or OnCustomizationBackground
+          or OnCustomizationPinBallPlayerOne
+          or OnCustomizationPinBallPlayerTow
+          or OnCustomizationPinBallBall then
             selectButton = 1
            end
 
@@ -782,7 +795,10 @@ end
           if OnCustomizationPlayerOne 
           or OnCustomizationPlayerTow 
           or OnCustomizationBall 
-          or OnCustomizationBackground then
+          or OnCustomizationBackground
+          or OnCustomizationPinBallPlayerOne
+          or OnCustomizationPinBallPlayerTow
+          or OnCustomizationPinBallBall then
             selectButton = 1
            end
 
@@ -807,7 +823,10 @@ end
           if OnCustomizationPlayerOne 
           or OnCustomizationPlayerTow 
           or OnCustomizationBall 
-          or OnCustomizationBackground then
+          or OnCustomizationBackground
+          or OnCustomizationPinBallPlayerOne
+          or OnCustomizationPinBallPlayerTow
+          or OnCustomizationPinBallBall then
             selectButton = 1
            end
 
@@ -863,7 +882,10 @@ end
         if OnCustomizationPlayerOne 
         or OnCustomizationPlayerTow 
         or OnCustomizationBall
-        or OnCustomizationBackground then
+        or OnCustomizationBackground
+        or OnCustomizationPinBallPlayerOne
+        or OnCustomizationPinBallPlayerTow
+        or OnCustomizationPinBallBall then
           selectButton = 2
         end
 
@@ -1284,6 +1306,9 @@ end
    or OnCustomizationPlayerOne
    or OnCustomizationPlayerTow
    or OnCustomizationBall
+   or OnCustomizationPinBallPlayerOne
+   or OnCustomizationPinBallPlayerTow
+   or OnCustomizationPinBallBall
    or OnCustomizationBackground
    or OnCredits
    or PongOrPinBall

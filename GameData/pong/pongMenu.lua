@@ -1,6 +1,6 @@
 pongMenu = {}
  function pongMenu()
-
+    if not helper then
          -- Set the button positions
          local button_width = 200
    GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
@@ -13,8 +13,8 @@ pongMenu = {}
    pong_LocalMultiPlayer_button_y =  pong_SinglePlayer_button_y + button_height + button_padding
 
 
-   Settings_button_x = love.graphics.getWidth() - button_width - 10
-   Settings_button_y = love.graphics.getHeight() - 60
+   help_button_x = love.graphics.getWidth() - button_width - 10
+   help_button_y = love.graphics.getHeight() - 60
 
    main_menu_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
    main_menu_button_y = love.graphics.getHeight() - 60
@@ -56,13 +56,13 @@ pongMenu = {}
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", raunds_button_x, raunds_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
     end
-    -- Settings
-    if mouse_x >= Settings_button_x and mouse_x <= Settings_button_x + button_width and
-        mouse_y >= Settings_button_y and mouse_y <= Settings_button_y + button_height or
+    -- help
+    if mouse_x >= help_button_x and mouse_x <= help_button_x + button_width and
+        mouse_y >= help_button_y and mouse_y <= help_button_y + button_height or
         selectButton == 5 then
          selectButton = 5
         love.graphics.setColor(yellow)
-        love.graphics.rectangle("fill", Settings_button_x , Settings_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
+        love.graphics.rectangle("fill", help_button_x , help_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
     end
 
 
@@ -98,13 +98,13 @@ pongMenu = {}
             love.graphics.printf(main_menuName, main_menu_button_x, main_menu_button_y + 10, button_width, "center")
             main_menu_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
             main_menu_button_y = love.graphics.getHeight() - 60
-            -- Settings
+            -- help
             love.graphics.setColor(NormalButtons)-- 0, 0, 0.737, 1
-            love.graphics.rectangle("fill", Settings_button_x, Settings_button_y, button_width, button_height, corner_radius, corner_radius)
+            love.graphics.rectangle("fill", help_button_x, help_button_y, button_width, button_height, corner_radius, corner_radius)
             love.graphics.setColor(255, 255, 255)
-            love.graphics.printf(SettingsName, Settings_button_x, Settings_button_y + 10, button_width, "center")
-            Settings_button_x = love.graphics.getWidth() - button_width - 10
-            Settings_button_y = love.graphics.getHeight() - 60
+            love.graphics.printf(HelpName, help_button_x, help_button_y + 10, button_width, "center")
+            help_button_x = love.graphics.getWidth() - button_width - 10
+            help_button_y = love.graphics.getHeight() - 60
             -- Credits
             love.graphics.setColor(NormalButtons)
             love.graphics.rectangle("fill", raunds_button_x, raunds_button_y, button_width, button_height, corner_radius, corner_radius)
@@ -124,4 +124,9 @@ pongMenu = {}
             love.graphics.printf(maxPointsName .. " " ..PointCunt, raunds_button_x , raunds_button_y - 40, button_width, "center")
             raunds_button_x = 10
             raunds_button_y = love.graphics.getHeight() - 60
+end
+            if helper then
+                selectButton = 1
+                help()
+                end
         end 
