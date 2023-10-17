@@ -25,11 +25,13 @@ local check_mark = love.graphics.newImage("Images/check_mark.png")
 function love.draw()
     love.graphics.setBackgroundColor(ColorSelectedForBackground)
     love.graphics.setColor(ColorSelected)
-    love.graphics.push() -- Push the current transformation matrix
-    love.graphics.translate(x + Width/ 2, y + Height / 2) -- Translate to the center of the rectangle
-    love.graphics.rotate(angle) -- Rotate around the center
-    love.graphics.rectangle("fill", -Width / 2, -Height / 2, Width, Height, 10) -- Draw the rotated rectangle
-    love.graphics.pop() -- Restore the previous transformation matrix
+    love.graphics.rectangle("fill", x, y, Width, Height,10, 10)
+    --  love.graphics.setColor(ColorSelected)
+  --  love.graphics.push() -- Push the current transformation matrix
+  --  love.graphics.translate(x + Width/ 2, y + Height / 2) -- Translate to the center of the rectangle
+  --  love.graphics.rotate(angle) -- Rotate around the center
+  --  love.graphics.rectangle("fill", -Width / 2, -Height / 2, Width, Height, 10) -- Draw the rotated rectangle
+  --  love.graphics.pop() -- Restore the previous transformation matrix
 
 
 

@@ -7,16 +7,16 @@ local y = love.graphics.getHeight() / 2
 local WidthBall = 20
 local HeightBall = 20
 
-if PinBallColorSelectedForBall == "yellow" then
-    PinBallColorSelectedForBall = yellow
-elseif PinBallColorSelectedForBall == "green" then
-    PinBallColorSelectedForBall = green
-elseif PinBallColorSelectedForBall == "red" then
-    PinBallColorSelectedForBall = red
-elseif PinBallColorSelectedForBall == "white" then
-    PinBallColorSelectedForBall = white
+if ColorSelectedForFlipperBall == "yellow" then
+    ColorSelectedForFlipperBall = yellow
+elseif ColorSelectedForFlipperBall == "green" then
+    ColorSelectedForFlipperBall = green
+elseif ColorSelectedForFlipperBall == "red" then
+    ColorSelectedForFlipperBall = red
+elseif ColorSelectedForFlipperBall == "white" then
+    ColorSelectedForFlipperBall = white
 end
-     ColorSelected = PinBallColorSelectedForBall
+     ColorSelected = ColorSelectedForFlipperBall
 
 
 local check_mark = love.graphics.newImage("Images/check_mark.png")

@@ -165,7 +165,7 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/PinBall/FlipperTow.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationPinBallBallMenu()
+ function keyboard:settingsCustomizationFlipperBallMenu()
   OnCustomizationPinBall = false
   OnCustomizationFlipperBall = true
 
@@ -189,7 +189,7 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/PongOrPinBall.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationFlipperOneMenu()
+ function keyboard:settingsCustomizationPlayerOneMenu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
@@ -359,6 +359,19 @@ end
           ColorSelectedForBall = ColorSelected
         end
 
+
+        if OnCustomizationFlipperOne then
+          ColorSelectedForFlipperOne = ColorSelected
+        end
+
+        if OnCustomizationFlipperTow then
+          ColorSelectedForFlipperTow = ColorSelected
+        end
+
+        if OnCustomizationFlipperBall then
+          ColorSelectedForFlipperBall = ColorSelected
+        end
+
         if OnCustomizationBackground then
           ColorSelectedForBackground = ColorSelected
         end
@@ -376,7 +389,7 @@ end
         elseif OnCustomization then
           keyboard:settingsCustomizationBallMenu()
         elseif OnCustomizationPinBall then
-          keyboard:settingsCustomizationPinBallBallMenu()
+          keyboard:settingsCustomizationFlipperBallMenu()
         elseif PongOrPinBall then
             keyboard:SettingsMenu()
         end
@@ -392,6 +405,18 @@ end
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
+        end
+
+        if OnCustomizationFlipperOne then
+          ColorSelectedForFlipperOne = ColorSelected
+        end
+
+        if OnCustomizationFlipperTow then
+          ColorSelectedForFlipperTow = ColorSelected
+        end
+
+        if OnCustomizationFlipperBall then
+          ColorSelectedForFlipperBall = ColorSelected
         end
 
         if OnCustomizationBackground then
@@ -428,6 +453,18 @@ end
           ColorSelectedForBall = ColorSelected
         end
 
+        if OnCustomizationFlipperOne then
+          ColorSelectedForFlipperOne = ColorSelected
+        end
+
+        if OnCustomizationFlipperTow then
+          ColorSelectedForFlipperTow = ColorSelected
+        end
+
+        if OnCustomizationFlipperBall then
+          ColorSelectedForFlipperBall = ColorSelected
+        end
+
         if OnCustomizationBackground then
           ColorSelectedForBackground = ColorSelected
         end
@@ -451,6 +488,17 @@ end
       elseif OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
 
+          if OnCustomizationFlipperOne then
+            ColorSelectedForFlipperOne = ColorSelected
+          end
+  
+          if OnCustomizationFlipperTow then
+            ColorSelectedForFlipperTow = ColorSelected
+          end
+  
+          if OnCustomizationFlipperBall then
+            ColorSelectedForFlipperBall = ColorSelected
+          end
       elseif OnCustomizationBackground then
           ColorSelectedForBackground = ColorSelected
         end
@@ -472,6 +520,18 @@ end
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
+        end
+
+        if OnCustomizationFlipperOne then
+          ColorSelectedForFlipperOne = ColorSelected
+        end
+
+        if OnCustomizationFlipperTow then
+          ColorSelectedForFlipperTow = ColorSelected
+        end
+
+        if OnCustomizationFlipperBall then
+          ColorSelectedForFlipperBall = ColorSelected
         end
 
         if OnCustomizationBackground then
@@ -1084,7 +1144,42 @@ elseif ColorSelectedForBall == red then
 elseif ColorSelectedForBall == white then
   ColorSelectedForBall = "white"
 end
-  file:write(ColorSelectedForBall .. "\n")
+
+  -- Flipper 1
+  if ColorSelectedForFlipperOne == yellow then
+     ColorSelectedForFlipperOne = "yellow"
+elseif ColorSelectedForFlipperOne == green then
+    ColorSelectedForFlipperOne = "green"
+elseif ColorSelectedForFlipperOne == red then
+    ColorSelectedForFlipperOne = "red"
+elseif ColorSelectedForFlipperOne == white then
+    ColorSelectedForFlipperOne = "white"
+end
+  file:write(ColorSelectedForFlipperOne .. "\n")
+
+-- Flipper 2
+if ColorSelectedForFlipperTow == yellow then
+ColorSelectedForFlipperTow = "yellow"
+elseif ColorSelectedForFlipperTow == green then
+ColorSelectedForFlipperTow = "green"
+elseif ColorSelectedForFlipperTow == red then
+ColorSelectedForFlipperTow = "red"
+elseif ColorSelectedForFlipperTow == white then
+ColorSelectedForFlipperTow = "white"
+end
+file:write(ColorSelectedForFlipperTow .. "\n")
+-- Flipper Ball
+if ColorSelectedForFlipperBall == yellow then
+ColorSelectedForFlipperBall = "yellow"
+elseif ColorSelectedForFlipperBall == green then
+ColorSelectedForFlipperBall = "green"
+elseif ColorSelectedForFlipperBall == red then
+ColorSelectedForFlipperBall = "red"
+elseif ColorSelectedForFlipperBall == white then
+ColorSelectedForFlipperBall = "white"
+end
+
+  file:write(ColorSelectedForFlipperBall .. "\n")
   -- Background
 if ColorSelectedForBackground == slategray_backgrund then
   ColorSelectedForBackground = "slategray_backgrund"
@@ -1128,6 +1223,40 @@ elseif ColorSelectedForBall == "red" then
 elseif ColorSelectedForBall == "white" then
   ColorSelectedForBall = white
 end
+
+  -- Flipper 1
+  if ColorSelectedForFlipperOne == "yellow" then
+    ColorSelectedForFlipperOne = yellow
+elseif ColorSelectedForFlipperOne == "green" then
+    ColorSelectedForFlipperOne = green
+elseif ColorSelectedForFlipperOne == "red" then
+    ColorSelectedForFlipperOne = red
+elseif ColorSelectedForFlipperOne == "white" then
+    ColorSelectedForFlipperOne = white
+end
+
+-- Flipper 2
+if ColorSelectedForFlipperTow == "yellow" then
+ColorSelectedForFlipperTow = yellow
+elseif ColorSelectedForFlipperTow == "green" then
+ColorSelectedForFlipperTow = green
+elseif ColorSelectedForFlipperTow == "red" then
+ColorSelectedForFlipperTow = red
+elseif ColorSelectedForFlipperTow == "white" then
+ColorSelectedForFlipperTow = white
+end
+
+-- Flipper Ball
+if ColorSelectedForFlipperBall == "yellow" then
+ColorSelectedForFlipperBall = yellow
+elseif ColorSelectedForFlipperBall == "green" then
+ColorSelectedForFlipperBall = green
+elseif ColorSelectedForFlipperBall == "red" then
+ColorSelectedForFlipperBall = red
+elseif ColorSelectedForFlipperBall == "white" then
+ColorSelectedForFlipperBall = white
+end
+
   -- Background
   if ColorSelectedForBackground == "yellow_backgrund" then
     ColorSelectedForBackground = yellow_backgrund
@@ -1158,6 +1287,10 @@ end
     local line10 = file:read("*line")
     local line11 = file:read("*line")
     local line12 = file:read("*line")
+    local line13 = file:read("*line")
+    local line14 = file:read("*line")
+    local line15 = file:read("*line")
+    local line16 = file:read("*line")
     volumeMainV = line3
     volumeMusicV = line4
     point_GivenV = line5
@@ -1168,6 +1301,10 @@ end
     ColorSelectedForBall = line10 --Ball
     ColorSelectedForBackground = line11 --Background
     PointCunt = line12
+    ColorSelectedForPlayerOne = line13 --player_1
+    ColorSelectedForPlayerTow = line14 --player_2
+    ColorSelectedForBall = line15 --Ball
+    ColorSelectedForBackground = line16 --Background
 
     file:close()
     local line = nil
@@ -1182,6 +1319,11 @@ end
     local line10 = nil
     local line11 = nil
     local line12 = nil
+    local line12 = nil
+    local line13 = nil
+    local line14 = nil
+    local line15 = nil
+    local line16 = nil
     collectgarbage("collect")
     if volumeMainV == nil then
       volumeMainV = 0.5
@@ -1237,6 +1379,46 @@ elseif ColorSelectedForBall == "white" then
 else
   ColorSelectedForBall = yellow
 end
+
+  -- Flipper 1
+  if ColorSelectedForFlipperOne == "yellow" then
+    ColorSelectedForFlipperOne = yellow
+elseif ColorSelectedForFlipperOne == "green" then
+    ColorSelectedForFlipperOne = green
+elseif ColorSelectedForFlipperOne == "red" then
+    ColorSelectedForFlipperOne = red
+elseif ColorSelectedForFlipperOne == "white" then
+    ColorSelectedForFlipperOne = white
+  else
+    ColorSelectedForPlayerTow = red
+  end
+
+-- Flipper 2
+if ColorSelectedForFlipperTow == "yellow" then
+ColorSelectedForFlipperTow = yellow
+elseif ColorSelectedForFlipperTow == "green" then
+ColorSelectedForFlipperTow = green
+elseif ColorSelectedForFlipperTow == "red" then
+ColorSelectedForFlipperTow = red
+elseif ColorSelectedForFlipperTow == "white" then
+ColorSelectedForFlipperTow = white
+else
+  ColorSelectedForPlayerOne = green
+end
+
+-- Flipper Ball
+if ColorSelectedForFlipperBall == "yellow" then
+ColorSelectedForFlipperBall = yellow
+elseif ColorSelectedForFlipperBall == "green" then
+ColorSelectedForFlipperBall = green
+elseif ColorSelectedForFlipperBall == "red" then
+ColorSelectedForFlipperBall = red
+elseif ColorSelectedForFlipperBall == "white" then
+ColorSelectedForFlipperBall = white
+else
+  ColorSelectedForBall = yellow
+end
+
   -- Background
 if ColorSelectedForBackground == "slategray_backgrund" then
   ColorSelectedForBackground = slategray_backgrund
