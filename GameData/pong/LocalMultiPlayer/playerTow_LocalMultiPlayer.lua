@@ -39,7 +39,6 @@ elseif (joystickcount > 0) then
 end
 -- Controller ends
 
-playerTow_LocalMultiPlayer_a:draw()
    elseif os == "Linux" then
 -- Controller
 if (joystickcount > 2) then
