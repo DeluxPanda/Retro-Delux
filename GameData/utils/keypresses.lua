@@ -1,4 +1,5 @@
 keyboard = {}
+
 function keyboard:pong_Button_From_Main_Menu()
    OnStartMenu = false
    OnPongMenu = true
@@ -274,6 +275,9 @@ end
       if selectButton == 1 then
         if OnStartMenu then
           keyboard:pong_Button_From_Main_Menu()
+        elseif helperOnPongMenu then
+          helperOnPongMenu = false
+          selectButton = 5
         elseif OnPongMenu then
           keyboard:pong_SP_Btn_pong_Menu()
         elseif paused then
@@ -405,7 +409,7 @@ end
           return
         elseif OnCredits then
           keyboard:back_to_MainMenu()
-        elseif OnCustomization or OnCustomizationPinBall then
+        elseif OnCustomization or OnCustomizationPinBall  then
             keyboard:settingsCustomizationMenuPongOrPinBall()
         elseif PongOrPinBall == true then
             keyboard:settingsCustomizationBackgroundMenu()
@@ -430,13 +434,14 @@ end
         end
 
 
-       elseif selectButton == 5 then
+      elseif selectButton == 5 then
 
-        if OnStartMenu then
+      if OnStartMenu then
           keyboard:SettingsMenu()
       elseif OnPongMenu then
-          helper = true
-        elseif OnSettings then
+        helperOnPongMenu = true
+        selectButton = 1
+      elseif OnSettings then
           keyboard:settingsCustomizationMenuPongOrPinBall()
       elseif OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
@@ -489,7 +494,13 @@ end
           keyboard:settingsCustomizationMenu()
           Save_stuff()
           selectButton = 3
-          --love.graphics.setBackgroundColor(ColorSelectedForBackground)
+       end
+
+       if OnCustomizationBackground then
+        keyboard:settingsCustomizationMenuPongOrPinBall()
+        Save_stuff()
+        selectButton = 4
+        love.graphics.setBackgroundColor(ColorSelectedForBackground)
        end
        if OnCustomizationPinBallPlayerOne then
         keyboard:settingsCustomizationPinBallMenu()
@@ -1269,7 +1280,8 @@ end
  love.event.quit("restart")
   end
   if key == "h" then 
-    keyboard:PinBall_Game_Main_Menu()
+   -- keyboard:PinBall_Game_Main_Menu()
+   print(selectButton)
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())

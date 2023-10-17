@@ -1,6 +1,6 @@
 pongMenu = {}
  function pongMenu()
-    if not helper then
+    if not helperOnPongMenu then
          -- Set the button positions
          local button_width = 200
    GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
@@ -125,7 +125,7 @@ pongMenu = {}
             raunds_button_x = 10
             raunds_button_y = love.graphics.getHeight() - 60
 end
-            if helper then
+            if helperOnPongMenu then
                 selectButton = 1
                 help()
                 end

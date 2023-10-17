@@ -3,7 +3,7 @@ local Height = 100
 local Width = 20
 local x = 100
 local y = love.graphics.getHeight() / 2
-
+local angle = 0.8
 local WidthBall = 20
 local HeightBall = 20
 
@@ -25,7 +25,12 @@ local check_mark = love.graphics.newImage("Images/check_mark.png")
 function love.draw()
     love.graphics.setBackgroundColor(ColorSelectedForBackground)
     love.graphics.setColor(ColorSelected)
-    love.graphics.rectangle("fill", x, y, Width, Height)
+    love.graphics.push() -- Push the current transformation matrix
+    love.graphics.translate(x + Width/ 2, y + Height / 2) -- Translate to the center of the rectangle
+    love.graphics.rotate(angle) -- Rotate around the center
+    love.graphics.rectangle("fill", -Width / 2, -Height / 2, Width, Height, 10) -- Draw the rotated rectangle
+    love.graphics.pop() -- Restore the previous transformation matrix
+
 
 
     color_button_height = 47
