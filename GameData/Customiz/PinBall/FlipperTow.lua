@@ -7,16 +7,16 @@ local angle = -0.8
 local WidthBall = 20
 local HeightBall = 20
 
-if ColorSelectedForPlayerTow == "yellow" then
-    ColorSelectedForPlayerTow = yellow
-elseif ColorSelectedForPlayerTow == "green" then
-    ColorSelectedForPlayerTow = green
-elseif ColorSelectedForPlayerTow == "red" then
-    ColorSelectedForPlayerTow = red
-elseif ColorSelectedForPlayerTow == "white" then
-    ColorSelectedForPlayerTow = white
+if ColorSelectedForFlipperTow == "yellow" then
+    ColorSelectedForFlipperTow = yellow
+elseif ColorSelectedForFlipperTow == "green" then
+    ColorSelectedForFlipperTow = green
+elseif ColorSelectedForFlipperTow == "red" then
+    ColorSelectedForFlipperTow = red
+elseif ColorSelectedForFlipperTow == "white" then
+    ColorSelectedForFlipperTow = white
 end
-        ColorSelected = ColorSelectedForPlayerTow
+       ColorSelected = ColorSelectedForFlipperTow
 
 
 local check_mark = love.graphics.newImage("Images/check_mark.png")

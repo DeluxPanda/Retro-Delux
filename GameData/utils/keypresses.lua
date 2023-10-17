@@ -30,7 +30,7 @@ function keyboard:pong_Button_From_Main_Menu()
   started_SinglePlayer = true
   OnPongMenu = false
  end
- 
+
  function keyboard:pong_LMP_Btn_pong_Menu()
    love.filesystem.load("pong/LocalMultiPlayer/Main_LocalMultiPlayer.lua")()
    player_LocalMultiPlayer:load()
@@ -140,34 +140,34 @@ function keyboard:pong_Button_From_Main_Menu()
  end
  function keyboard:settingsCustomizationPinBallMenu()
   OnCustomizationPinBall = true
-  OnCustomizationPinBallPlayerOne = false
-  OnCustomizationPinBallPlayerTow = false
-  OnCustomizationPinBallBall = false
+  OnCustomizationFlipperOne = false
+  OnCustomizationFlipperTwo = false
+  OnCustomizationFlipperBall = false
   PongOrPinBall = false
 
   selectButton = 1
   love.filesystem.load("Customiz/Customization_PinBall.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationPinBallPlayerOneMenu()
+ function keyboard:settingsCustomizationFlipperOneMenu()
   OnCustomizationPinBall = false
-  OnCustomizationPinBallPlayerOne = true
+  OnCustomizationFlipperOne = true
 
   selectButton = 1
-  love.filesystem.load("Customiz/PinBall/PlayerOne.lua")()
+  love.filesystem.load("Customiz/PinBall/FlipperOne.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationPinBallPlayerTowMenu()
+ function keyboard:settingsCustomizationFlipperTowMenu()
   OnCustomizationPinBall = false
-  OnCustomizationPinBallPlayerTow = true
+  OnCustomizationFlipperTwo = true
 
   selectButton = 1
-  love.filesystem.load("Customiz/PinBall/PlayerTow.lua")()
+  love.filesystem.load("Customiz/PinBall/FlipperTow.lua")()
   love.resize()
  end
  function keyboard:settingsCustomizationPinBallBallMenu()
   OnCustomizationPinBall = false
-  OnCustomizationPinBallBall = true
+  OnCustomizationFlipperBall = true
 
   selectButton = 1
   love.filesystem.load("Customiz/PinBall/Ball.lua")()
@@ -189,7 +189,7 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/PongOrPinBall.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationPlayerOneMenu()
+ function keyboard:settingsCustomizationFlipperOneMenu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
@@ -307,7 +307,7 @@ end
         elseif OnCustomization then
             keyboard:settingsCustomizationPlayerOneMenu()
         elseif OnCustomizationPinBall then
-          keyboard:settingsCustomizationPinBallPlayerOneMenu()
+          keyboard:settingsCustomizationFlipperOneMenu()
             
          elseif helper then
           helper = false
@@ -322,7 +322,7 @@ end
 
        elseif selectButton == 2 then
         if OnCustomizationPinBall then
-          keyboard:settingsCustomizationPinBallPlayerTowMenu()
+          keyboard:settingsCustomizationFlipperTowMenu()
         end
         if PongOrPinBall then
           keyboard:settingsCustomizationPinBallMenu()
@@ -416,7 +416,6 @@ end
         end
 
 
-
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
@@ -502,17 +501,17 @@ end
         selectButton = 4
         love.graphics.setBackgroundColor(ColorSelectedForBackground)
        end
-       if OnCustomizationPinBallPlayerOne then
+       if OnCustomizationFlipperOne then
         keyboard:settingsCustomizationPinBallMenu()
         Save_stuff()
         selectButton = 1
       end
-      if OnCustomizationPinBallPlayerTow then
+      if OnCustomizationFlipperTwo then
         keyboard:settingsCustomizationPinBallMenu()
         Save_stuff()
         selectButton = 2
       end
-      if OnCustomizationPinBallBall then
+      if OnCustomizationFlipperBall then
         keyboard:settingsCustomizationPinBallMenu()
         Save_stuff()
         selectButton = 3
@@ -524,9 +523,9 @@ end
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTow 
       or OnCustomizationBall
-      or OnCustomizationPinBallPlayerOne
-      or OnCustomizationPinBallPlayerTow
-      or OnCustomizationPinBallBall then
+      or OnCustomizationFlipperOne
+      or OnCustomizationFlipperTwo
+      or OnCustomizationFlipperBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -631,9 +630,9 @@ end
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTow 
       or OnCustomizationBall
-      or OnCustomizationPinBallPlayerOne
-      or OnCustomizationPinBallPlayerTow
-      or OnCustomizationPinBallBall then
+      or OnCustomizationFlipperOne
+      or OnCustomizationFlipperTwo
+      or OnCustomizationFlipperBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -742,9 +741,9 @@ end
         or OnCustomizationPlayerTow 
         or OnCustomizationBall 
         or OnCustomizationBackground
-        or OnCustomizationPinBallPlayerOne
-        or OnCustomizationPinBallPlayerTow
-        or OnCustomizationPinBallBall then
+        or OnCustomizationFlipperOne
+        or OnCustomizationFlipperTwo
+        or OnCustomizationFlipperBall then
           selectButton = 1
          end
 
@@ -775,9 +774,9 @@ end
           or OnCustomizationPlayerTow 
           or OnCustomizationBall 
           or OnCustomizationBackground
-          or OnCustomizationPinBallPlayerOne
-          or OnCustomizationPinBallPlayerTow
-          or OnCustomizationPinBallBall then
+          or OnCustomizationFlipperOne
+          or OnCustomizationFlipperTwo
+          or OnCustomizationFlipperBall then
             selectButton = 1
            end
 
@@ -807,9 +806,9 @@ end
           or OnCustomizationPlayerTow 
           or OnCustomizationBall 
           or OnCustomizationBackground
-          or OnCustomizationPinBallPlayerOne
-          or OnCustomizationPinBallPlayerTow
-          or OnCustomizationPinBallBall then
+          or OnCustomizationFlipperOne
+          or OnCustomizationFlipperTwo
+          or OnCustomizationFlipperBall then
             selectButton = 1
            end
 
@@ -835,9 +834,9 @@ end
           or OnCustomizationPlayerTow 
           or OnCustomizationBall 
           or OnCustomizationBackground
-          or OnCustomizationPinBallPlayerOne
-          or OnCustomizationPinBallPlayerTow
-          or OnCustomizationPinBallBall then
+          or OnCustomizationFlipperOne
+          or OnCustomizationFlipperTwo
+          or OnCustomizationFlipperBall then
             selectButton = 1
            end
 
@@ -894,9 +893,9 @@ end
         or OnCustomizationPlayerTow 
         or OnCustomizationBall
         or OnCustomizationBackground
-        or OnCustomizationPinBallPlayerOne
-        or OnCustomizationPinBallPlayerTow
-        or OnCustomizationPinBallBall then
+        or OnCustomizationFlipperOne
+        or OnCustomizationFlipperTwo
+        or OnCustomizationFlipperBall then
           selectButton = 2
         end
 
@@ -1318,9 +1317,9 @@ end
    or OnCustomizationPlayerOne
    or OnCustomizationPlayerTow
    or OnCustomizationBall
-   or OnCustomizationPinBallPlayerOne
-   or OnCustomizationPinBallPlayerTow
-   or OnCustomizationPinBallBall
+   or OnCustomizationFlipperOne
+   or OnCustomizationFlipperTwo
+   or OnCustomizationFlipperBall
    or OnCustomizationBackground
    or OnCredits
    or PongOrPinBall

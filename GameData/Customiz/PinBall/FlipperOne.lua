@@ -7,16 +7,16 @@ local angle = 0.8
 local WidthBall = 20
 local HeightBall = 20
 
-if ColorSelectedForPlayerOne == "yellow" then
-    ColorSelectedForPlayerOne = yellow
-elseif ColorSelectedForPlayerOne == "green" then
-    ColorSelectedForPlayerOne = green
-elseif ColorSelectedForPlayerOne == "red" then
-    ColorSelectedForPlayerOne = red
-elseif ColorSelectedForPlayerOne == "white" then
-    ColorSelectedForPlayerOne = white
+if ColorSelectedForFlipperOne == "yellow" then
+    ColorSelectedForFlipperOne = yellow
+elseif ColorSelectedForFlipperOne == "green" then
+    ColorSelectedForFlipperOne = green
+elseif ColorSelectedForFlipperOne == "red" then
+    ColorSelectedForFlipperOne = red
+elseif ColorSelectedForFlipperOne == "white" then
+    ColorSelectedForFlipperOne = white
 end
-        ColorSelected = ColorSelectedForPlayerOne
+        ColorSelected = ColorSelectedForFlipperOne
 
 
 local check_mark = love.graphics.newImage("Images/check_mark.png")
