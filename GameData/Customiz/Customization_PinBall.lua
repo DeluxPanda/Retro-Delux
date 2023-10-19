@@ -6,11 +6,11 @@ function love.draw()
   local FlipperOne_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
   local FlipperOne_button_y = love.graphics.getHeight() / 2 - button_height / 2 - 30
   
-  local FlipperTow_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
-  local PlayerTow_button_y =  FlipperOne_button_y + button_height + button_padding
+  local FlipperTwo_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
+  local PlayerTwo_button_y =  FlipperOne_button_y + button_height + button_padding
   
   local Ball_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
-  local Ball_button_y =  PlayerTow_button_y + button_height + button_padding
+  local Ball_button_y =  PlayerTwo_button_y + button_height + button_padding
   
   local main_menu_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
   local main_menu_button_y = love.graphics.getHeight() - 60
@@ -26,13 +26,13 @@ function love.draw()
        love.graphics.rectangle("fill", FlipperOne_button_x, FlipperOne_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
    end
   
-   -- PlayerTow
-   if mouse_x >= FlipperTow_button_x and mouse_x <= FlipperTow_button_x + button_width and
-       mouse_y >= PlayerTow_button_y and mouse_y <= PlayerTow_button_y + button_height or
+   -- PlayerTwo
+   if mouse_x >= FlipperTwo_button_x and mouse_x <= FlipperTwo_button_x + button_width and
+       mouse_y >= PlayerTwo_button_y and mouse_y <= PlayerTwo_button_y + button_height or
        selectButton == 2 then
         selectButton = 2
        love.graphics.setColor(yellow)
-       love.graphics.rectangle("fill", FlipperTow_button_x , PlayerTow_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
+       love.graphics.rectangle("fill", FlipperTwo_button_x , PlayerTwo_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
    end
   
     -- Ball
@@ -74,15 +74,15 @@ function love.draw()
            love.graphics.setColor(white)
            love.graphics.printf(FlipperOneName, FlipperOne_button_x, FlipperOne_button_y + 10, button_width, "center")
            FlipperOne_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
-           FlipperOne_button_y =  PlayerTow_button_y + button_height + button_padding
+           FlipperOne_button_y =  PlayerTwo_button_y + button_height + button_padding
   
-            -- FlipperTow
+            -- FlipperTwo
            love.graphics.setColor(NormalButtons)
-           love.graphics.rectangle("fill", FlipperTow_button_x,PlayerTow_button_y, button_width, button_height, corner_radius, corner_radius)
+           love.graphics.rectangle("fill", FlipperTwo_button_x,PlayerTwo_button_y, button_width, button_height, corner_radius, corner_radius)
            love.graphics.setColor(white)
-           love.graphics.printf(FlipperTowName, FlipperTow_button_x, PlayerTow_button_y + 10, button_width, "center")
-           FlipperTow_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
-           PlayerTow_button_y = love.graphics.getHeight() / 2 - button_height / 2
+           love.graphics.printf(FlipperTwoName, FlipperTwo_button_x, PlayerTwo_button_y + 10, button_width, "center")
+           FlipperTwo_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
+           PlayerTwo_button_y = love.graphics.getHeight() / 2 - button_height / 2
   
           -- Ball
           love.graphics.setColor(NormalButtons)

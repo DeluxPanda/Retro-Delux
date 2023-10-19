@@ -55,7 +55,7 @@ function love.draw()
     customiz_button_x = love.graphics.getWidth() - button_width - 10
     customiz_button_y = love.graphics.getHeight() - 60
     
-    PlayerTow_settings_button_y =  PlayerOne_button_y + button_height + button_padding
+    PlayerTwo_settings_button_y =  PlayerOne_button_y + button_height + button_padding
     -- Hover over the Buttons --
     local mouse_x, mouse_y = love.mouse.getPosition()
     
@@ -108,7 +108,7 @@ love.graphics.draw(check_mark, ColorThree_button_x + 170 , ColorThree_button_Y +
 end
 love.graphics.printf(ColorNameGreen, ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
 ColorThree_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-ColorThree_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+ColorThree_button_Y =  PlayerTwo_settings_button_y + color_button_height + button_padding
 --2
 love.graphics.setColor(NormalButtons)
 love.graphics.rectangle("fill",ColorFour_button_x, ColorFour_button_Y, button_width, color_button_height, corner_radius, corner_radius)
@@ -120,7 +120,7 @@ love.graphics.draw(check_mark, ColorFour_button_x + 170 , ColorFour_button_Y + 1
 end
 love.graphics.printf(ColorNameBlack, ColorFour_button_x, ColorFour_button_Y + 7, button_width, "center")
 ColorFour_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-ColorFour_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+ColorFour_button_Y =  PlayerTwo_settings_button_y + color_button_height + button_padding
 --3
 love.graphics.setColor(NormalButtons)
 love.graphics.rectangle("fill",ColorFive_button_x, ColorFive_button_Y, button_width, color_button_height, corner_radius, corner_radius)
@@ -133,7 +133,7 @@ end
 
 love.graphics.printf(ColorNameWhite, ColorFive_button_x, ColorFive_button_Y + 7, button_width, "center")
 ColorFive_button_x  = (love.graphics.getWidth() / 2) - (button_width / 2)
-ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button_padding
+ColorFive_button_Y =  PlayerTwo_settings_button_y + color_button_height + button_padding
     
     -- Main Menu
      if mouse_x >= main_menu_settings_button_x and mouse_x <= main_menu_settings_button_x + button_width and
@@ -167,7 +167,7 @@ ColorFive_button_Y =  PlayerTow_settings_button_y + color_button_height + button
              love.graphics.setColor(255, 255, 255)
              love.graphics.printf(SelectColorName, PlayerOne_button_x, PlayerOne_button_y + 10, button_width, "center")
              PlayerOne_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
-             PlayerOne_button_y =  PlayerTow_settings_button_y + button_height + button_padding
+             PlayerOne_button_y =  PlayerTwo_settings_button_y + button_height + button_padding
     
              -- Menu Menu
              love.graphics.setColor(BackOrCloseButton)
