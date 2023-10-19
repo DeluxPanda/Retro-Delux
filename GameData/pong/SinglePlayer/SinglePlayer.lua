@@ -47,9 +47,9 @@ help()
 end
 end
 end
-if HasNotPlaydeBefore then
+if HasNotPlaydeBefore_pong_Singel then
+   HasNotPlaydeBefore_pong_Singel = false
    helper = true
-   HasNotPlaydeBefore = false
 end
 function checkCollision(a, b)
    if started_SinglePlayer then

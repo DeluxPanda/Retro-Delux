@@ -1111,6 +1111,9 @@ end
       file:write(point_GivenV .. "\n")
       file:write(volumeHitV .. "\n")
       file:write(volumeButton_hitV .. "\n")
+
+      file:write(PointCunt .. "\n")
+      
   -- Player 1
       if ColorSelectedForPlayerOne == yellow then
         ColorSelectedForPlayerOne = "yellow"
@@ -1144,7 +1147,7 @@ elseif ColorSelectedForBall == red then
 elseif ColorSelectedForBall == white then
   ColorSelectedForBall = "white"
 end
-
+  file:write(ColorSelectedForBall .. "\n")
   -- Flipper 1
   if ColorSelectedForFlipperOne == yellow then
      ColorSelectedForFlipperOne = "yellow"
@@ -1189,7 +1192,6 @@ elseif ColorSelectedForBackground == white_backgrund then
   ColorSelectedForBackground = "white_backgrund"
 end
   file:write(ColorSelectedForBackground .. "\n")
-  file:write(PointCunt .. "\n")
 
   file:close()
   collectgarbage("collect")
@@ -1296,15 +1298,14 @@ end
     point_GivenV = line5
     volumeHitV = line6
     volumeButton_hitV = line7
-    ColorSelectedForPlayerOne = line8 --player_1
-    ColorSelectedForPlayerTow = line9 --player_2
-    ColorSelectedForBall = line10 --Ball
-    ColorSelectedForBackground = line11 --Background
-    PointCunt = line12
-    ColorSelectedForPlayerOne = line13 --player_1
-    ColorSelectedForPlayerTow = line14 --player_2
-    ColorSelectedForBall = line15 --Ball
-    ColorSelectedForBackground = line16 --Background
+    PointCunt = line8
+    ColorSelectedForPlayerOne = line9 --player_1
+    ColorSelectedForPlayerTow = line10 --player_2
+    ColorSelectedForBall = line12 --Ball
+    ColorSelectedForBackground = line13 --Background
+    ColorSelectedForFlipperOne = line14 --Flipper_1
+    ColorSelectedForFlipperTow = line15 --Flipper_2
+    ColorSelectedForFlipperBall = line16 --Flipper_Ball
 
     file:close()
     local line = nil
@@ -1318,7 +1319,6 @@ end
     local line9 = nil
     local line10 = nil
     local line11 = nil
-    local line12 = nil
     local line12 = nil
     local line13 = nil
     local line14 = nil
@@ -1390,7 +1390,7 @@ elseif ColorSelectedForFlipperOne == "red" then
 elseif ColorSelectedForFlipperOne == "white" then
     ColorSelectedForFlipperOne = white
   else
-    ColorSelectedForPlayerTow = red
+    ColorSelectedForFlipperOne = red
   end
 
 -- Flipper 2
@@ -1403,7 +1403,7 @@ ColorSelectedForFlipperTow = red
 elseif ColorSelectedForFlipperTow == "white" then
 ColorSelectedForFlipperTow = white
 else
-  ColorSelectedForPlayerOne = green
+  ColorSelectedForFlipperTow = green
 end
 
 -- Flipper Ball
@@ -1416,7 +1416,7 @@ ColorSelectedForFlipperBall = red
 elseif ColorSelectedForFlipperBall == "white" then
 ColorSelectedForFlipperBall = white
 else
-  ColorSelectedForBall = yellow
+  ColorSelectedForFlipperBall = yellow
 end
 
   -- Background
@@ -1461,8 +1461,7 @@ end
  love.event.quit("restart")
   end
   if key == "h" then 
-   -- keyboard:PinBall_Game_Main_Menu()
-   print(selectButton)
+  keyboard:PinBall_Game_Main_Menu()
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())

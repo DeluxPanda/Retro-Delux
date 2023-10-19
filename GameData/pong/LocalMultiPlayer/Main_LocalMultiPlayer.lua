@@ -49,9 +49,9 @@ help()
 end
 end
 end
-if HasNotPlaydeBefore then
+if HasNotPlaydeBefore_pong_Multi then
+   HasNotPlaydeBefore_pong_Multi = false
    helper = true
-   HasNotPlaydeBefore = false
 end
 function checkCollision(a, b)
    if started_LocalMultiPlayer then

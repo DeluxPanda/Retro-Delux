@@ -1,7 +1,9 @@
 if io.open("settings.conf", "r") == nil then
     file = io.open("settings.conf", "w")
 file:close()
-HasNotPlaydeBefore = true
+HasNotPlaydeBefore_pong_Singel = true
+HasNotPlaydeBefore_pong_Multi = true
+HasNotPlaydeBefore_PinBall = true
 end
 
 -- pong

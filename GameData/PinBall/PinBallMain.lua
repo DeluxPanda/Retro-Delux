@@ -39,9 +39,9 @@ if paused then
     end
     end
     end
-    if HasNotPlaydeBefore then
+    if HasNotPlaydeBefore_PinBall then
+       HasNotPlaydeBefore_PinBall = false
        helper = true
-       HasNotPlaydeBefore = false
     end
 
 function checkCollision(a, b)
