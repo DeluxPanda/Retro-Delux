@@ -79,7 +79,7 @@ end
    end
 
    function playerTwo_LocalMultiPlayer:draw()
-     love.graphics.setColor(ColorSelectedForplayerTwo)
+     love.graphics.setColor(ColorSelectedForPlayerTwo)
       love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
 
        if L_Or_W_os ~= "Windows" and L_Or_W_os ~= "Linux" and joystickcount >= 1 then

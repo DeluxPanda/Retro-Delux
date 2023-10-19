@@ -34,7 +34,7 @@ function keyboard:pong_Button_From_Main_Menu()
  function keyboard:pong_LMP_Btn_pong_Menu()
    love.filesystem.load("pong/LocalMultiPlayer/Main_LocalMultiPlayer.lua")()
    player_LocalMultiPlayer:load()
-   PlayerTwo_LocalMultiPlayer:load()
+   playerTwo_LocalMultiPlayer:load()
    ball_LocalMultiPlayer:load()
    AIPointPong = nil
    PlayerPointPong = nil
@@ -1469,8 +1469,8 @@ end
  love.event.quit("restart")
   end
   if key == "h" then 
-  --keyboard:PinBall_Game_Main_Menu()
-  print(selectButton)
+  keyboard:PinBall_Game_Main_Menu()
+  --print(selectButton)
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
