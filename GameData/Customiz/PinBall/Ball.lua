@@ -123,7 +123,7 @@ love.graphics.rectangle("fill",ColorOne_button_x, ColorOne_button_Y, button_widt
 love.graphics.setColor(red)
 love.graphics.rectangle("fill", ColorOne_button_x, ColorOne_button_Y, WidthBall, color_button_height, 10, 10)
 love.graphics.setColor(white)
-if ColorSelectedForBall == red then
+if ColorSelectedForFlipperBall == red then
 love.graphics.draw(check_mark, ColorOne_button_x + 170 , ColorOne_button_Y + 15)
 end
 love.graphics.printf(ColorNameRed, ColorOne_button_x, ColorOne_button_Y + 7, button_width, "center")
@@ -135,7 +135,7 @@ love.graphics.rectangle("fill",ColorTwo_button_x, ColorTwo_button_Y, button_widt
 love.graphics.setColor(yellow)
 love.graphics.rectangle("fill", ColorTwo_button_x, ColorTwo_button_Y, WidthBall, color_button_height, 10, 10)       
 love.graphics.setColor(white)
-if ColorSelectedForBall == yellow then
+if ColorSelectedForFlipperBall == yellow then
 love.graphics.draw(check_mark, ColorTwo_button_x + 170 , ColorTwo_button_Y + 15)
 end
 love.graphics.printf(ColorNameYellow, ColorTwo_button_x, ColorTwo_button_Y + 7, button_width, "center")
@@ -147,7 +147,7 @@ love.graphics.rectangle("fill",ColorThree_button_x, ColorThree_button_Y, button_
 love.graphics.setColor(green)
 love.graphics.rectangle("fill", ColorThree_button_x, ColorThree_button_Y, WidthBall, color_button_height, 10, 10)  
 love.graphics.setColor(white)
-if ColorSelectedForBall == green then
+if ColorSelectedForFlipperBall == green then
 love.graphics.draw(check_mark, ColorThree_button_x + 170 , ColorThree_button_Y + 15)
 end
 love.graphics.printf(ColorNameGreen, ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
@@ -160,7 +160,7 @@ love.graphics.rectangle("fill",ColorFive_button_x, ColorFive_button_Y, button_wi
 love.graphics.setColor(white)
 love.graphics.rectangle("fill", ColorFive_button_x, ColorFive_button_Y, WidthBall, color_button_height, 10, 10)  
 love.graphics.setColor(white)
-if ColorSelectedForBall == white then
+if ColorSelectedForFlipperBall == white then
    love.graphics.draw(check_mark, ColorFive_button_x + 170 , ColorFive_button_Y + 15)
 end
 
