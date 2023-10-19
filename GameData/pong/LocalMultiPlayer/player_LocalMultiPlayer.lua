@@ -1,5 +1,5 @@
 player_LocalMultiPlayer =  {}
-AIPoint_Tow_background = nil
+AIPoint_Two_background = nil
 AIPoint_background = nil
 collectgarbage("collect")
 function player_LocalMultiPlayer:load()

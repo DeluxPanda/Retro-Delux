@@ -42,19 +42,19 @@ end
     
 --player 2
 if started_LocalMultiPlayer then
-    PlayerTow_x = love.graphics.getWidth() * 0.05
-    PlayerTow_y = GameTitle_y + 20
+    PlayerTwo_x = love.graphics.getWidth() * 0.05
+    PlayerTwo_y = GameTitle_y + 20
 
-    UpText_x2 = PlayerTow_x
-    UpText_y2 = PlayerTow_y + 50
+    UpText_x2 = PlayerTwo_x
+    UpText_y2 = PlayerTwo_y + 50
 
-    DownText_x2 = PlayerTow_x
+    DownText_x2 = PlayerTwo_x
     DownText_y2 = UpText_y2 + 50
 
-    UpEmoli_x2 = PlayerTow_x
+    UpEmoli_x2 = PlayerTwo_x
     UpEmoli_y2 = DownText_y2 + 50
 
-    DownEmoli_x2 = PlayerTow_x
+    DownEmoli_x2 = PlayerTwo_x
     DownEmoli_y2 = UpEmoli_y2 + 50
 end
     main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
@@ -93,7 +93,7 @@ end
 
               -- player 2
               love.graphics.setFont(Game_Titl_font)
-              love.graphics.printf(PlayerTowName, PlayerTow_x, PlayerTow_y,  love.graphics.getWidth() * 0.9, "right")
+              love.graphics.printf(PlayerTwoName, PlayerTwo_x, PlayerTwo_y,  love.graphics.getWidth() * 0.9, "right")
              
               love.graphics.setFont(emoji_font)
               love.graphics.printf(UPName .." " .. "[⬆]", UpText_x2, UpText_y2,  love.graphics.getWidth() * 0.9, "right")

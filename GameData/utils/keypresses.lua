@@ -6,10 +6,10 @@ function keyboard:pong_Button_From_Main_Menu()
    pongMenu()
    love.resize()
    Nostalgia:stop()
-   AIPoint_Tow_background = nil
+   AIPoint_Two_background = nil
    AIPoint_background = nil
    collectgarbage("collect")
-   AIPoint_Tow_background = 0
+   AIPoint_Two_background = 0
    AIPoint_background = 0
  end
 
@@ -34,7 +34,7 @@ function keyboard:pong_Button_From_Main_Menu()
  function keyboard:pong_LMP_Btn_pong_Menu()
    love.filesystem.load("pong/LocalMultiPlayer/Main_LocalMultiPlayer.lua")()
    player_LocalMultiPlayer:load()
-   playerTow_LocalMultiPlayer:load()
+   PlayerTwo_LocalMultiPlayer:load()
    ball_LocalMultiPlayer:load()
    AIPointPong = nil
    PlayerPointPong = nil
@@ -55,11 +55,11 @@ function keyboard:pong_Button_From_Main_Menu()
   paused = false
   OnCredits = false
   OnPinballGame = true
-  PlayerTowPointPong = nil
+  PlayerTwoPointPong = nil
   PlayerPointPong = nil
   AIPointPong = nil
   PlayerPointPong = nil
-  AIPoint_Tow_background = nil
+  AIPoint_Two_background = nil
   AIPoint_background = nil
   collectgarbage("collect")
   Marcus_Nyman_MLIM_S2:pause()
@@ -77,14 +77,14 @@ function keyboard:pong_Button_From_Main_Menu()
    OnCustomization = false
    OnCustomizationBackground = false
    OnCredits = false
-   PlayerTowPointPong = nil
+   PlayerTwoPointPong = nil
    PlayerPointPong = nil
    AIPointPong = nil
    PlayerPointPong = nil
-   AIPoint_Tow_background = nil
+   AIPoint_Two_background = nil
    AIPoint_background = nil
    collectgarbage("collect")
-   AIPoint_Tow_background = 0
+   AIPoint_Two_background = 0
    AIPoint_background = 0
    Marcus_Nyman_MLIM_S2:pause()
    Nostalgia:stop()
@@ -101,7 +101,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerOne = false
-  OnCustomizationPlayerTow = false
+  OnCustomizationFlipperTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = false
@@ -129,7 +129,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = true
   OnCustomizationPlayerOne = false
-  OnCustomizationPlayerTow = false
+  OnCustomizationFlipperTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = false
@@ -157,12 +157,12 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/PinBall/FlipperOne.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationFlipperTowMenu()
+ function keyboard:settingsCustomizationFlipperTwoMenu()
   OnCustomizationPinBall = false
   OnCustomizationFlipperTwo = true
 
   selectButton = 1
-  love.filesystem.load("Customiz/PinBall/FlipperTow.lua")()
+  love.filesystem.load("Customiz/PinBall/FlipperTwo.lua")()
   love.resize()
  end
  function keyboard:settingsCustomizationFlipperBallMenu()
@@ -181,7 +181,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomization = false
   OnCustomizationPinBall = false
   OnCustomizationPlayerOne = false
-  OnCustomizationPlayerTow = false
+  OnCustomizationFlipperTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = true
@@ -196,7 +196,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerOne = true
-  OnCustomizationPlayerTow = false
+  OnCustomizationFlipperTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
 
@@ -204,14 +204,14 @@ function keyboard:pong_Button_From_Main_Menu()
   love.filesystem.load("Customiz/PlayerOne.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationPlayerTowMenu()
+ function keyboard:settingsCustomizationPlayerTwoMenu()
   OnStartMenu = false
   OnPongMenu = false
   OnSettings = false
   OnSettingsAudio = false
   OnCustomization = false
-  OnCustomizationPlayerTow = true
-  love.filesystem.load("Customiz/PlayerTow.lua")()
+  OnCustomizationFlipperTwo = true
+  love.filesystem.load("Customiz/PlayerTwo.lua")()
   selectButton = 1
   love.resize()
  end
@@ -258,11 +258,11 @@ function keyboard:PinBall_Game_Main_Menu()
   OnCustomizationBackground = false
   OnCredits = false
   OnPinballGame = true
-  PlayerTowPointPong = nil
+  PlayerTwoPointPong = nil
   PlayerPointPong = nil
   AIPointPong = nil
   PlayerPointPong = nil
-  AIPoint_Tow_background = nil
+  AIPoint_Two_background = nil
   AIPoint_background = nil
   collectgarbage("collect")
   Marcus_Nyman_MLIM_S2:pause()
@@ -322,7 +322,7 @@ end
 
        elseif selectButton == 2 then
         if OnCustomizationPinBall then
-          keyboard:settingsCustomizationFlipperTowMenu()
+          keyboard:settingsCustomizationFlipperTwoMenu()
         end
         if PongOrPinBall then
           keyboard:settingsCustomizationPinBallMenu()
@@ -344,15 +344,15 @@ end
           love.resize()
           lang:language()
         elseif OnCustomization then
-            keyboard:settingsCustomizationPlayerTowMenu()
+            keyboard:settingsCustomizationPlayerTwoMenu()
           end
 
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationPlayerTow then
-          ColorSelectedForPlayerTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForPlayerTwo = ColorSelected
         end
 
         if OnCustomizationBall then
@@ -364,8 +364,8 @@ end
           ColorSelectedForFlipperOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTow then
-          ColorSelectedForFlipperTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForFlipperTwo = ColorSelected
         end
 
         if OnCustomizationFlipperBall then
@@ -399,20 +399,21 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationPlayerTow then
-          ColorSelectedForPlayerTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForPlayerTwo = ColorSelected
         end
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
         end
 
+
         if OnCustomizationFlipperOne then
           ColorSelectedForFlipperOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTow then
-          ColorSelectedForFlipperTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForFlipperTwo = ColorSelected
         end
 
         if OnCustomizationFlipperBall then
@@ -445,20 +446,21 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationPlayerTow then
-          ColorSelectedForPlayerTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForPlayerTwo = ColorSelected
         end
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
         end
 
+
         if OnCustomizationFlipperOne then
           ColorSelectedForFlipperOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTow then
-          ColorSelectedForFlipperTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForFlipperTwo = ColorSelected
         end
 
         if OnCustomizationFlipperBall then
@@ -479,29 +481,35 @@ end
         selectButton = 1
       elseif OnSettings then
           keyboard:settingsCustomizationMenuPongOrPinBall()
-      elseif OnCustomizationPlayerOne then
-          ColorSelectedForPlayerOne = ColorSelected
-    
-      elseif OnCustomizationPlayerTow then
-          ColorSelectedForPlayerTow = ColorSelected
- 
-      elseif OnCustomizationBall then
-          ColorSelectedForBall = ColorSelected
-
+      end
+          if OnCustomizationPlayerOne then
+            ColorSelectedForPlayerOne = ColorSelected
+          end
+  
+          if OnCustomizationFlipperTwo then
+            ColorSelectedForPlayerTwo = ColorSelected
+          end
+  
+          if OnCustomizationBall then
+            ColorSelectedForBall = ColorSelected
+          end
+  
+  
           if OnCustomizationFlipperOne then
             ColorSelectedForFlipperOne = ColorSelected
           end
   
-          if OnCustomizationFlipperTow then
-            ColorSelectedForFlipperTow = ColorSelected
+          if OnCustomizationFlipperTwo then
+            ColorSelectedForFlipperTwo = ColorSelected
           end
   
           if OnCustomizationFlipperBall then
             ColorSelectedForFlipperBall = ColorSelected
           end
-      elseif OnCustomizationBackground then
-          ColorSelectedForBackground = ColorSelected
-        end
+  
+          if OnCustomizationBackground then
+            ColorSelectedForBackground = ColorSelected
+          end
 
 
        elseif selectButton == 6 then
@@ -514,20 +522,21 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationPlayerTow then
-          ColorSelectedForPlayerTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForPlayerTwo = ColorSelected
         end
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
         end
 
+
         if OnCustomizationFlipperOne then
           ColorSelectedForFlipperOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTow then
-          ColorSelectedForFlipperTow = ColorSelected
+        if OnCustomizationFlipperTwo then
+          ColorSelectedForFlipperTwo = ColorSelected
         end
 
         if OnCustomizationFlipperBall then
@@ -544,7 +553,7 @@ end
           Save_stuff()
           selectButton = 1
         end
-        if OnCustomizationPlayerTow then
+        if OnCustomizationFlipperTwo then
           keyboard:settingsCustomizationMenu()
           Save_stuff()
           selectButton = 2
@@ -569,7 +578,6 @@ end
       if OnCustomizationFlipperTwo then
         keyboard:settingsCustomizationPinBallMenu()
         Save_stuff()
-        selectButton = 2
       end
       if OnCustomizationFlipperBall then
         keyboard:settingsCustomizationPinBallMenu()
@@ -581,7 +589,7 @@ end
 
     function keyboard:MenuUp()
       if OnCustomizationPlayerOne 
-      or OnCustomizationPlayerTow 
+      or OnCustomizationFlipperTwo 
       or OnCustomizationBall
       or OnCustomizationFlipperOne
       or OnCustomizationFlipperTwo
@@ -688,7 +696,7 @@ end
     
     function keyboard:MenuDown()
       if OnCustomizationPlayerOne 
-      or OnCustomizationPlayerTow 
+      or OnCustomizationFlipperTwo 
       or OnCustomizationBall
       or OnCustomizationFlipperOne
       or OnCustomizationFlipperTwo
@@ -798,7 +806,7 @@ end
       if selectButton == 1 then
 
         if OnCustomizationPlayerOne 
-        or OnCustomizationPlayerTow 
+        or OnCustomizationFlipperTwo 
         or OnCustomizationBall 
         or OnCustomizationBackground
         or OnCustomizationFlipperOne
@@ -831,7 +839,7 @@ end
         elseif selectButton == 2 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTow 
+          or OnCustomizationFlipperTwo 
           or OnCustomizationBall 
           or OnCustomizationBackground
           or OnCustomizationFlipperOne
@@ -863,7 +871,7 @@ end
         elseif selectButton == 3 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTow 
+          or OnCustomizationFlipperTwo 
           or OnCustomizationBall 
           or OnCustomizationBackground
           or OnCustomizationFlipperOne
@@ -891,7 +899,7 @@ end
         elseif selectButton == 4 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTow 
+          or OnCustomizationFlipperTwo 
           or OnCustomizationBall 
           or OnCustomizationBackground
           or OnCustomizationFlipperOne
@@ -913,7 +921,7 @@ end
         elseif selectButton == 5 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTow 
+          or OnCustomizationFlipperTwo 
           or OnCustomizationBall
           or OnCustomizationBackground then
             selectButton = 1
@@ -950,7 +958,7 @@ end
         end
         
         if OnCustomizationPlayerOne 
-        or OnCustomizationPlayerTow 
+        or OnCustomizationFlipperTwo 
         or OnCustomizationBall
         or OnCustomizationBackground
         or OnCustomizationFlipperOne
@@ -1127,16 +1135,16 @@ end
       file:write(ColorSelectedForPlayerOne .. "\n")
 
   -- Player 2
-  if ColorSelectedForPlayerTow == yellow then
-    ColorSelectedForPlayerTow = "yellow"
-elseif ColorSelectedForPlayerTow == green then
-  ColorSelectedForPlayerTow = "green"
-elseif ColorSelectedForPlayerTow == red then
-  ColorSelectedForPlayerTow = "red"
-elseif ColorSelectedForPlayerTow == white then
-  ColorSelectedForPlayerTow = "white"
+  if ColorSelectedForPlayerTwo == yellow then
+    ColorSelectedForPlayerTwo = "yellow"
+elseif ColorSelectedForPlayerTwo == green then
+  ColorSelectedForPlayerTwo = "green"
+elseif ColorSelectedForPlayerTwo == red then
+  ColorSelectedForPlayerTwo = "red"
+elseif ColorSelectedForPlayerTwo == white then
+  ColorSelectedForPlayerTwo = "white"
 end
-  file:write(ColorSelectedForPlayerTow .. "\n")
+  file:write(ColorSelectedForPlayerTwo .. "\n")
   -- Ball
   if ColorSelectedForBall == yellow then
     ColorSelectedForBall = "yellow"
@@ -1161,16 +1169,16 @@ end
   file:write(ColorSelectedForFlipperOne .. "\n")
 
 -- Flipper 2
-if ColorSelectedForFlipperTow == yellow then
-ColorSelectedForFlipperTow = "yellow"
-elseif ColorSelectedForFlipperTow == green then
-ColorSelectedForFlipperTow = "green"
-elseif ColorSelectedForFlipperTow == red then
-ColorSelectedForFlipperTow = "red"
-elseif ColorSelectedForFlipperTow == white then
-ColorSelectedForFlipperTow = "white"
+if ColorSelectedForFlipperTwo == yellow then
+ColorSelectedForFlipperTwo = "yellow"
+elseif ColorSelectedForFlipperTwo == green then
+ColorSelectedForFlipperTwo = "green"
+elseif ColorSelectedForFlipperTwo == red then
+ColorSelectedForFlipperTwo = "red"
+elseif ColorSelectedForFlipperTwo == white then
+ColorSelectedForFlipperTwo = "white"
 end
-file:write(ColorSelectedForFlipperTow .. "\n")
+file:write(ColorSelectedForFlipperTwo .. "\n")
 -- Flipper Ball
 if ColorSelectedForFlipperBall == yellow then
 ColorSelectedForFlipperBall = "yellow"
@@ -1206,14 +1214,14 @@ elseif ColorSelectedForPlayerOne == "white" then
     ColorSelectedForPlayerOne = white
 end
   -- Player 2
-  if ColorSelectedForPlayerTow == "yellow" then
-    ColorSelectedForPlayerTow = yellow
-elseif ColorSelectedForPlayerTow == "green" then
-  ColorSelectedForPlayerTow = green
-elseif ColorSelectedForPlayerTow == "red" then
-  ColorSelectedForPlayerTow = red
-elseif ColorSelectedForPlayerTow == "white" then
-  ColorSelectedForPlayerTow = white
+  if ColorSelectedForPlayerTwo == "yellow" then
+    ColorSelectedForPlayerTwo = yellow
+elseif ColorSelectedForPlayerTwo == "green" then
+  ColorSelectedForPlayerTwo = green
+elseif ColorSelectedForPlayerTwo == "red" then
+  ColorSelectedForPlayerTwo = red
+elseif ColorSelectedForPlayerTwo == "white" then
+  ColorSelectedForPlayerTwo = white
 end
   -- ball
   if ColorSelectedForBall == "yellow" then
@@ -1238,14 +1246,14 @@ elseif ColorSelectedForFlipperOne == "white" then
 end
 
 -- Flipper 2
-if ColorSelectedForFlipperTow == "yellow" then
-ColorSelectedForFlipperTow = yellow
-elseif ColorSelectedForFlipperTow == "green" then
-ColorSelectedForFlipperTow = green
-elseif ColorSelectedForFlipperTow == "red" then
-ColorSelectedForFlipperTow = red
-elseif ColorSelectedForFlipperTow == "white" then
-ColorSelectedForFlipperTow = white
+if ColorSelectedForFlipperTwo == "yellow" then
+ColorSelectedForFlipperTwo = yellow
+elseif ColorSelectedForFlipperTwo == "green" then
+ColorSelectedForFlipperTwo = green
+elseif ColorSelectedForFlipperTwo == "red" then
+ColorSelectedForFlipperTwo = red
+elseif ColorSelectedForFlipperTwo == "white" then
+ColorSelectedForFlipperTwo = white
 end
 
 -- Flipper Ball
@@ -1300,11 +1308,11 @@ end
     volumeButton_hitV = line7
     PointCunt = line8
     ColorSelectedForPlayerOne = line9 --player_1
-    ColorSelectedForPlayerTow = line10 --player_2
+    ColorSelectedForPlayerTwo = line10 --player_2
     ColorSelectedForBall = line12 --Ball
     ColorSelectedForBackground = line13 --Background
     ColorSelectedForFlipperOne = line14 --Flipper_1
-    ColorSelectedForFlipperTow = line15 --Flipper_2
+    ColorSelectedForFlipperTwo = line15 --Flipper_2
     ColorSelectedForFlipperBall = line16 --Flipper_Ball
 
     file:close()
@@ -1356,16 +1364,16 @@ end
         ColorSelectedForPlayerOne = green
     end
       -- Player 2
-      if ColorSelectedForPlayerTow == "yellow" then
-        ColorSelectedForPlayerTow = yellow
-    elseif ColorSelectedForPlayerTow == "green" then
-      ColorSelectedForPlayerTow = green
-    elseif ColorSelectedForPlayerTow == "red" then
-      ColorSelectedForPlayerTow = red
-    elseif ColorSelectedForPlayerTow == "white" then
-      ColorSelectedForPlayerTow = white
+      if ColorSelectedForPlayerTwo == "yellow" then
+        ColorSelectedForPlayerTwo = yellow
+    elseif ColorSelectedForPlayerTwo == "green" then
+      ColorSelectedForPlayerTwo = green
+    elseif ColorSelectedForPlayerTwo == "red" then
+      ColorSelectedForPlayerTwo = red
+    elseif ColorSelectedForPlayerTwo == "white" then
+      ColorSelectedForPlayerTwo = white
     else
-      ColorSelectedForPlayerTow = red
+      ColorSelectedForPlayerTwo = red
     end
   -- ball
   if ColorSelectedForBall == "yellow" then
@@ -1394,16 +1402,16 @@ elseif ColorSelectedForFlipperOne == "white" then
   end
 
 -- Flipper 2
-if ColorSelectedForFlipperTow == "yellow" then
-ColorSelectedForFlipperTow = yellow
-elseif ColorSelectedForFlipperTow == "green" then
-ColorSelectedForFlipperTow = green
-elseif ColorSelectedForFlipperTow == "red" then
-ColorSelectedForFlipperTow = red
-elseif ColorSelectedForFlipperTow == "white" then
-ColorSelectedForFlipperTow = white
+if ColorSelectedForFlipperTwo == "yellow" then
+ColorSelectedForFlipperTwo = yellow
+elseif ColorSelectedForFlipperTwo == "green" then
+ColorSelectedForFlipperTwo = green
+elseif ColorSelectedForFlipperTwo == "red" then
+ColorSelectedForFlipperTwo = red
+elseif ColorSelectedForFlipperTwo == "white" then
+ColorSelectedForFlipperTwo = white
 else
-  ColorSelectedForFlipperTow = green
+  ColorSelectedForFlipperTwo = green
 end
 
 -- Flipper Ball
@@ -1461,7 +1469,8 @@ end
  love.event.quit("restart")
   end
   if key == "h" then 
-  keyboard:PinBall_Game_Main_Menu()
+  --keyboard:PinBall_Game_Main_Menu()
+  print(selectButton)
 end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
@@ -1496,7 +1505,7 @@ end
    or OnCustomization
    or OnCustomizationPinBall
    or OnCustomizationPlayerOne
-   or OnCustomizationPlayerTow
+   or OnCustomizationFlipperTwo
    or OnCustomizationBall
    or OnCustomizationFlipperOne
    or OnCustomizationFlipperTwo

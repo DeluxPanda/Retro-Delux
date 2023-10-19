@@ -1,5 +1,5 @@
 ball_background =  {}
-AIPoint_Tow_background = 0
+AIPoint_Two_background = 0
 AIPoint_background = 0
 function math_random()
    math.randomseed(os.time())
@@ -37,9 +37,9 @@ function ball_background:collision()
       -- print("player")
       blip:play()
    end
-   if checkCollision(self, ai_Tow_background) then
+   if checkCollision(self, ai_Two_background) then
       local middelball = self.y + self.Height / 2
-      local middelai = ai_Tow_background.y + ai_Tow_background.Height / 2
+      local middelai = ai_Two_background.y + ai_Two_background.Height / 2
       local collisionposition = middelball - middelai
       self.xvel = -self.speed
       self.yvel = collisionposition * 5
@@ -63,8 +63,8 @@ function ball_background:collision()
       self.yvel = random_yvel
       self.xvel = self.speed
       --  print("AI win (player sida)")
-      AIPoint_Tow_background = AIPoint_Tow_background + 1
-      messageAI = {AIPoint_Tow_background}
+      AIPoint_Two_background = AIPoint_Two_background + 1
+      messageAI = {AIPoint_Two_background}
       blip_win:play()
 
       -- AI Side
@@ -106,31 +106,31 @@ function ball_background:draw()
    love.graphics.print(playerScore, love.graphics.getWidth() / 2 - pipeWidth / 2 - playerScoreWidth, 10)
 
    -- AI
-   local AIScore = tostring(AIPoint_Tow_background)
+   local AIScore = tostring(AIPoint_Two_background)
    local AIScoreWidth = FontPoints:getWidth(AIScore)
    love.graphics.print(AIScore, love.graphics.getWidth() / 2 + pipeWidth / 2, 10)
 
    -- ball_background
    love.graphics.setColor(ColorSelectedForBall)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10, 10)
-   if AIPoint_Tow_background >= 11 then
-      AIPoint_Tow_background = nil
+   if AIPoint_Two_background >= 11 then
+      AIPoint_Two_background = nil
       AIPoint_background = nil
       messagePlayer = nil
        messageAI = nil
       collectgarbage("collect")
-      AIPoint_Tow_background = 0
+      AIPoint_Two_background = 0
       AIPoint_background = 0
       messagePlayer = 0
       messageAI = 0
 end
 if AIPoint_background >= 11 then
-   AIPoint_Tow_background = nil
+   AIPoint_Two_background = nil
    AIPoint_background = nil
    messagePlayer = nil
    messageAI = nil
    collectgarbage("collect")
-   AIPoint_Tow_background = 0
+   AIPoint_Two_background = 0
    AIPoint_background = 0
    messagePlayer = 0
    messageAI = 0

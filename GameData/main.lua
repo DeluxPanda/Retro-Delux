@@ -15,16 +15,16 @@ require("pong/SinglePlayer/ai_SinglePlayer")
 require("pong/SinglePlayer/ball_SinglePlayer")
 -- pong Local MultiPlayer
 require("pong/LocalMultiPlayer/player_LocalMultiPlayer")
-require("pong/LocalMultiPlayer/playerTow_LocalMultiPlayer")
+require("pong/LocalMultiPlayer/playerTwo_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/ball_LocalMultiPlayer")
 -- pinball
 require ("PinBall/help")
-require ("PinBall/FlipperTow")
+require ("PinBall/FlipperTwo")
 require ("PinBall/FlipperOne")
 require ("PinBall/FlipperBall")
 -- background
 require("pong/background/ai_background")
-require("pong/background/ai_Tow_background")
+require("pong/background/ai_Two_background")
 require("pong/background/ball_background")
 -- utils
 require("utils/resize")
@@ -40,7 +40,7 @@ emoji_font = love.graphics.newFont("Fonts/DejaVuSans.ttf", 30)
 blip = love.audio.newSource("Music/ping_pong_8bit_beeep.mp3", "static")
 blip_win = love.audio.newSource("Music/ping_pong_8bit_peeeeeep.mp3", "static")
 button_blop = love.audio.newSource("Music/ping_pong_8bit_plop.mp3", "static")
-Marcus_Nyman_MLIM_S2 = love.audio.newSource("Music/Marcus_Nyman_feat.Fluency_Melody_MLIM_S2_Music_1.mp3", "stream")
+Marcus_Nyman_MLIM_S2 =ai_Tow_background love.audio.newSource("Music/Marcus_Nyman_feat.Fluency_Melody_MLIM_S2_Music_1.mp3", "stream")
 Marcus_Nyman_MLIM_S2:setLooping(true)
 Nostalgia = love.audio.newSource("Music/8_Bit_Nostalgia.mp3", "stream")
 Nostalgia:setLooping(true)
@@ -114,7 +114,7 @@ function love.load()
         if OnPongButton then
         -- background
         ai_background:load()
-        ai_Tow_background:load()
+        ai_Two_background:load()
         ball_background:load()
         end
 
@@ -139,7 +139,7 @@ function love.update(dt)
         if OnPongButton then
         -- background
         ai_background:update(dt)
-        ai_Tow_background:update(dt)
+        ai_Two_background:update(dt)
         ball_background:update(dt)
     end
     end
@@ -176,7 +176,7 @@ function love.draw()
             -- background
             if OnPongButton then
             ai_background:draw()
-            ai_Tow_background:draw()
+            ai_Two_background:draw()
             ball_background:draw()
             end
             end

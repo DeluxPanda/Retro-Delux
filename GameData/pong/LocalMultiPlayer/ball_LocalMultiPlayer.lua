@@ -1,5 +1,5 @@
 ball_LocalMultiPlayer =  {}
- playerTowPointPong = 0
+ playerTwoPointPong = 0
  PlayerPointPong = 0
 function math_random()
    math.randomseed(os.time())
@@ -7,7 +7,7 @@ function math_random()
 end
 
 function ball_LocalMultiPlayer:load()
- playerTowPointPong = 0
+ playerTwoPointPong = 0
  PlayerPointPong = 0
    self.x = love.graphics.getWidth() / 2
    self.y = love.graphics.getHeight() / 2
@@ -17,7 +17,7 @@ function ball_LocalMultiPlayer:load()
    self.xvel = -self.speed
    self.yvel = 0
 local messagePlayer = {PlayerPointPong}
-local messageplayerTow = {playerTowPointPong}
+local messageplayerTwo = {playerTwoPointPong}
    FontPoints = love.graphics.newFont(40)
 end
 
@@ -36,10 +36,10 @@ function ball_LocalMultiPlayer:collision()
       self.yvel = collisionposition * 5
       blip:play()
    end
-   if checkCollision(self, playerTow_LocalMultiPlayer) then
+   if checkCollision(self, playerTwo_LocalMultiPlayer) then
       local middelball = self.y + self.Height / 2
-      local middelplayerTow = playerTow_LocalMultiPlayer.y + playerTow_LocalMultiPlayer.Height / 2
-      local collisionposition = middelball - middelplayerTow
+      local middelplayerTwo = playerTwo_LocalMultiPlayer.y + playerTwo_LocalMultiPlayer.Height / 2
+      local collisionposition = middelball - middelplayerTwo
       self.xvel = -self.speed
       self.yvel = collisionposition * 5
       blip:play()
@@ -62,10 +62,10 @@ function ball_LocalMultiPlayer:collision()
       self.speed = self.speed + 5
       self.yvel = random_yvel
       self.xvel = self.speed
-      playerTowPointPong = playerTowPointPong + 1
-      messageplayerTow = {playerTowPointPong}
+      playerTwoPointPong = playerTwoPointPong + 1
+      messageplayerTwo = {playerTwoPointPong}
       blip_win:play()
-      -- playerTow Side
+      -- playerTwo Side
    elseif self.x + self.Width > love.graphics.getWidth() then
       math_random()
       self.x = love.graphics.getWidth() / 2 - self.Width / 2
@@ -102,10 +102,10 @@ function ball_LocalMultiPlayer:draw()
    local playerScoreWidth = FontPoints:getWidth(playerScore)
    love.graphics.print(playerScore, love.graphics.getWidth() / 2 - pipeWidth / 2 - playerScoreWidth, 10)
 
-   -- playerTow
-   local playerTowScore = tostring(playerTowPointPong)
-   local playerTowScoreWidth = FontPoints:getWidth(playerTowScore)
-   love.graphics.print(playerTowScore, love.graphics.getWidth() / 2 + pipeWidth / 2, 10)
+   -- playerTwo
+   local playerTwoScore = tostring(playerTwoPointPong)
+   local playerTwoScoreWidth = FontPoints:getWidth(playerTwoScore)
+   love.graphics.print(playerTwoScore, love.graphics.getWidth() / 2 + pipeWidth / 2, 10)
 
    -- ball_LocalMultiPlayer
    love.graphics.setColor(ColorSelectedForBall)
@@ -122,13 +122,13 @@ function ball_LocalMultiPlayer:draw()
              GameTitle_y = 80
  end
 
- if playerTowPointPong >= tonumber(PointCunt) then
+ if playerTwoPointPong >= tonumber(PointCunt) then
    WiningPong = true
    paused  = true
                -- Game Title
                love.graphics.setFont(Game_Titl_font)
                 love.graphics.setColor(255, 255, 255)
-                love.graphics.printf(PlayerTowWin, GameTitle_x, GameTitle_y, button_start_y, "center")
+                love.graphics.printf(PlayerTwoWin, GameTitle_x, GameTitle_y, button_start_y, "center")
                 GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
                 GameTitle_y = 80
 end

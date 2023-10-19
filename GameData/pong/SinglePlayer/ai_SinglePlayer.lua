@@ -38,6 +38,6 @@ function ai_SinglePlayer:border()
    end
 end
 function ai_SinglePlayer:draw()
-   love.graphics.setColor(ColorSelectedForPlayerTow)
+   love.graphics.setColor(ColorSelectedForPlayerTwo)
    love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
 end

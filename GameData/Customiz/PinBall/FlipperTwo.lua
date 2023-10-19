@@ -7,16 +7,16 @@ local angle = -0.8
 local WidthBall = 20
 local HeightBall = 20
 
-if ColorSelectedForFlipperTow == "yellow" then
-    ColorSelectedForFlipperTow = yellow
-elseif ColorSelectedForFlipperTow == "green" then
-    ColorSelectedForFlipperTow = green
-elseif ColorSelectedForFlipperTow == "red" then
-    ColorSelectedForFlipperTow = red
-elseif ColorSelectedForFlipperTow == "white" then
-    ColorSelectedForFlipperTow = white
+if OnCustomizationFlipperTwo == "yellow" then
+    OnCustomizationFlipperTwo = yellow
+elseif OnCustomizationFlipperTwo == "green" then
+    OnCustomizationFlipperTwo = green
+elseif OnCustomizationFlipperTwo == "red" then
+    OnCustomizationFlipperTwo = red
+elseif OnCustomizationFlipperTwo == "white" then
+    OnCustomizationFlipperTwo = white
 end
-       ColorSelected = ColorSelectedForFlipperTow
+       ColorSelected = OnCustomizationFlipperTwo
 
 
 local check_mark = love.graphics.newImage("Images/check_mark.png")
@@ -128,7 +128,7 @@ love.graphics.rectangle("fill",ColorOne_button_x, ColorOne_button_Y, button_widt
 love.graphics.setColor(red)
 love.graphics.rectangle("fill", ColorOne_button_x, ColorOne_button_Y, WidthBall, color_button_height, 10, 10)
 love.graphics.setColor(white)
-if ColorSelectedForFlipperTow == red then
+if OnCustomizationFlipperTwo == red then
 love.graphics.draw(check_mark, ColorOne_button_x + 170 , ColorOne_button_Y + 15)
 end
 love.graphics.printf(ColorNameRed, ColorOne_button_x, ColorOne_button_Y + 7, button_width, "center")
@@ -140,7 +140,7 @@ love.graphics.rectangle("fill",ColorTwo_button_x, ColorTwo_button_Y, button_widt
 love.graphics.setColor(yellow)
 love.graphics.rectangle("fill", ColorTwo_button_x, ColorTwo_button_Y, WidthBall, color_button_height, 10, 10)       
 love.graphics.setColor(white)
-if ColorSelectedForFlipperTow == yellow then
+if OnCustomizationFlipperTwo == yellow then
 love.graphics.draw(check_mark, ColorTwo_button_x + 170 , ColorTwo_button_Y + 15)
 end
 love.graphics.printf(ColorNameYellow, ColorTwo_button_x, ColorTwo_button_Y + 7, button_width, "center")
@@ -152,7 +152,7 @@ love.graphics.rectangle("fill",ColorThree_button_x, ColorThree_button_Y, button_
 love.graphics.setColor(green)
 love.graphics.rectangle("fill", ColorThree_button_x, ColorThree_button_Y, WidthBall, color_button_height, 10, 10)  
 love.graphics.setColor(white)
-if ColorSelectedForFlipperTow == green then
+if OnCustomizationFlipperTwo == green then
 love.graphics.draw(check_mark, ColorThree_button_x + 170 , ColorThree_button_Y + 15)
 end
 love.graphics.printf(ColorNameGreen, ColorThree_button_x, ColorThree_button_Y + 7, button_width, "center")
@@ -165,7 +165,7 @@ love.graphics.rectangle("fill",ColorFive_button_x, ColorFive_button_Y, button_wi
 love.graphics.setColor(white)
 love.graphics.rectangle("fill", ColorFive_button_x, ColorFive_button_Y, WidthBall, color_button_height,10 ,10)
 love.graphics.setColor(white)
-if ColorSelectedForFlipperTow == white then
+if OnCustomizationFlipperTwo == white then
    love.graphics.draw(check_mark, ColorFive_button_x + 170 , ColorFive_button_Y + 15)
 end
 

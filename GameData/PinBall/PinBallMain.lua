@@ -2,7 +2,7 @@
 
     if OnPinballGame == true then 
     FlipperOne:load()
-    FlipperTow:load()
+    FlipperTwo:load()
     FlipperBall:load()
 end
 
@@ -11,7 +11,7 @@ function love.update(dt)
 
     if not paused and not helper then
     FlipperOne:update(dt)
-    FlipperTow:update(dt)
+    FlipperTwo:update(dt)
 
     if started_PinBall == true then
     FlipperBall:update(dt)
@@ -24,7 +24,7 @@ function love.draw()
     if OnPinballGame == true then
     if not helper then
         FlipperOne:draw()
-        FlipperTow:draw()
+        FlipperTwo:draw()
         if started_PinBall == true then
         FlipperBall:draw()
         end

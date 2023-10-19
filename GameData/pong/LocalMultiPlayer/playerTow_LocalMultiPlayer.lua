@@ -1,5 +1,5 @@
-playerTow_LocalMultiPlayer =  {}
-function playerTow_LocalMultiPlayer:load()
+playerTwo_LocalMultiPlayer =  {}
+function playerTwo_LocalMultiPlayer:load()
    self.Height = 100
    self.Width = 20
    self.speed = 300
@@ -7,12 +7,12 @@ function playerTow_LocalMultiPlayer:load()
    self.y = love.graphics.getHeight() / 2
 end
 
-function playerTow_LocalMultiPlayer:update(dt)
-   playerTow_LocalMultiPlayer:move(dt)
-   playerTow_LocalMultiPlayer:border()
+function playerTwo_LocalMultiPlayer:update(dt)
+   playerTwo_LocalMultiPlayer:move(dt)
+   playerTwo_LocalMultiPlayer:border()
 end
 
-function playerTow_LocalMultiPlayer:move(dt)
+function playerTwo_LocalMultiPlayer:move(dt)
    local os = love.system.getOS()
 
    if os == "Windows" then
@@ -70,7 +70,7 @@ end
       end
    end
 
-   function playerTow_LocalMultiPlayer:border()
+   function playerTwo_LocalMultiPlayer:border()
       if self.y < 0 then
          self.y = 0
       elseif self.y + self.Height > love.graphics.getHeight() then
@@ -78,8 +78,8 @@ end
       end
    end
 
-   function playerTow_LocalMultiPlayer:draw()
-     love.graphics.setColor(ColorSelectedForPlayerTow)
+   function playerTwo_LocalMultiPlayer:draw()
+     love.graphics.setColor(ColorSelectedForplayerTwo)
       love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height)
 
        if L_Or_W_os ~= "Windows" and L_Or_W_os ~= "Linux" and joystickcount >= 1 then

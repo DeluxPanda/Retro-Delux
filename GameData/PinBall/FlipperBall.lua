@@ -50,8 +50,8 @@ if love.keyboard.isDown("left") then
    if checkCollision(self, FlipperOne) then
        print("1")
        local middelball = self.y + self.Height / 2
-       local middelplayerTow = FlipperOne.y + FlipperOne.Height / 2
-       local collisionposition = middelball - middelplayerTow
+       local middelplayerTwo = FlipperOne.y + FlipperOne.Height / 2
+       local collisionposition = middelball - middelplayerTwo
        Ball_y_Direction = collisionposition * 10
        Ball_x_Direction = -Ball_x_Direction
     end
@@ -60,15 +60,15 @@ if love.keyboard.isDown("left") then
      end
 
  if love.keyboard.isDown("right") then
-    if checkCollision(self, FlipperTow) then
+    if checkCollision(self, FlipperTwo) then
         print("2")
         local middelball = self.y + self.Height / 2
-        local middelplayer = FlipperTow.y + FlipperTow.Height / 2
+        local middelplayer = FlipperTwo.y + FlipperTwo.Height / 2
         local collisionposition = middelball - middelplayer
         Ball_y_Direction = collisionposition * 10
         Ball_x_Direction = -Ball_x_Direction
     end
-elseif checkCollision(self, FlipperTow) then
+elseif checkCollision(self, FlipperTwo) then
         print("a")
      end 
 end

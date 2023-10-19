@@ -1,18 +1,18 @@
-FlipperTow = {}
+FlipperTwo = {}
 local angle = -0.8
 
-function FlipperTow:load()
+function FlipperTwo:load()
     self.x = (love.graphics.getWidth() / 2) + (100 / 2) - 48
     self.y = love.graphics.getHeight() - 50
     self.Width = 100
     self.Height = 20
 end
 
-function FlipperTow:update(dt)
-    FlipperTowMove(dt)
+function FlipperTwo:update(dt)
+    FlipperTwoMove(dt)
 end
 
-function FlipperTowMove(dt)
+function FlipperTwoMove(dt)
     if love.keyboard.isDown("right") then
         angle = 0.5
     else
@@ -20,8 +20,8 @@ function FlipperTowMove(dt)
     end
 end
 
-function FlipperTow:draw()
-    love.graphics.setColor(ColorSelectedForPlayerTow)
+function FlipperTwo:draw()
+    love.graphics.setColor(ColorSelectedForPlayerTwo)
      
     love.graphics.push() -- Push the current transformation matrix
     love.graphics.translate(self.x + self.Width/ 2, self.y + self.Height / 2) -- Translate to the center of the rectangle

@@ -1,10 +1,10 @@
-PlayerTowPointPong = 0
+PlayerTwoPointPong = 0
 PlayerPointPong = 0
 function love.load()
    if started_LocalMultiPlayer then
    player_LocalMultiPlayer:load()
    ball_LocalMultiPlayer:load()
-   playerTow_LocalMultiPlayer:load()
+   playerTwo_LocalMultiPlayer:load()
    end
 end
 
@@ -13,7 +13,7 @@ function love.update(dt)
    if not paused and not helper then
     player_LocalMultiPlayer:update(dt)
     ball_LocalMultiPlayer:update(dt)
-    playerTow_LocalMultiPlayer:update(dt)
+    playerTwo_LocalMultiPlayer:update(dt)
    else    
       local joystickcount = love.joystick.getJoystickCount()
       if (joystickcount > 0) then
@@ -38,7 +38,7 @@ function love.draw()
       if not helper then
    player_LocalMultiPlayer:draw()
    ball_LocalMultiPlayer:draw()
-   playerTow_LocalMultiPlayer:draw()
+   playerTwo_LocalMultiPlayer:draw()
 end
 if paused then
 pause_menu()

@@ -20,23 +20,23 @@ function love.resize(w, h)
       player_LocalMultiPlayer:load()
       player_LocalMultiPlayer:draw()
 
-      playerTow_LocalMultiPlayer:load()
-      playerTow_LocalMultiPlayer:draw()
+      playerTwo_LocalMultiPlayer:load()
+      playerTwo_LocalMultiPlayer:draw()
 
       ball_LocalMultiPlayer:load()
       ball_LocalMultiPlayer:draw()
       elseif OnPongMenu then
                -- background
                ai_background:load()
-               ai_Tow_background:load()
+               ai_Two_background:load()
                ball_background:load()
 
                ai_background:draw()
-               ai_Tow_background:draw()
+               ai_Two_background:draw()
                ball_background:draw()
       elseif OnPinballGame then
          FlippersOne:draw()
-         FlippersTow:draw()
+         FlippersTwo:draw()
          if started_PinBall == true then
          FlipperBall:draw()
          end
