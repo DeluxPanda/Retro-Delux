@@ -101,7 +101,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerOne = false
-  OnCustomizationFlipperTwo = false
+  OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = false
@@ -129,7 +129,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = true
   OnCustomizationPlayerOne = false
-  OnCustomizationFlipperTwo = false
+  OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = false
@@ -181,7 +181,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomization = false
   OnCustomizationPinBall = false
   OnCustomizationPlayerOne = false
-  OnCustomizationFlipperTwo = false
+  OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
   PongOrPinBall = true
@@ -196,7 +196,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationPlayerOne = true
-  OnCustomizationFlipperTwo = false
+  OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
 
@@ -210,7 +210,7 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettings = false
   OnSettingsAudio = false
   OnCustomization = false
-  OnCustomizationFlipperTwo = true
+  OnCustomizationPlayerTwo = true
   love.filesystem.load("Customiz/PlayerTwo.lua")()
   selectButton = 1
   love.resize()
@@ -351,7 +351,7 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTwo then
+        if OnCustomizationPlayerTwo then
           ColorSelectedForPlayerTwo = ColorSelected
         end
 
@@ -399,7 +399,7 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTwo then
+        if OnCustomizationPlayerTwo then
           ColorSelectedForPlayerTwo = ColorSelected
         end
 
@@ -446,7 +446,7 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTwo then
+        if OnCustomizationPlayerTwo then
           ColorSelectedForPlayerTwo = ColorSelected
         end
 
@@ -486,7 +486,7 @@ end
             ColorSelectedForPlayerOne = ColorSelected
           end
   
-          if OnCustomizationFlipperTwo then
+          if OnCustomizationPlayerTwo then
             ColorSelectedForPlayerTwo = ColorSelected
           end
   
@@ -522,7 +522,7 @@ end
           ColorSelectedForPlayerOne = ColorSelected
         end
 
-        if OnCustomizationFlipperTwo then
+        if OnCustomizationPlayerTwo then
           ColorSelectedForPlayerTwo = ColorSelected
         end
 
@@ -553,7 +553,7 @@ end
           Save_stuff()
           selectButton = 1
         end
-        if OnCustomizationFlipperTwo then
+        if OnCustomizationPlayerTwo then
           keyboard:settingsCustomizationMenu()
           Save_stuff()
           selectButton = 2
@@ -578,6 +578,7 @@ end
       if OnCustomizationFlipperTwo then
         keyboard:settingsCustomizationPinBallMenu()
         Save_stuff()
+        selectButton = 2
       end
       if OnCustomizationFlipperBall then
         keyboard:settingsCustomizationPinBallMenu()
@@ -589,7 +590,7 @@ end
 
     function keyboard:MenuUp()
       if OnCustomizationPlayerOne 
-      or OnCustomizationFlipperTwo 
+      or OnCustomizationPlayerTwo 
       or OnCustomizationBall
       or OnCustomizationFlipperOne
       or OnCustomizationFlipperTwo
@@ -696,7 +697,7 @@ end
     
     function keyboard:MenuDown()
       if OnCustomizationPlayerOne 
-      or OnCustomizationFlipperTwo 
+      or OnCustomizationPlayerTwo 
       or OnCustomizationBall
       or OnCustomizationFlipperOne
       or OnCustomizationFlipperTwo
@@ -806,7 +807,7 @@ end
       if selectButton == 1 then
 
         if OnCustomizationPlayerOne 
-        or OnCustomizationFlipperTwo 
+        or OnCustomizationPlayerTwo 
         or OnCustomizationBall 
         or OnCustomizationBackground
         or OnCustomizationFlipperOne
@@ -839,7 +840,7 @@ end
         elseif selectButton == 2 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationFlipperTwo 
+          or OnCustomizationPlayerTwo 
           or OnCustomizationBall 
           or OnCustomizationBackground
           or OnCustomizationFlipperOne
@@ -871,7 +872,7 @@ end
         elseif selectButton == 3 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationFlipperTwo 
+          or OnCustomizationPlayerTwo 
           or OnCustomizationBall 
           or OnCustomizationBackground
           or OnCustomizationFlipperOne
@@ -899,7 +900,7 @@ end
         elseif selectButton == 4 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationFlipperTwo 
+          or OnCustomizationPlayerTwo 
           or OnCustomizationBall 
           or OnCustomizationBackground
           or OnCustomizationFlipperOne
@@ -921,7 +922,7 @@ end
         elseif selectButton == 5 then
 
           if OnCustomizationPlayerOne 
-          or OnCustomizationFlipperTwo 
+          or OnCustomizationPlayerTwo 
           or OnCustomizationBall
           or OnCustomizationBackground then
             selectButton = 1
@@ -958,7 +959,7 @@ end
         end
         
         if OnCustomizationPlayerOne 
-        or OnCustomizationFlipperTwo 
+        or OnCustomizationPlayerTwo 
         or OnCustomizationBall
         or OnCustomizationBackground
         or OnCustomizationFlipperOne
@@ -1505,7 +1506,7 @@ end
    or OnCustomization
    or OnCustomizationPinBall
    or OnCustomizationPlayerOne
-   or OnCustomizationFlipperTwo
+   or OnCustomizationPlayerTwo
    or OnCustomizationBall
    or OnCustomizationFlipperOne
    or OnCustomizationFlipperTwo
