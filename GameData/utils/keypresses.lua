@@ -1204,6 +1204,8 @@ end
 
   file:close()
   collectgarbage("collect")
+
+
     -- Player 1
   if ColorSelectedForPlayerOne == "yellow" then
     ColorSelectedForPlayerOne = yellow
@@ -1268,8 +1270,8 @@ elseif ColorSelectedForFlipperBall == "white" then
 ColorSelectedForFlipperBall = white
 end
 
-  -- Background
-  if ColorSelectedForBackground == "yellow_backgrund" then
+-- Background
+if ColorSelectedForBackground == "yellow_backgrund" then
     ColorSelectedForBackground = yellow_backgrund
 elseif ColorSelectedForBackground == "slategray_backgrund" then
   ColorSelectedForBackground = slategray_backgrund
@@ -1301,7 +1303,6 @@ end
     local line13 = file:read("*line")
     local line14 = file:read("*line")
     local line15 = file:read("*line")
-    local line16 = file:read("*line")
     volumeMainV = line3
     volumeMusicV = line4
     point_GivenV = line5
@@ -1310,11 +1311,11 @@ end
     PointCunt = line8
     ColorSelectedForPlayerOne = line9 --player_1
     ColorSelectedForPlayerTwo = line10 --player_2
-    ColorSelectedForBall = line12 --Ball
-    ColorSelectedForBackground = line13 --Background
-    ColorSelectedForFlipperOne = line14 --Flipper_1
-    ColorSelectedForFlipperTwo = line15 --Flipper_2
-    ColorSelectedForFlipperBall = line16 --Flipper_Ball
+    ColorSelectedForBall = line11 --Ball
+    ColorSelectedForBackground = line12 --Background
+    ColorSelectedForFlipperOne = line13 --Flipper_1
+    ColorSelectedForFlipperTwo = line14 --Flipper_2
+    ColorSelectedForFlipperBall = line15 --Flipper_Ball
 
     file:close()
     local line = nil
@@ -1332,7 +1333,6 @@ end
     local line13 = nil
     local line14 = nil
     local line15 = nil
-    local line16 = nil
     collectgarbage("collect")
     if volumeMainV == nil then
       volumeMainV = 0.5

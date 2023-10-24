@@ -21,7 +21,7 @@ function FlipperOneMove(dt)
 end
 
 function FlipperOne:draw()
-    love.graphics.setColor(ColorSelectedForPlayerOne)
+    love.graphics.setColor(ColorSelectedForFlipperOne)
      
     love.graphics.push() -- Push the current transformation matrix
     love.graphics.translate(self.x + self.Width/ 2, self.y + self.Height / 2) -- Translate to the center of the rectangle

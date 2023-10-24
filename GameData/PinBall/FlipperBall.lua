@@ -79,6 +79,6 @@ function FlipperBall:move(dt)
 end
 
 function FlipperBall:draw()
-    love.graphics.setColor(ColorSelectedForBall)
+    love.graphics.setColor(ColorSelectedForFlipperBall)
     love.graphics.rectangle("fill", self.x, self.y, self.Width, self.Height, 10, 10)
 end
