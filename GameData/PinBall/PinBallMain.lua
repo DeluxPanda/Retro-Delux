@@ -47,7 +47,7 @@ if paused then
     end
     if helper then
     selectButton = 1
-    help()
+    PinBallhelp()
     end
     end
     end

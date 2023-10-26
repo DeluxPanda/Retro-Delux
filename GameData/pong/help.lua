@@ -90,7 +90,7 @@ end
 
               love.graphics.printf(DownName .. " " .. joystickDownName, DownEmoli_x, DownEmoli_y, button_start_y, "left")
 
-
+              if started_LocalMultiPlayer then
               -- player 2
               love.graphics.setFont(Game_Titl_font)
               love.graphics.printf(PlayerTwoName, PlayerTwo_x, PlayerTwo_y,  love.graphics.getWidth() * 0.9, "right")
@@ -103,10 +103,9 @@ end
               love.graphics.printf(UPName .." " .. joystickUpName, UpEmoli_x2, UpEmoli_y2,  love.graphics.getWidth() * 0.9, "right")
 
               love.graphics.printf(DownName .. " " .. joystickDownName, DownEmoli_x2, DownEmoli_y2,  love.graphics.getWidth() * 0.9, "right")
-
-             love.graphics.setFont(Button_font)
-    
+              end
              -- Play Button
+             love.graphics.setFont(Button_font)
              love.graphics.setColor(BackOrCloseButton)
              love.graphics.rectangle("fill", main_menu_settings_button_x, main_menu_settings_button_y, button_width, button_height, corner_radius, corner_radius)
              love.graphics.setColor(white)

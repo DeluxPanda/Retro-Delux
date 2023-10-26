@@ -18,7 +18,7 @@ require("pong/LocalMultiPlayer/player_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/playerTwo_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/ball_LocalMultiPlayer")
 -- pinball
-require ("PinBall/help")
+require ("PinBall/PinBallhelp")
 require ("PinBall/FlipperTwo")
 require ("PinBall/FlipperOne")
 require ("PinBall/FlipperBall")
