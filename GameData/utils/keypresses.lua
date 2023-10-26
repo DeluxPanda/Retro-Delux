@@ -704,7 +704,7 @@ end
       or OnCustomizationFlipperTwo
       or OnCustomizationFlipperBall then
         if selectButton == 1 then
-          selectButton = 7
+          selectButton = 6
         elseif selectButton == 2 then
           selectButton = 3
         elseif selectButton == 3 then
@@ -712,7 +712,7 @@ end
         elseif selectButton == 4 then
           selectButton = 5
         elseif selectButton == 5 then
-          selectButton = 2
+          selectButton = 1
         end
       end
       if OnCustomizationBackground then
