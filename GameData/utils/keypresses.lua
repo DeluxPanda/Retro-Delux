@@ -1312,10 +1312,10 @@ end
     ColorSelectedForPlayerOne = line9 --player_1
     ColorSelectedForPlayerTwo = line10 --player_2
     ColorSelectedForBall = line11 --Ball
-    ColorSelectedForBackground = line12 --Background
-    ColorSelectedForFlipperOne = line13 --Flipper_1
-    ColorSelectedForFlipperTwo = line14 --Flipper_2
-    ColorSelectedForFlipperBall = line15 --Flipper_Ball
+    ColorSelectedForFlipperOne = line12 --Flipper_1
+    ColorSelectedForFlipperTwo = line13 --Flipper_2
+    ColorSelectedForFlipperBall = line14 --Flipper_Ball
+    ColorSelectedForBackground = line15 --Background
 
     file:close()
     local line = nil
@@ -1417,16 +1417,16 @@ end
 
 -- Flipper Ball
 if ColorSelectedForFlipperBall == "yellow" then
-ColorSelectedForFlipperBall = yellow
-elseif ColorSelectedForFlipperBall == "green" then
-ColorSelectedForFlipperBall = green
-elseif ColorSelectedForFlipperBall == "red" then
-ColorSelectedForFlipperBall = red
-elseif ColorSelectedForFlipperBall == "white" then
-ColorSelectedForFlipperBall = white
-else
   ColorSelectedForFlipperBall = yellow
-end
+  elseif ColorSelectedForFlipperBall == "green" then
+  ColorSelectedForFlipperBall = green
+  elseif ColorSelectedForFlipperBall == "red" then
+  ColorSelectedForFlipperBall = red
+  elseif ColorSelectedForFlipperBall == "white" then
+  ColorSelectedForFlipperBall = white
+  else
+    ColorSelectedForFlipperBall = green
+  end
 
   -- Background
 if ColorSelectedForBackground == "slategray_backgrund" then
@@ -1438,7 +1438,7 @@ elseif ColorSelectedForBackground == "white_backgrund" then
 else
   ColorSelectedForBackground = slategray_backgrund
 end
-love.graphics.setBackgroundColor(ColorSelectedForBackground)
+--love.graphics.setBackgroundColor(ColorSelectedForBackground)
     end
 
 
