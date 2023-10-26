@@ -85,6 +85,7 @@ if lang_eng then
     CommingSoonName = "Comming Soon"
     FlipperOneName = "Flipper 1"
     FlipperTwoName = "Flipper 2"
+    SpaceStartName = "Press the spacebar to start the game"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -143,5 +144,6 @@ elseif lang_swe then
     CommingSoonName = "Kommer snart"
     FlipperOneName = "Flipper 1"
     FlipperTwoName = "Flipper 2"
+    SpaceStartName = "Tryck på mellanslagstangenten för att starta spelet"
 end
 end

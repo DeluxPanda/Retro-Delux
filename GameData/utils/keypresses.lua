@@ -258,6 +258,7 @@ function keyboard:PinBall_Game_Main_Menu()
   OnCustomizationBackground = false
   OnCredits = false
   OnPinballGame = true
+  started_PinBall_Text = true
   PlayerTwoPointPong = nil
   PlayerPointPong = nil
   AIPointPong = nil
@@ -1438,7 +1439,6 @@ elseif ColorSelectedForBackground == "white_backgrund" then
 else
   ColorSelectedForBackground = slategray_backgrund
 end
---love.graphics.setBackgroundColor(ColorSelectedForBackground)
     end
 
 
@@ -1463,6 +1463,7 @@ end
   end
   if OnPinballGame == true then
   if key == "space" then
+    started_PinBall_Text = false
     started_PinBall = true
   end
 end
