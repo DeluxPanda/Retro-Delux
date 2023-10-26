@@ -40,9 +40,9 @@ function PinBallhelp()
               love.graphics.setFont(Game_Titl_font)
 
               love.graphics.setFont(emoji_font)
-              love.graphics.printf(LeftName .." " .. "[⬅]", LeftText_x, LeftText_y,  love.graphics.getWidth() * 0.9, "left")
+              love.graphics.printf(LeftName .." " .. "[⬅]", LeftText_x, LeftText_y,  love.graphics.getWidth() * 0.9, "center")
 
-              love.graphics.printf(RightName .. " " .. "[➡]", RightText_x, RightText_y, love.graphics.getWidth() * 0.9, "right")
+              love.graphics.printf(RightName .. " " .. "[➡]", RightText_x, RightText_y, love.graphics.getWidth() * 0.9, "center")
 
              love.graphics.setFont(Button_font)
     
