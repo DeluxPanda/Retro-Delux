@@ -21,12 +21,16 @@ end
 end
 
 function love.draw()
-if started_PinBall_Text == true then
-    local SpaceStart_y = love.graphics.getHeight() / 2
-    local SpaceStart_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
-    love.graphics.setColor(white)
-    love.graphics.setFont(emoji_font)
-    love.graphics.printf(SpaceStartName, SpaceStart_x, SpaceStart_y, button_start_y, "center")
+    if started_PinBall_Text == true then
+    if not helper then
+    if not paused then
+        local SpaceStart_y = love.graphics.getHeight() / 2
+        local SpaceStart_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
+        love.graphics.setColor(white)
+        love.graphics.setFont(emoji_font)
+        love.graphics.printf(SpaceStartName, SpaceStart_x, SpaceStart_y, button_start_y, "center")
+    end
+    end
 end
 
     if OnPinballGame == true then

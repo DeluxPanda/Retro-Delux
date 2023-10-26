@@ -86,6 +86,8 @@ if lang_eng then
     FlipperOneName = "Flipper 1"
     FlipperTwoName = "Flipper 2"
     SpaceStartName = "Press the spacebar to start the game"
+    LeftName = "Left Flipper"
+    RightName = "Right Flipper"
 elseif lang_swe then
     SinglePlayerName = "Enspelarläge"
     LocalMultiPlayerName = "Lokal Multiplayer"
@@ -145,5 +147,7 @@ elseif lang_swe then
     FlipperOneName = "Flipper 1"
     FlipperTwoName = "Flipper 2"
     SpaceStartName = "Tryck på mellanslagstangenten för att starta spelet"
+    LeftName = "Vänster Flipper"
+    RightName = "Höger Flipper"
 end
 end

@@ -6,39 +6,13 @@ function help()
     GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
     GameTitle_y = 50
     
-    PlayerOne_x = love.graphics.getWidth() * 0.05
-    PlayerOne_y  = GameTitle_y + 20
+--player 
 
-    UpText_x = PlayerOne_x
-    UpText_y = PlayerOne_y + 50
+    LeftText_x = love.graphics.getWidth() * 0.05
+    LeftText_y = GameTitle_y + 70
 
-    DownText_x = PlayerOne_x
-    DownText_y = UpText_y + 50
-
-    UpEmoli_x = PlayerOne_x
-    UpEmoli_y = DownText_y + 50
-
-    DownEmoli_x = PlayerOne_x
-    DownEmoli_y = UpEmoli_y + 50
-
-
-    
---player 2
-
-PlayerTwo_x = love.graphics.getWidth() * 0.05
-PlayerTwo_y = GameTitle_y + 20
-
-    UpText_x2 = PlayerTwo_x
-    UpText_y2 = PlayerTwo_y + 50
-
-    DownText_x2 = PlayerTwo_x
-    DownText_y2 = UpText_y2 + 50
-
-    UpEmoli_x2 = PlayerTwo_x
-    UpEmoli_y2 = DownText_y2 + 50
-
-    DownEmoli_x2 = PlayerTwo_x
-    DownEmoli_y2 = UpEmoli_y2 + 50
+    RightText_x = love.graphics.getWidth() * 0.05
+    RightText_y = LeftText_y + 70
 
     main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
     main_menu_settings_button_y = love.graphics.getHeight() - 60
@@ -62,31 +36,13 @@ PlayerTwo_y = GameTitle_y + 20
               love.graphics.setColor(white)
               love.graphics.printf(HelpName, GameTitle_x, GameTitle_y, button_start_y, "center")
 
-              love.graphics.printf(PlayerOneName, PlayerOne_x, PlayerOne_y, button_start_y, "left")
-              
-              love.graphics.setFont(emoji_font)
-              love.graphics.printf(UPName .." " .. "W", UpText_x, UpText_y, button_start_y, "left")
-              
-              love.graphics.printf(DownName .. " " .. "S", DownText_x, DownText_y, button_start_y, "left")
-
-              love.graphics.printf(UPName.." " .. joystickUpName, UpEmoli_x, UpEmoli_y, button_start_y, "left")
-
-              love.graphics.printf(DownName .. " " .. joystickDownName, DownEmoli_x, DownEmoli_y, button_start_y, "left")
-
-
-
-              -- player 2
+              -- player
               love.graphics.setFont(Game_Titl_font)
-              love.graphics.printf(PlayerTwoName, PlayerTwo_x, PlayerTwo_y,  love.graphics.getWidth() * 0.9, "right")
-             
+
               love.graphics.setFont(emoji_font)
-              love.graphics.printf(UPName .." " .. "[⬆]", UpText_x2, UpText_y2,  love.graphics.getWidth() * 0.9, "right")
+              love.graphics.printf(LeftName .." " .. "[⬅]", LeftText_x, LeftText_y,  love.graphics.getWidth() * 0.9, "left")
 
-              love.graphics.printf(DownName .. " " .. "[⬇]", DownText_x2, DownText_y2,  love.graphics.getWidth() * 0.9, "right")
-              
-              love.graphics.printf(UPName .." " .. joystickUpName, UpEmoli_x2, UpEmoli_y2,  love.graphics.getWidth() * 0.9, "right")
-
-              love.graphics.printf(DownName .. " " .. joystickDownName, DownEmoli_x2, DownEmoli_y2,  love.graphics.getWidth() * 0.9, "right")
+              love.graphics.printf(RightName .. " " .. "[➡]", RightText_x, RightText_y, love.graphics.getWidth() * 0.9, "right")
 
              love.graphics.setFont(Button_font)
     

@@ -1400,7 +1400,7 @@ elseif ColorSelectedForFlipperOne == "red" then
 elseif ColorSelectedForFlipperOne == "white" then
     ColorSelectedForFlipperOne = white
   else
-    ColorSelectedForFlipperOne = red
+    ColorSelectedForFlipperOne = green
   end
 
 -- Flipper 2
@@ -1413,7 +1413,7 @@ ColorSelectedForFlipperTwo = red
 elseif ColorSelectedForFlipperTwo == "white" then
 ColorSelectedForFlipperTwo = white
 else
-  ColorSelectedForFlipperTwo = green
+  ColorSelectedForFlipperTwo = red
 end
 
 -- Flipper Ball
@@ -1426,7 +1426,7 @@ if ColorSelectedForFlipperBall == "yellow" then
   elseif ColorSelectedForFlipperBall == "white" then
   ColorSelectedForFlipperBall = white
   else
-    ColorSelectedForFlipperBall = green
+    ColorSelectedForFlipperBall = yellow
   end
 
   -- Background
