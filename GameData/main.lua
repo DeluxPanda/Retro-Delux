@@ -89,6 +89,7 @@ function love.load()
     if OnStartMenu then
         love.mouse.setVisible(true)
     if fisrt_game_start then
+        
     --    love.audio.play(Marcus_Nyman_MLIM_S2)
         fisrt_game_start = false
     end
