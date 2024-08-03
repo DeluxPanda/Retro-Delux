@@ -34,11 +34,5 @@ function love.resize(w, h)
                ai_background:draw()
                ai_Two_background:draw()
                ball_background:draw()
-      elseif OnPinballGame then
-         FlippersOne:draw()
-         FlippersTwo:draw()
-         if started_PinBall == true then
-         FlipperBall:draw()
-         end
    end
 end

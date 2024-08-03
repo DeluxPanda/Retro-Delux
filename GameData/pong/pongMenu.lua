@@ -69,8 +69,6 @@ pongMenu = {}
 
             -- Game Title
             love.graphics.setFont(Game_Titl_font)
-            -- love.graphics.setColor(0, 88/255, 0)
-            -- love.graphics.rectangle("fill", GameTitle_x, GameTitle_y, button_start_y, button_height)
              love.graphics.setColor(255, 255, 255)
              love.graphics.printf(PongName, GameTitle_x, GameTitle_y, button_start_y, "center")
              GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)

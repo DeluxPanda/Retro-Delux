@@ -3,7 +3,6 @@ if io.open("settings.conf", "r") == nil then
 file:close()
 HasNotPlaydeBefore_pong_Singel = true
 HasNotPlaydeBefore_pong_Multi = true
-HasNotPlaydeBefore_PinBall = true
 end
 
 -- pong
@@ -17,11 +16,6 @@ require("pong/SinglePlayer/ball_SinglePlayer")
 require("pong/LocalMultiPlayer/player_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/playerTwo_LocalMultiPlayer")
 require("pong/LocalMultiPlayer/ball_LocalMultiPlayer")
--- pinball
-require ("PinBall/PinBallhelp")
-require ("PinBall/FlipperTwo")
-require ("PinBall/FlipperOne")
-require ("PinBall/FlipperBall")
 -- background
 require("pong/background/ai_background")
 require("pong/background/ai_Two_background")
@@ -48,7 +42,6 @@ Lobby_Time = love.audio.newSource("Music/Lobby-Time.mp3", "stream")
 Lobby_Time:setLooping(true)
 started_SinglePlayer = false
 started_LocalMultiPlayer = false
-started_PinBall = false
 OnPongMenu = false
 OnSettings = false
 OnCredits = false
@@ -98,9 +91,6 @@ function love.load()
 
         pongMenu_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
         pongMenu_button_y = love.graphics.getHeight() / 2 - button_height / 2
-
-        pinball_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
-        pinball_button_y =  pongMenu_button_y + button_height + button_padding
 
         Settings_button_x = love.graphics.getWidth() - button_width - 10
         Settings_button_y = love.graphics.getHeight() - 60
@@ -202,43 +192,32 @@ function love.draw()
         love.graphics.printf(PongName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
        
     end
-    -- pinball
-    if mouse_x >= pinball_button_x and mouse_x <= pinball_button_x + button_width and
-        mouse_y >= pinball_button_y and mouse_y <= pinball_button_y + button_height or
+
+    -- GameExit
+    if mouse_x >= quit_button_x and mouse_x <= quit_button_x + button_width and
+        mouse_y >= quit_button_y and mouse_y <= quit_button_y + button_height or
         selectButton == 2 then
          selectButton = 2
          OnPongButton = false
         love.graphics.setColor(yellow)
-        love.graphics.rectangle("fill", pinball_button_x , pinball_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
-    
-        love.graphics.setColor(yellow)
-        local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
-        love.graphics.setFont(PongName_font)
-        love.graphics.printf(pinballName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
+        love.graphics.rectangle("fill", quit_button_x , quit_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
     end
-    -- GameExit
-    if mouse_x >= quit_button_x and mouse_x <= quit_button_x + button_width and
-        mouse_y >= quit_button_y and mouse_y <= quit_button_y + button_height or
+
+    -- Credits
+    if mouse_x >= credits_button_x and mouse_x <= credits_button_x + button_width and
+        mouse_y >= credits_button_y and mouse_y <= credits_button_y + button_height or
         selectButton == 3 then
          selectButton = 3
          OnPongButton = false
         love.graphics.setColor(yellow)
-        love.graphics.rectangle("fill", quit_button_x , quit_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
-    end
-    -- Credits
-    if mouse_x >= credits_button_x and mouse_x <= credits_button_x + button_width and
-        mouse_y >= credits_button_y and mouse_y <= credits_button_y + button_height or
-        selectButton == 4 then
-         selectButton = 4
-         OnPongButton = false
-        love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", credits_button_x, credits_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
     end
+
     -- Settings
     if mouse_x >= Settings_button_x and mouse_x <= Settings_button_x + button_width and
         mouse_y >= Settings_button_y and mouse_y <= Settings_button_y + button_height or
-        selectButton == 5 then
-         selectButton = 5
+        selectButton == 4 then
+         selectButton = 4
          OnPongButton = false
         love.graphics.setColor(yellow)
         love.graphics.rectangle("fill", Settings_button_x , Settings_button_y , button_width + 5, button_height + 5, corner_radius, corner_radius)
@@ -254,11 +233,7 @@ function love.draw()
         love.graphics.rectangle("fill", pongMenu_button_x, pongMenu_button_y, button_width, button_height, corner_radius, corner_radius)
         love.graphics.setColor(255, 255, 255)
         love.graphics.printf(PongName, pongMenu_button_x, pongMenu_button_y + 10, button_width, "center")
-        -- pinball
-        love.graphics.setColor(gary)
-        love.graphics.rectangle("fill", pinball_button_x, pinball_button_y, button_width, button_height, corner_radius, corner_radius)
-        love.graphics.setColor(255, 255, 255)
-        love.graphics.printf(pinballName, pinball_button_x, pinball_button_y + 10, button_width, "center")
+
         -- Settings
         love.graphics.setColor(NormalButtons)
         love.graphics.rectangle("fill", Settings_button_x, Settings_button_y, button_width, button_height, corner_radius, corner_radius)

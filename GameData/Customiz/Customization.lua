@@ -1,5 +1,5 @@
 function love.draw()
-    love.graphics.setBackgroundColor(slategray)
+    love.graphics.setBackgroundColor(ColorSelectedForBackground)
   GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
   GameTitle_y = 50
   
@@ -15,6 +15,9 @@ function love.draw()
   main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
   main_menu_settings_button_y = love.graphics.getHeight() - 60
   
+  local Background_button_x = love.graphics.getWidth() - button_width - 10
+  local Background_button_y = love.graphics.getHeight() - 60
+
   -- Hover over the Buttons --
   local mouse_x, mouse_y = love.mouse.getPosition()
    -- PlayerOne
@@ -53,18 +56,21 @@ function love.draw()
        love.graphics.rectangle("fill", main_menu_settings_button_x , main_menu_settings_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
    end
   
+      --Background
+      if mouse_x >= Background_button_x and mouse_x <= Background_button_x + button_width and
+      mouse_y >= Background_button_y and mouse_y <= Background_button_y + button_height or
+      selectButton == 5 then
+       selectButton = 5
+      love.graphics.setColor(yellow)
+      love.graphics.rectangle("fill", Background_button_x , Background_button_y, button_width + 5, button_height + 5, corner_radius, corner_radius)
+      end
+
            -- Game Title
            love.graphics.setFont(Game_Titl_font)
             love.graphics.setColor(white)
             love.graphics.printf(CustomizeName, GameTitle_x, GameTitle_y, button_start_y, "center")
             GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
             GameTitle_y = 80
-  
-            love.graphics.setColor(yellow)
-            local PongName_font = love.graphics.newFont("Fonts/VT323-Regular.ttf", 30)
-            love.graphics.setFont(PongName_font)
-            love.graphics.printf(PongName, GameTitle_x  , GameTitle_y + 40, button_start_y, "center")
-           
 
            love.graphics.setFont(Button_font)
   
@@ -99,5 +105,12 @@ function love.draw()
            love.graphics.printf(BackName, main_menu_settings_button_x, main_menu_settings_button_y + 10, button_width, "center")
            main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
            main_menu_settings_button_y = love.graphics.getHeight() - 60
+
+           --Background
+           love.graphics.setColor(NormalButtons)
+           love.graphics.rectangle("fill", Background_button_x, Background_button_y, button_width, button_height, corner_radius, corner_radius)
+           love.graphics.setColor(255, 255, 255)
+           love.graphics.printf(BackgroundName, Background_button_x, Background_button_y + 10, button_width, "center")
+
 
   end

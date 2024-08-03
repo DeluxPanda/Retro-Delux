@@ -11,6 +11,7 @@ function keyboard:pong_Button_From_Main_Menu()
    collectgarbage("collect")
    AIPoint_Two_background = 0
    AIPoint_background = 0
+   selectButton = 1
  end
 
  function keyboard:pong_SP_Btn_pong_Menu()
@@ -29,6 +30,7 @@ function keyboard:pong_Button_From_Main_Menu()
   Nostalgia:play()
   started_SinglePlayer = true
   OnPongMenu = false
+  selectButton = 1
  end
 
  function keyboard:pong_LMP_Btn_pong_Menu()
@@ -47,26 +49,9 @@ function keyboard:pong_Button_From_Main_Menu()
    Nostalgia:play()
    started_LocalMultiPlayer = true
    OnPongMenu = false
+   selectButton = 1
  end
- function keyboard:pinball_Buttom_From_Main_Menu() 
-  OnStartMenu = false
-  started_SinglePlayer = false
-  started_LocalMultiPlayer = false
-  paused = false
-  OnCredits = false
-  OnPinballGame = true
-  PlayerTwoPointPong = nil
-  PlayerPointPong = nil
-  AIPointPong = nil
-  PlayerPointPong = nil
-  AIPoint_Two_background = nil
-  AIPoint_background = nil
-  collectgarbage("collect")
-  Marcus_Nyman_MLIM_S2:pause()
-  Nostalgia:stop()
-  Lobby_Time:play()
-  love.filesystem.load("PinBall/PinBallMainMenu.lua")()
- end
+
  function keyboard:back_to_MainMenu()
    OnStartMenu = true
    started_SinglePlayer = false
@@ -104,11 +89,10 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
-  PongOrPinBall = false
-  selectButton = 1
   love.filesystem.load("settings.lua")()
   love.resize()
   --Marcus_Nyman_MLIM_S2:stop()
+  selectButton = 4
  end
 
  function keyboard:settingsAudioMenu()
@@ -117,10 +101,10 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettings = false
   OnSettingsAudio = true
   OnCustomizationBackground = false
-  selectButton = 1
   love.filesystem.load("settingsAudio.lua")()
   love.resize()
   Marcus_Nyman_MLIM_S2:stop()
+  selectButton = 1
  end
  function keyboard:settingsCustomizationMenu()
   OnStartMenu = false
@@ -132,63 +116,11 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
-  PongOrPinBall = false
-
-  selectButton = 1
+  selectButton = 4
   love.filesystem.load("Customiz/Customization.lua")()
   love.resize()
  end
- function keyboard:settingsCustomizationPinBallMenu()
-  OnCustomizationPinBall = true
-  OnCustomizationFlipperOne = false
-  OnCustomizationFlipperTwo = false
-  OnCustomizationFlipperBall = false
-  PongOrPinBall = false
 
-  selectButton = 1
-  love.filesystem.load("Customiz/Customization_PinBall.lua")()
-  love.resize()
- end
- function keyboard:settingsCustomizationFlipperOneMenu()
-  OnCustomizationPinBall = false
-  OnCustomizationFlipperOne = true
-
-  selectButton = 1
-  love.filesystem.load("Customiz/PinBall/FlipperOne.lua")()
-  love.resize()
- end
- function keyboard:settingsCustomizationFlipperTwoMenu()
-  OnCustomizationPinBall = false
-  OnCustomizationFlipperTwo = true
-
-  selectButton = 1
-  love.filesystem.load("Customiz/PinBall/FlipperTwo.lua")()
-  love.resize()
- end
- function keyboard:settingsCustomizationFlipperBallMenu()
-  OnCustomizationPinBall = false
-  OnCustomizationFlipperBall = true
-
-  selectButton = 1
-  love.filesystem.load("Customiz/PinBall/Ball.lua")()
-  love.resize()
- end
- function keyboard:settingsCustomizationMenuPongOrPinBall()
-  OnStartMenu = false
-  OnPongMenu = false
-  OnSettings = false
-  OnSettingsAudio = false
-  OnCustomization = false
-  OnCustomizationPinBall = false
-  OnCustomizationPlayerOne = false
-  OnCustomizationPlayerTwo = false
-  OnCustomizationBall = false
-  OnCustomizationBackground = false
-  PongOrPinBall = true
-  selectButton = 1
-  love.filesystem.load("Customiz/PongOrPinBall.lua")()
-  love.resize()
- end
  function keyboard:settingsCustomizationPlayerOneMenu()
   OnStartMenu = false
   OnPongMenu = false
@@ -199,10 +131,9 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomizationPlayerTwo = false
   OnCustomizationBall = false
   OnCustomizationBackground = false
-
-  selectButton = 1
   love.filesystem.load("Customiz/PlayerOne.lua")()
   love.resize()
+  selectButton = 1
  end
  function keyboard:settingsCustomizationPlayerTwoMenu()
   OnStartMenu = false
@@ -212,8 +143,8 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomization = false
   OnCustomizationPlayerTwo = true
   love.filesystem.load("Customiz/PlayerTwo.lua")()
-  selectButton = 1
   love.resize()
+  selectButton = 1
  end
  function keyboard:settingsCustomizationBallMenu()
   OnStartMenu = false
@@ -223,9 +154,9 @@ function keyboard:pong_Button_From_Main_Menu()
   OnSettingsAudio = false
   OnCustomization = false
   OnCustomizationBall = true
-  selectButton = 1
   love.filesystem.load("Customiz/Ball.lua")()
   love.resize()
+  selectButton = 1
  end
  function keyboard:settingsCustomizationBackgroundMenu()
   OnStartMenu = false
@@ -235,42 +166,20 @@ function keyboard:pong_Button_From_Main_Menu()
   OnCustomization = false
   OnCustomizationBall = false
   OnCustomizationBackground = true
-  PongOrPinBall = false
-  selectButton = 1
   love.filesystem.load("Customiz/Background.lua")()
   love.resize()
+  selectButton = 1
  end
  function keyboard:Credits()
   OnStartMenu = false
   OnSettingsAudio = false
   OnPongMenu = false
   OnCredits = true
-  selectButton = 1
   love.filesystem.load("Credits.lua")()
   love.resize()
+  selectButton = 1
  end
-function keyboard:PinBall_Game_Main_Menu()
-  OnStartMenu = false
-  started_SinglePlayer = false
-  started_LocalMultiPlayer = false
-  paused = false
-  OnCustomization = false
-  OnCustomizationBackground = false
-  OnCredits = false
-  OnPinballGame = true
-  started_PinBall_Text = true
-  PlayerTwoPointPong = nil
-  PlayerPointPong = nil
-  AIPointPong = nil
-  PlayerPointPong = nil
-  AIPoint_Two_background = nil
-  AIPoint_background = nil
-  collectgarbage("collect")
-  Marcus_Nyman_MLIM_S2:pause()
-  Nostalgia:stop()
-  Lobby_Time:play()
-  love.filesystem.load("PinBall/PinBallMain.lua")()
-end
+
  function keyboard:Enter_things()
   
       if selectButton == 1 then
@@ -307,8 +216,6 @@ end
 
         elseif OnCustomization then
             keyboard:settingsCustomizationPlayerOneMenu()
-        elseif OnCustomizationPinBall then
-          keyboard:settingsCustomizationFlipperOneMenu()
             
          elseif helper then
           helper = false
@@ -317,21 +224,13 @@ end
           HasNotPlaydeBefore = false
         elseif OnPinballGame then
           keyboard:back_to_MainMenu()
-          elseif PongOrPinBall == true then
-            keyboard:settingsCustomizationMenu()
         end
 
        elseif selectButton == 2 then
-        if OnCustomizationPinBall then
-          keyboard:settingsCustomizationFlipperTwoMenu()
-        end
-        if PongOrPinBall then
-          keyboard:settingsCustomizationPinBallMenu()
-        end
-
         if OnStartMenu then
-          keyboard:pinball_Buttom_From_Main_Menu()
-
+          Save_stuff()
+          love.event.quit()
+   
         elseif OnPongMenu then
           keyboard:pong_LMP_Btn_pong_Menu()
 
@@ -360,27 +259,13 @@ end
           ColorSelectedForBall = ColorSelected
         end
 
-
-        if OnCustomizationFlipperOne then
-          ColorSelectedForFlipperOne = ColorSelected
-        end
-
-        if OnCustomizationFlipperTwo then
-          ColorSelectedForFlipperTwo = ColorSelected
-        end
-
-        if OnCustomizationFlipperBall then
-          ColorSelectedForFlipperBall = ColorSelected
-        end
-
         if OnCustomizationBackground then
           ColorSelectedForBackground = ColorSelected
         end
 
        elseif selectButton == 3 then
         if OnStartMenu then
-          Save_stuff()
-          love.event.quit()
+          keyboard:Credits()
         elseif OnPongMenu then
           keyboard:back_to_MainMenu()
         elseif paused then
@@ -389,9 +274,37 @@ end
           keyboard:settingsAudioMenu()
         elseif OnCustomization then
           keyboard:settingsCustomizationBallMenu()
-        elseif OnCustomizationPinBall then
-          keyboard:settingsCustomizationFlipperBallMenu()
-        elseif PongOrPinBall then
+        end
+
+
+        if OnCustomizationPlayerOne then
+          ColorSelectedForPlayerOne = ColorSelected
+        end
+
+        if OnCustomizationPlayerTwo then
+          ColorSelectedForPlayerTwo = ColorSelected
+        end
+
+        if OnCustomizationBall then
+          ColorSelectedForBall = ColorSelected
+        end
+
+        if OnCustomizationBackground then
+          ColorSelectedForBackground = ColorSelected
+        end
+
+       elseif selectButton == 4 then
+        if OnStartMenu then
+          keyboard:SettingsMenu()
+        elseif OnSettings then
+          Save_stuff()
+          love.resize()
+          keyboard:back_to_MainMenu()
+        elseif paused then
+          return
+        elseif OnCredits then
+          keyboard:back_to_MainMenu()
+        elseif OnCustomization then
             keyboard:SettingsMenu()
         end
 
@@ -408,80 +321,19 @@ end
           ColorSelectedForBall = ColorSelected
         end
 
-
-        if OnCustomizationFlipperOne then
-          ColorSelectedForFlipperOne = ColorSelected
-        end
-
-        if OnCustomizationFlipperTwo then
-          ColorSelectedForFlipperTwo = ColorSelected
-        end
-
-        if OnCustomizationFlipperBall then
-          ColorSelectedForFlipperBall = ColorSelected
-        end
-
-        if OnCustomizationBackground then
-          ColorSelectedForBackground = ColorSelected
-        end
-
-       elseif selectButton == 4 then
-        if OnStartMenu then
-          keyboard:Credits()
-        elseif OnSettings then
-          Save_stuff()
-          love.resize()
-          keyboard:back_to_MainMenu()
-        elseif paused then
-          return
-        elseif OnCredits then
-          keyboard:back_to_MainMenu()
-        elseif OnCustomization or OnCustomizationPinBall  then
-            keyboard:settingsCustomizationMenuPongOrPinBall()
-        elseif PongOrPinBall == true then
-            keyboard:settingsCustomizationBackgroundMenu()
-        end
-
-
-        if OnCustomizationPlayerOne then
-          ColorSelectedForPlayerOne = ColorSelected
-        end
-
-        if OnCustomizationPlayerTwo then
-          ColorSelectedForPlayerTwo = ColorSelected
-        end
-
-        if OnCustomizationBall then
-          ColorSelectedForBall = ColorSelected
-        end
-
-
-        if OnCustomizationFlipperOne then
-          ColorSelectedForFlipperOne = ColorSelected
-        end
-
-        if OnCustomizationFlipperTwo then
-          ColorSelectedForFlipperTwo = ColorSelected
-        end
-
-        if OnCustomizationFlipperBall then
-          ColorSelectedForFlipperBall = ColorSelected
-        end
-
         if OnCustomizationBackground then
           ColorSelectedForBackground = ColorSelected
         end
 
 
       elseif selectButton == 5 then
-
-      if OnStartMenu then
-          keyboard:SettingsMenu()
-      elseif OnPongMenu then
+        if OnPongMenu then
         helperOnPongMenu = true
         selectButton = 1
       elseif OnSettings then
-          keyboard:settingsCustomizationMenuPongOrPinBall()
+          keyboard:settingsCustomizationMenu()
+      elseif OnCustomization then
+          keyboard:settingsCustomizationBackgroundMenu()
       end
           if OnCustomizationPlayerOne then
             ColorSelectedForPlayerOne = ColorSelected
@@ -495,19 +347,6 @@ end
             ColorSelectedForBall = ColorSelected
           end
   
-  
-          if OnCustomizationFlipperOne then
-            ColorSelectedForFlipperOne = ColorSelected
-          end
-  
-          if OnCustomizationFlipperTwo then
-            ColorSelectedForFlipperTwo = ColorSelected
-          end
-  
-          if OnCustomizationFlipperBall then
-            ColorSelectedForFlipperBall = ColorSelected
-          end
-  
           if OnCustomizationBackground then
             ColorSelectedForBackground = ColorSelected
           end
@@ -518,7 +357,6 @@ end
           Save_stuff()
           keyboard:SettingsMenu()
         end
-
         if OnCustomizationPlayerOne then
           ColorSelectedForPlayerOne = ColorSelected
         end
@@ -529,19 +367,6 @@ end
 
         if OnCustomizationBall then
           ColorSelectedForBall = ColorSelected
-        end
-
-
-        if OnCustomizationFlipperOne then
-          ColorSelectedForFlipperOne = ColorSelected
-        end
-
-        if OnCustomizationFlipperTwo then
-          ColorSelectedForFlipperTwo = ColorSelected
-        end
-
-        if OnCustomizationFlipperBall then
-          ColorSelectedForFlipperBall = ColorSelected
         end
 
         if OnCustomizationBackground then
@@ -566,36 +391,18 @@ end
        end
 
        if OnCustomizationBackground then
-        keyboard:settingsCustomizationMenuPongOrPinBall()
+        keyboard:settingsCustomizationMenu()
         Save_stuff()
         selectButton = 4
         love.graphics.setBackgroundColor(ColorSelectedForBackground)
        end
-       if OnCustomizationFlipperOne then
-        keyboard:settingsCustomizationPinBallMenu()
-        Save_stuff()
-        selectButton = 1
-      end
-      if OnCustomizationFlipperTwo then
-        keyboard:settingsCustomizationPinBallMenu()
-        Save_stuff()
-        selectButton = 2
-      end
-      if OnCustomizationFlipperBall then
-        keyboard:settingsCustomizationPinBallMenu()
-        Save_stuff()
-        selectButton = 3
-     end
       end
     end
 
     function keyboard:MenuUp()
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTwo 
-      or OnCustomizationBall
-      or OnCustomizationFlipperOne
-      or OnCustomizationFlipperTwo
-      or OnCustomizationFlipperBall then
+      or OnCustomizationBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -625,7 +432,7 @@ end
         end
       end
 
-      if OnCustomization or OnCustomizationPinBall then
+      if OnCustomization then
         if selectButton == 4 then
           selectButton = 3
         elseif selectButton == 3 then
@@ -637,15 +444,7 @@ end
         end
       end
       
-      if PongOrPinBall then
-        if selectButton == 1 then
-          selectButton = 3
-        elseif selectButton == 3 then
-          selectButton = 2
-        elseif selectButton == 2 then
-          selectButton = 1
-        end
-      end
+
         if OnSettingsAudio then
           if selectButton == 6 then
           selectButton = 5
@@ -662,7 +461,7 @@ end
           end
           end
 
-        if OnStartMenu or OnPongMenu or paused then
+        if OnPongMenu or paused then
           if selectButton == 3 then
             selectButton = 2
           elseif selectButton == 2 then
@@ -671,6 +470,14 @@ end
             selectButton = 3
           end
           end
+
+          if OnStartMenu then
+            if selectButton == 1 then
+              selectButton = 2
+            elseif selectButton == 2 then
+              selectButton = 1
+            end
+            end
 
           if OnSettings then
             if selectButton == 1 then
@@ -701,10 +508,7 @@ end
     function keyboard:MenuDown()
       if OnCustomizationPlayerOne 
       or OnCustomizationPlayerTwo 
-      or OnCustomizationBall
-      or OnCustomizationFlipperOne
-      or OnCustomizationFlipperTwo
-      or OnCustomizationFlipperBall then
+      or OnCustomizationBall then
         if selectButton == 1 then
           selectButton = 7
         elseif selectButton == 2 then
@@ -717,6 +521,7 @@ end
           selectButton = 1
         end
       end
+
       if OnCustomizationBackground then
         if selectButton == 2 then
           selectButton = 3
@@ -732,7 +537,7 @@ end
       end
 
 
-      if OnCustomization or OnCustomizationPinBall then 
+      if OnCustomization then 
         if selectButton == 1 then
           selectButton = 2
           elseif selectButton == 2 then
@@ -743,17 +548,6 @@ end
             selectButton = 1
           end
           end
-
-          if PongOrPinBall then 
-            if selectButton == 1 then
-              selectButton = 2
-              elseif selectButton == 2 then
-                selectButton = 3
-              elseif selectButton == 3 then
-                selectButton = 1
-              end
-              end
-          
 
         if OnSettingsAudio then
           if selectButton == 1 then
@@ -771,7 +565,7 @@ end
           end
           end
 
-        if OnStartMenu or OnPongMenu or paused then
+        if OnPongMenu or paused then
           if selectButton == 1 then
             selectButton = 2
           elseif selectButton == 2 then
@@ -780,6 +574,14 @@ end
             selectButton = 1
           end
           end
+
+          if OnStartMenu then
+            if selectButton == 2 then
+              selectButton = 1
+            elseif selectButton == 1 then
+              selectButton = 2
+            end
+            end
 
           if OnSettings then
             if selectButton == 1 then
@@ -806,300 +608,128 @@ end
             end
     end
 
-    function keyboard:MenuLeft()
-      if selectButton == 1 then
+    function keyboard:MenuRight()
 
-        if OnCustomizationPlayerOne 
-        or OnCustomizationPlayerTwo 
-        or OnCustomizationBall 
-        or OnCustomizationBackground
-        or OnCustomizationFlipperOne
-        or OnCustomizationFlipperTwo
-        or OnCustomizationFlipperBall then
-          selectButton = 1
-         end
-
-         if OnSettingsAudio then
-            volumeMainV = volumeMainV - 0.1
-            love.resize()
-            if volumeMainV == 0.1 then
-              volumeMainV = 0.1
+      if OnStartMenu then
+        if selectButton == 3 then
+          selectButton = 2
+          elseif selectButton == 2 then
+            selectButton = 4
             end
-            end
+      end
 
-            if OnStartMenu or OnPongMenu then
-              OnPongButton = true
-              love.resize()
-              else
-              OnPongButton = false
-              end
-              if OnStartMenu then
-                selectButton = 4
-              end
-  
-              if  OnPongMenu then
-                selectButton = 4
-              end
+      if OnPongMenu then
+        if selectButton == 4 then
+          selectButton = 3
+          elseif selectButton == 3 then
+            selectButton = 5
+            end
+      end
+
+      if OnSettings then
+        if selectButton == 4  then
+          selectButton = 5
+          end
+        end
+
+        if OnCustomization then
+          if selectButton == 4 then
+            selectButton = 5
+            end
+          end
+    
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTwo 
+          or OnCustomizationBall then
+            if selectButton == 1 then
+            selectButton = 2
+          end
+          end
+
+          if OnCustomizationBackground then
+            if selectButton == 1 then
+            selectButton = 2
+          end
+          end
+
+      if OnSettingsAudio then
+        if selectButton == 1 then
+          volumeMainV = math.min(volumeMainV + 0.1, 1)
         elseif selectButton == 2 then
-
-          if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTwo 
-          or OnCustomizationBall 
-          or OnCustomizationBackground
-          or OnCustomizationFlipperOne
-          or OnCustomizationFlipperTwo
-          or OnCustomizationFlipperBall then
-            selectButton = 1
-           end
-
-           if OnSettingsAudio then
-           volumeMusicV = volumeMusicV - 0.1
-           love.resize()
-           if volumeMusicV == 0.1 then
-             volumeMusicV = 0.1
-           end
-           end
-
-           if not OnPongMenu then
-            OnPongButton = false
-            else
-              OnPongButton = true
-            end
-
-              if not OnPongMenu then
-                OnPongButton = false
-                else
-                  OnPongButton = true
-                end
-
+          volumeMusicV = math.min(volumeMusicV + 0.1, 1)
         elseif selectButton == 3 then
-
-          if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTwo 
-          or OnCustomizationBall 
-          or OnCustomizationBackground
-          or OnCustomizationFlipperOne
-          or OnCustomizationFlipperTwo
-          or OnCustomizationFlipperBall then
-            selectButton = 1
-           end
-
-           if OnSettingsAudio then
-           point_GivenV = point_GivenV - 0.1
-           love.resize()
-           if point_GivenV == 0.1 then
-             point_GivenV = 0.1
-           end
-           end
-
-           if OnStartMenu then
-            selectButton = 4
-          end
-
-          if  OnPongMenu then
-            selectButton = 4
-          end
-
+          point_GivenV = math.min(point_GivenV + 0.1, 1)
         elseif selectButton == 4 then
-
-          if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTwo 
-          or OnCustomizationBall 
-          or OnCustomizationBackground
-          or OnCustomizationFlipperOne
-          or OnCustomizationFlipperTwo
-          or OnCustomizationFlipperBall then
-            selectButton = 1
-           end
-
-           if OnSettingsAudio then
-           volumeHitV = volumeHitV - 0.1
-           love.resize()
-           if volumeHitV == 0.1 then
-             volumeHitV = 0.1
-           end
-           end
-           if PongOrPinBall then
-            selectButton = 3
-          end
+          volumeHitV = math.min(volumeHitV + 0.1, 1)
         elseif selectButton == 5 then
+          volumeButton_hitV = math.min(volumeButton_hitV + 0.1, 1)
+        end
+        love.resize()
+      end
+  end
+  function keyboard:MenuLeft()
 
-          if OnCustomizationPlayerOne 
-          or OnCustomizationPlayerTwo 
-          or OnCustomizationBall
-          or OnCustomizationBackground then
-            selectButton = 1
-           end
-
-           if OnSettingsAudio then
-            volumeButton_hitV = volumeButton_hitV - 0.1
-          love.resize()
-          if volumeButton_hitV == 0.1 then
-            volumeButton_hitV = 0.1
+    if OnStartMenu then
+      if selectButton == 4 then
+        selectButton = 2
+        elseif selectButton == 2 then
+          selectButton = 3
           end
-          end
-
-          if OnSettings then
-            selectButton = 4
-          end
-
-          if OnStartMenu then
-            selectButton = 3
-          end
-
-          if  OnPongMenu then
-            selectButton = 3
-          end
-
-         end
     end
 
-    function keyboard:MenuRight()
-      if selectButton == 1 then
-
-        if PongOrPinBall then
-          selectButton = 4
-        end
-        
-        if OnCustomizationPlayerOne 
-        or OnCustomizationPlayerTwo 
-        or OnCustomizationBall
-        or OnCustomizationBackground
-        or OnCustomizationFlipperOne
-        or OnCustomizationFlipperTwo
-        or OnCustomizationFlipperBall then
-          selectButton = 2
-        end
-
-
-        if OnSettingsAudio then
-          volumeMainV = volumeMainV + 0.1
-          love.resize()
-          if volumeMainV == 1 then
-            volumeMainV = 1
-          end
-          end
-
-          if OnStartMenu or OnPongMenu then
-            OnPongButton = true
-            love.resize()
-            else
-            OnPongButton = false
-            end
-
-            if OnStartMenu then
-              selectButton = 5
-            end
-
-            if  OnSettings then
-              selectButton = 5
-            end
-
-            if  OnPongMenu then
-              selectButton = 5
-            end
-
-        elseif selectButton == 2 then
-
-
-          if PongOrPinBall then
-            selectButton = 4
-          end
-
-          if OnSettingsAudio then
-          volumeMusicV = volumeMusicV + 0.1
-          love.resize()
-          if volumeMusicV == 1 then
-            volumeMusicV = 1
-          end
-          end
-
-          if not OnPongMenu then
-            OnPongButton = false
-            else
-              OnPongButton = true
-            end
-
-             if not OnPongMenu then
-                OnPongButton = false
-                else
-                  OnPongButton = true
-                end
-            if OnStartMenu then
-              selectButton = 5
-            end
-
-            if  OnSettings then
-              selectButton = 5
-            end
-
-            if  OnPongMenu then
-              selectButton = 5
-            end
-
+    if OnPongMenu then
+      if selectButton == 5 then
+        selectButton = 3
         elseif selectButton == 3 then
-        
-
-          if PongOrPinBall then
-            selectButton = 4
+          selectButton = 4
           end
+    end
 
-          if OnSettingsAudio then
-            point_GivenV = point_GivenV + 0.1
-            love.resize()
-            if point_GivenV == 1 then
-              point_GivenV = 1
-            end
-            end
-            if OnStartMenu then
-              selectButton = 5
-            end
-
-            if  OnSettings then
-              selectButton = 5
-            end
-
-            if  OnPongMenu then
-              selectButton = 5
-            end
-
-        elseif selectButton == 4 then
- 
-
-          if PongOrPinBall then
-            selectButton = 4
-          end
-
-          if OnSettingsAudio then
-            volumeHitV = volumeHitV + 0.1
-            love.resize()
-            if volumeHitV == 1 then
-              volumeHitV = 1
-            end
-          end
-            if OnStartMenu then
-              selectButton = 3
-            end
-
-            if  OnSettings then
-              selectButton = 5
-            end
-
-            if  OnPongMenu then
-              selectButton = 3
-            end
-
-        elseif selectButton == 5 then
-
-          if OnSettingsAudio then
-            volumeButton_hitV = volumeButton_hitV + 0.1
-            love.resize()
-            if volumeButton_hitV == 1 then
-              volumeButton_hitV = 1
-            end
-            end
+    if OnSettings then
+      if selectButton == 5  then
+        selectButton = 4
         end
+      end
 
+        if OnCustomization then
+          if selectButton == 5 then
+            selectButton = 4
+            end
+          end
+
+          if OnCustomizationPlayerOne 
+          or OnCustomizationPlayerTwo 
+          or OnCustomizationBall then
+            if selectButton == 2 
+            or selectButton == 3
+            or selectButton == 4
+            or selectButton == 5 then
+            selectButton = 1
+          end
+          end
+          
+          if OnCustomizationBackground then
+            if selectButton == 2 
+            or selectButton == 3
+            or selectButton == 4 then
+            selectButton = 1
+          end
+          end
+
+    if OnSettingsAudio then
+      if selectButton == 1 then
+        volumeMainV = math.min(volumeMainV - 0.1, 1)
+      elseif selectButton == 2 then
+        volumeMusicV = math.min(volumeMusicV - 0.1, 1)
+      elseif selectButton == 3 then
+        point_GivenV = math.min(point_GivenV - 0.1, 1)
+      elseif selectButton == 4 then
+        volumeHitV = math.min(volumeHitV - 0.1, 1)
+      elseif selectButton == 5 then
+        volumeButton_hitV = math.min(volumeButton_hitV - 0.1, 1)
+      end
+      love.resize()
+    end
   end
 
     function Save_stuff()
@@ -1160,41 +790,7 @@ elseif ColorSelectedForBall == white then
   ColorSelectedForBall = "white"
 end
   file:write(ColorSelectedForBall .. "\n")
-  -- Flipper 1
-  if ColorSelectedForFlipperOne == yellow then
-     ColorSelectedForFlipperOne = "yellow"
-elseif ColorSelectedForFlipperOne == green then
-    ColorSelectedForFlipperOne = "green"
-elseif ColorSelectedForFlipperOne == red then
-    ColorSelectedForFlipperOne = "red"
-elseif ColorSelectedForFlipperOne == white then
-    ColorSelectedForFlipperOne = "white"
-end
-  file:write(ColorSelectedForFlipperOne .. "\n")
 
--- Flipper 2
-if ColorSelectedForFlipperTwo == yellow then
-ColorSelectedForFlipperTwo = "yellow"
-elseif ColorSelectedForFlipperTwo == green then
-ColorSelectedForFlipperTwo = "green"
-elseif ColorSelectedForFlipperTwo == red then
-ColorSelectedForFlipperTwo = "red"
-elseif ColorSelectedForFlipperTwo == white then
-ColorSelectedForFlipperTwo = "white"
-end
-file:write(ColorSelectedForFlipperTwo .. "\n")
--- Flipper Ball
-if ColorSelectedForFlipperBall == yellow then
-ColorSelectedForFlipperBall = "yellow"
-elseif ColorSelectedForFlipperBall == green then
-ColorSelectedForFlipperBall = "green"
-elseif ColorSelectedForFlipperBall == red then
-ColorSelectedForFlipperBall = "red"
-elseif ColorSelectedForFlipperBall == white then
-ColorSelectedForFlipperBall = "white"
-end
-
-  file:write(ColorSelectedForFlipperBall .. "\n")
   -- Background
 if ColorSelectedForBackground == slategray_backgrund then
   ColorSelectedForBackground = "slategray_backgrund"
@@ -1240,39 +836,6 @@ elseif ColorSelectedForBall == "white" then
   ColorSelectedForBall = white
 end
 
-  -- Flipper 1
-  if ColorSelectedForFlipperOne == "yellow" then
-    ColorSelectedForFlipperOne = yellow
-elseif ColorSelectedForFlipperOne == "green" then
-    ColorSelectedForFlipperOne = green
-elseif ColorSelectedForFlipperOne == "red" then
-    ColorSelectedForFlipperOne = red
-elseif ColorSelectedForFlipperOne == "white" then
-    ColorSelectedForFlipperOne = white
-end
-
--- Flipper 2
-if ColorSelectedForFlipperTwo == "yellow" then
-ColorSelectedForFlipperTwo = yellow
-elseif ColorSelectedForFlipperTwo == "green" then
-ColorSelectedForFlipperTwo = green
-elseif ColorSelectedForFlipperTwo == "red" then
-ColorSelectedForFlipperTwo = red
-elseif ColorSelectedForFlipperTwo == "white" then
-ColorSelectedForFlipperTwo = white
-end
-
--- Flipper Ball
-if ColorSelectedForFlipperBall == "yellow" then
-ColorSelectedForFlipperBall = yellow
-elseif ColorSelectedForFlipperBall == "green" then
-ColorSelectedForFlipperBall = green
-elseif ColorSelectedForFlipperBall == "red" then
-ColorSelectedForFlipperBall = red
-elseif ColorSelectedForFlipperBall == "white" then
-ColorSelectedForFlipperBall = white
-end
-
 -- Background
 if ColorSelectedForBackground == "yellow_backgrund" then
     ColorSelectedForBackground = yellow_backgrund
@@ -1303,9 +866,6 @@ end
     local line10 = file:read("*line")
     local line11 = file:read("*line")
     local line12 = file:read("*line")
-    local line13 = file:read("*line")
-    local line14 = file:read("*line")
-    local line15 = file:read("*line")
     volumeMainV = line3
     volumeMusicV = line4
     point_GivenV = line5
@@ -1315,10 +875,7 @@ end
     ColorSelectedForPlayerOne = line9 --player_1
     ColorSelectedForPlayerTwo = line10 --player_2
     ColorSelectedForBall = line11 --Ball
-    ColorSelectedForFlipperOne = line12 --Flipper_1
-    ColorSelectedForFlipperTwo = line13 --Flipper_2
-    ColorSelectedForFlipperBall = line14 --Flipper_Ball
-    ColorSelectedForBackground = line15 --Background
+    ColorSelectedForBackground = line12 --Background
 
     file:close()
     local line = nil
@@ -1333,9 +890,6 @@ end
     local line10 = nil
     local line11 = nil
     local line12 = nil
-    local line13 = nil
-    local line14 = nil
-    local line15 = nil
     collectgarbage("collect")
     if volumeMainV == nil then
       volumeMainV = 0.5
@@ -1392,45 +946,6 @@ else
   ColorSelectedForBall = yellow
 end
 
-  -- Flipper 1
-  if ColorSelectedForFlipperOne == "yellow" then
-    ColorSelectedForFlipperOne = yellow
-elseif ColorSelectedForFlipperOne == "green" then
-    ColorSelectedForFlipperOne = green
-elseif ColorSelectedForFlipperOne == "red" then
-    ColorSelectedForFlipperOne = red
-elseif ColorSelectedForFlipperOne == "white" then
-    ColorSelectedForFlipperOne = white
-  else
-    ColorSelectedForFlipperOne = green
-  end
-
--- Flipper 2
-if ColorSelectedForFlipperTwo == "yellow" then
-ColorSelectedForFlipperTwo = yellow
-elseif ColorSelectedForFlipperTwo == "green" then
-ColorSelectedForFlipperTwo = green
-elseif ColorSelectedForFlipperTwo == "red" then
-ColorSelectedForFlipperTwo = red
-elseif ColorSelectedForFlipperTwo == "white" then
-ColorSelectedForFlipperTwo = white
-else
-  ColorSelectedForFlipperTwo = red
-end
-
--- Flipper Ball
-if ColorSelectedForFlipperBall == "yellow" then
-  ColorSelectedForFlipperBall = yellow
-  elseif ColorSelectedForFlipperBall == "green" then
-  ColorSelectedForFlipperBall = green
-  elseif ColorSelectedForFlipperBall == "red" then
-  ColorSelectedForFlipperBall = red
-  elseif ColorSelectedForFlipperBall == "white" then
-  ColorSelectedForFlipperBall = white
-  else
-    ColorSelectedForFlipperBall = yellow
-  end
-
   -- Background
 if ColorSelectedForBackground == "slategray_backgrund" then
   ColorSelectedForBackground = slategray_backgrund
@@ -1463,19 +978,6 @@ end
         end
     end
   end
-  if OnPinballGame == true then
-  if key == "space" then
-    started_PinBall_Text = false
-    started_PinBall = true
-  end
-end
-  if key == "r" then
- love.event.quit("restart")
-  end
-  if key == "h" then 
-  keyboard:PinBall_Game_Main_Menu()
-  --print(selectButton)
-end
    if key == "f11" then
      love.window.setFullscreen(not love.window.getFullscreen())
      love.resize()
@@ -1488,7 +990,7 @@ end
    or key == "end"
    or key == "menu"
    then
-    if  (started_SinglePlayer or started_LocalMultiPlayer or OnPinballGame) then
+    if  (started_SinglePlayer or started_LocalMultiPlayer) then
       if not helper then
        paused = not paused
        love.mouse.setVisible(paused)
@@ -1507,16 +1009,11 @@ end
    or OnSettings 
    or OnSettingsAudio 
    or OnCustomization
-   or OnCustomizationPinBall
+   or OnCustomizationBall
    or OnCustomizationPlayerOne
    or OnCustomizationPlayerTwo
-   or OnCustomizationBall
-   or OnCustomizationFlipperOne
-   or OnCustomizationFlipperTwo
-   or OnCustomizationFlipperBall
    or OnCustomizationBackground
    or OnCredits
-   or PongOrPinBall
    then
     love.mouse.setPosition( 0, 0 )
    if key == "up" then

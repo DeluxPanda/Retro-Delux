@@ -6,7 +6,7 @@ function help()
     GameTitle_x = (love.graphics.getWidth() / 2) - (button_start_y / 2)
     GameTitle_y = 50
     
-    if started_LocalMultiPlayer then
+ 
     PlayerOne_x = love.graphics.getWidth() * 0.05
     PlayerOne_y  = GameTitle_y + 20
 
@@ -21,27 +21,10 @@ function help()
 
     DownEmoli_x = PlayerOne_x
     DownEmoli_y = UpEmoli_y + 50
-else
-    
-    PlayerOne_x = love.graphics.getWidth() * 0.05
-    PlayerOne_y  = GameTitle_y + 20
-
-    UpText_x = PlayerOne_x
-    UpText_y = PlayerOne_y + 50
-
-    DownText_x = PlayerOne_x
-    DownText_y = UpText_y + 50
-
-    UpEmoli_x = PlayerOne_x
-    UpEmoli_y = DownText_y + 50
-
-    DownEmoli_x = PlayerOne_x
-    DownEmoli_y = UpEmoli_y + 50
-end
 
     
 --player 2
-if started_LocalMultiPlayer then
+
     PlayerTwo_x = love.graphics.getWidth() * 0.05
     PlayerTwo_y = GameTitle_y + 20
 
@@ -56,7 +39,7 @@ if started_LocalMultiPlayer then
 
     DownEmoli_x2 = PlayerTwo_x
     DownEmoli_y2 = UpEmoli_y2 + 50
-end
+
     main_menu_settings_button_x = (love.graphics.getWidth() / 2) - (button_width / 2)
     main_menu_settings_button_y = love.graphics.getHeight() - 60
 
@@ -90,7 +73,7 @@ end
 
               love.graphics.printf(DownName .. " " .. joystickDownName, DownEmoli_x, DownEmoli_y, button_start_y, "left")
 
-              if started_LocalMultiPlayer then
+         
               -- player 2
               love.graphics.setFont(Game_Titl_font)
               love.graphics.printf(PlayerTwoName, PlayerTwo_x, PlayerTwo_y,  love.graphics.getWidth() * 0.9, "right")
@@ -103,7 +86,7 @@ end
               love.graphics.printf(UPName .." " .. joystickUpName, UpEmoli_x2, UpEmoli_y2,  love.graphics.getWidth() * 0.9, "right")
 
               love.graphics.printf(DownName .. " " .. joystickDownName, DownEmoli_x2, DownEmoli_y2,  love.graphics.getWidth() * 0.9, "right")
-              end
+        
              -- Play Button
              love.graphics.setFont(Button_font)
              love.graphics.setColor(BackOrCloseButton)
